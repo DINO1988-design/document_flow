@@ -4,4 +4,4 @@ output/
 uploads/
 *.env
 /src/**/*_v*
-key.txt
+key.txtkey.txt
