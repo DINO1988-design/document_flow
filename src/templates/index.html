@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Document AI</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+<h1>Document AI Upload</h1>
+
+<form action="/upload" method="post" enctype="multipart/form-data">
+<div class="mb-3">
+<input type="file" name="file" class="form-control">
+</div>
+<button class="btn btn-primary">Upload</button>
+</form>
+
+<hr>
+
+<h2>Documenti</h2>
+<table class="table table-bordered">
+<tr>
+<th>ID</th>
+<th>Tipo</th>
+<th>File</th>
+<th>Data creazione</th>
+</tr>
+{% for d in documents %}
+<tr>
+<td>{{ d.id }}</td>
+<td>{{ d.tipo_documento }}</td>
+<td><a href="{{ '/uploads/' + d.file_path }}">{{ d.file_path }}</a></td>
+<td>{{ d.data_creazione }}</td>
+</tr>
+{% endfor %}
+</table>
+</body>
+</html>
