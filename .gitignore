@@ -3,4 +3,4 @@ __pycache__/
 output/
 uploads/
 *.env
-/src/**/*_v*
+/src/**/*_v*key.txt
