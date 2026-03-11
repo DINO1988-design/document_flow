@@ -132,3 +132,93 @@ def generate_word(fields, original_file):
     doc.save(output_path)
     print(f"[WORD] Documento Word generato: {output_path}")
     return output_path
+
+# --------------------------
+# AI Search nei documenti
+# --------------------------
+def interpret_search_query(query):
+    """
+    Interpreta la query dell'utente e restituisce filtri
+    per la ricerca nei documenti
+    """
+    system_prompt = """
+Sei un motore di ricerca per documenti.
+
+Interpreta la richiesta dell'utente e restituisci i filtri
+per cercare nel database.
+
+Rispondi SOLO con JSON nel formato:
+
+{
+ "tipo_documento": "stringa oppure null",
+ "campo": "nome campo oppure null",
+ "valore": "valore oppure null"
+}
+
+Esempi:
+
+Query: passaporti italiani
+Risposta:
+{
+ "tipo_documento": "passaporto",
+ "campo": "nazionalita",
+ "valore": "Italia"
+}
+
+Query: nome Mario
+Risposta:
+{
+ "tipo_documento": null,
+ "campo": "nome",
+ "valore": "Mario"
+}
+
+Query: biglietti traghetto
+Risposta:
+{
+ "tipo_documento": "biglietto traghetto",
+ "campo": null,
+ "valore": null
+}
+"""
+    try:
+        response = openai.chat.completions.create(
+            model="gpt-4o-mini",
+            temperature=0,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": query}
+            ]
+        )
+        content = response.choices[0].message.content.strip()
+        if content.startswith("```"):
+            content = content.replace("```json", "").replace("```", "").strip()
+        return json.loads(content)
+    except Exception as e:
+        print("Errore AI search:", e)
+        return {}
+
+# --------------------------
+# Filtra documenti lato server usando query AI
+# --------------------------
+def filter_documents_by_query(docs, query):
+    """
+    Applica la ricerca AI sui documenti già presenti nel DB.
+    """
+    filters = interpret_search_query(query)
+    tipo_doc_filter = filters.get("tipo_documento")
+    campo_filter = filters.get("campo")
+    valore_filter = filters.get("valore")
+
+    filtered_docs = []
+    for d in docs:
+        if tipo_doc_filter and d["tipo_documento"] != tipo_doc_filter:
+            continue
+        if campo_filter and valore_filter:
+            field_val = d["campi"].get(campo_filter)
+            if not field_val:
+                continue
+            if valore_filter.lower() not in str(field_val).lower():
+                continue
+        filtered_docs.append(d)
+    return filtered_docs

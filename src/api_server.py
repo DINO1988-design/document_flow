@@ -1,10 +1,15 @@
-from fastapi import FastAPI, File, UploadFile, BackgroundTasks, Query, WebSocket
+from fastapi import FastAPI, Request, File, UploadFile, BackgroundTasks, Query, WebSocket
 from fastapi.responses import HTMLResponse, FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 import shutil, os, json, zipfile
 from io import BytesIO
 from src.db_setup import engine, documents, document_fields
-from src.process_document import process_document  # Modulo separato
+from src.process_document import process_document
+from src.main import interpret_search_query
+from sqlalchemy import select, and_, cast, Float
+from fastapi.responses import JSONResponse
+from src.ai_search import search_documents
+
 
 app = FastAPI()
 
@@ -85,6 +90,16 @@ html_content = """
 <p id="statusText" style="margin-top:5px;"></p>
 </section>
 
+<!-- Ricerca AI -->
+<section style="margin-bottom:20px;">
+    <h2>Ricerca AI documenti</h2>
+    <div style="display:flex; gap:10px; align-items:center; margin-bottom:10px;">
+    <input id="aiQuery" type="text" placeholder="Inserisci query AI..." style="flex:1; padding:6px; border-radius:4px; border:1px solid #ccc;">
+    <button id="aiSearchBtn" style="padding:6px 12px; border:none; border-radius:4px; background-color:#007BFF; color:white; cursor:pointer;">Cerca</button>
+    <button id="resetSearchBtn" style="padding:6px 12px; border:none; border-radius:4px; background-color:#6c757d; color:white; cursor:pointer;">Reset</button>
+</div>
+</section>
+
 <!-- Lista documenti -->
 <section>
 <h2>Documenti elaborati</h2>
@@ -138,6 +153,7 @@ html_content = """
 $(document).ready(function(){
 
     let table = $('#doc_table').DataTable({
+        order: [[1, "desc"]],
         data: [],
         columns:[{ title: "Seleziona" },{ title: "ID" },{ title: "Tipo Documento" },{ title: "File" },{ title: "Data Creazione" },{ title: "Dettagli" }],
         pageLength: 10,
@@ -148,7 +164,73 @@ $(document).ready(function(){
             { extend: 'pdfHtml5', text: 'Esporta PDF', exportOptions: { columns: [1,2,3,4] } }
         ]
     });
+    
+    // --- Bottone Ricerca AI ---
+$("#aiSearchBtn").click(async function(){
+    const query = $("#aiQuery").val().trim();
+    if(!query) return alert("Inserisci una query per la ricerca AI");
 
+    const res = await fetch("/semantic_search/?query=" + encodeURIComponent(query));
+    const data = await res.json();
+    const results = data.results || [];
+
+    // Svuota tabella
+    table.clear();
+
+    // Aggiungi risultati
+    results.forEach(doc => {
+        const row = [
+            `<input type="checkbox" class="selectDoc" value="${doc.file_path.split('/').pop()}">`,
+            doc.id,
+            doc.tipo_documento,
+            doc.file_path.split('/').pop(),
+            doc.data_creazione,
+            `<button onclick='showDetails(${doc.id})' style="padding:4px 8px; border:none; border-radius:4px; background-color:#007BFF; color:white; cursor:pointer;">Mostra</button>`
+        ];
+        table.row.add(row);
+    });
+    table.draw(false);
+
+    // Aggiorna grafici/KPI
+    updateCharts();
+});
+
+// --- Reset ricerca ---
+$("#resetSearchBtn").click(async function(){
+
+    // pulisce campo ricerca
+    $("#aiQuery").val("");
+
+    // svuota tabella
+    table.clear();
+
+    // ricarica tutti i documenti
+    const res = await fetch('/documents/');
+    const docs = await res.json();
+
+    docs.forEach(doc => {
+        const row = [
+            `<input type="checkbox" class="selectDoc" value="${doc.file_path.split('/').pop()}">`,
+            doc.id,
+            doc.tipo_documento,
+            doc.file_path.split('/').pop(),
+            doc.data_creazione,
+            `<button onclick='showDetails(${doc.id})'
+            style="padding:4px 8px; border:none; border-radius:4px; background-color:#007BFF; color:white; cursor:pointer;">
+            Mostra</button>`
+        ];
+        table.row.add(row);
+    });
+
+    table.draw(false);
+
+    updateCharts();
+});
+$("#aiQuery").keypress(function(e){
+    if(e.which == 13){
+        $("#aiSearchBtn").click();
+    }
+});
     let chartTipo, chartDate;
 
     // --- Funzione per popolare tabella e KPI dai dati esistenti ---
@@ -297,6 +379,8 @@ $(document).ready(function(){
     // --- Inizializza pagina ---
     loadInitialData();
 });
+
+
 </script>
 """
 
@@ -383,3 +467,108 @@ def download_zip(filenames: list[str] = Query(...)):
     return StreamingResponse(memory_file, media_type='application/zip', headers={
         "Content-Disposition": "attachment; filename=documenti_selezionati.zip"
     })
+    
+# -------------------------------
+# AI Search nei documenti
+# -------------------------------
+# -------------------------------
+# AI Search nei documenti
+# -------------------------------
+
+
+
+@app.get("/search_ai/")
+async def search_ai(request: Request):
+    query = request.query_params.get("query", "").strip()
+    if not query:
+        return JSONResponse({"results": []})
+
+    # --- 1. Usa GPT per interpretare la query ---
+    # interpret_search_query deve restituire anche "operatore"
+    filters = interpret_search_query(query)
+    tipo_doc = filters.get("tipo_documento")
+    campo = filters.get("campo")
+    valore = filters.get("valore")
+    operatore = filters.get("operatore", None)  # es: ">", "<", ">=", "<="
+
+    # --- 2. Costruisci query SQL ---
+    with engine.connect() as conn:
+        stmt = select(documents.c.id, documents.c.tipo_documento, documents.c.file_path, documents.c.data_creazione)
+
+        if campo and valore is not None:
+            stmt = stmt.join(document_fields, documents.c.id == document_fields.c.document_id)
+
+            try:
+                # Prova a convertire il valore in numero
+                numero = float(str(valore).replace("h","").strip())  # rimuove "h" se c'è
+                if operatore == ">":
+                    stmt = stmt.where(cast(document_fields.c.valore, Float) > numero)
+                elif operatore == "<":
+                    stmt = stmt.where(cast(document_fields.c.valore, Float) < numero)
+                elif operatore == ">=":
+                    stmt = stmt.where(cast(document_fields.c.valore, Float) >= numero)
+                elif operatore == "<=":
+                    stmt = stmt.where(cast(document_fields.c.valore, Float) <= numero)
+                else:
+                    # fallback: ricerca testuale
+                    stmt = stmt.where(document_fields.c.valore.ilike(f"%{valore}%"))
+            except ValueError:
+                # non è numero, ricerca testuale
+                stmt = stmt.where(document_fields.c.valore.ilike(f"%{valore}%"))
+
+        if tipo_doc:
+            stmt = stmt.where(documents.c.tipo_documento.ilike(f"%{tipo_doc}%"))
+
+        results = conn.execute(stmt).mappings().all()
+
+        # --- 3. Recupera anche i campi dei documenti per mostrare dettagli ---
+        final_results = []
+        for row in results:
+            doc_id = row["id"]
+            fields_stmt = select(document_fields.c.campo, document_fields.c.valore).where(document_fields.c.document_id == doc_id)
+            fields = {f["campo"]: f["valore"] for f in conn.execute(fields_stmt).mappings().all()}
+            final_results.append({
+                "id": doc_id,
+                "tipo_documento": row["tipo_documento"],
+                "file_path": row["file_path"],
+                "data_creazione": row["data_creazione"].isoformat(),
+                "campi": fields
+            })
+
+    return JSONResponse({"results": final_results})
+    
+@app.get("/semantic_search/")
+async def semantic_search(query: str):
+
+    doc_ids = search_documents(query)
+
+    if not doc_ids:
+        return {"results":[]}
+
+    with engine.connect() as conn:
+
+        stmt = select(documents).where(documents.c.id.in_(doc_ids))
+
+        rows = conn.execute(stmt).mappings().all()
+
+        results = []
+        for r in rows:
+
+            fields_stmt = select(document_fields).where(
+                document_fields.c.document_id == r["id"]
+            )
+
+            fields = {
+                f["campo"]:f["valore"]
+                for f in conn.execute(fields_stmt).mappings()
+            }
+
+            results.append({
+                "id": r["id"],
+                "tipo_documento": r["tipo_documento"],
+                "file_path": r["file_path"],
+                "data_creazione": r["data_creazione"].isoformat(),
+                "campi": fields
+            })
+
+    return {"results": results}
