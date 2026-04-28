@@ -1,0 +1,74 @@
+Passenger: Derbel Amira Mrs (ADT)
+Booking ref: 8BWHGE
+Ticket number: 1992414461248
+Issuingoffice:
+AGENCE VENTEINTERNET, TUNISAIRSIEGE SOCIAL,
+CHARGUIA 2 TUNISCARTHAGE, 2035 TUNIS
+Telephone: TBA
+Date: 22Feb2026
+_
+ELECTRONIC TICKET RECEIPT
+Atcheck-in,youmustshowaphotoID.
+_
+From To Flight Departure Arrival Lastcheck-in
+MONASTIR HABIBBOURGUIBA HAMBURG HAMBURG TU894 06:50 09:55
+INTL Terminal: 2 27Feb2026 27Feb2026
+Class:CLASSIC,N Operatedby:TUNISAIR
+Marketedby:TUNISAIR NVB(2):27Feb2026
+Baggage (4):1PC Bookingstatus(1):OK NVA(3):27Feb2026
+Farebasis:NL01WCL Duration:03:05
+_SpecialServiceRequest PBAG-DISCOUNTPREPAIDBAG-CONFIRMED
+(1)OK=Confirmed(2)NVB=Notvalidbefore(3)NVA=Notvalidafter(4)Eachpassengercancheckinaspecificamountofbaggageat
+noextracostasindicatedaboveinthecolumnbaggage.
+_
+PAYMENT DETAILS FARE DETAILS
+Fare Calculation: MIR TU HAM143.55NUC143.55END Fare: TND 418.000
+ROE2.911847
+Formof payment: CC CA XXXXXXXXXXXX2919 Fare equivalent: EUR 124.00
+XXXX614745 Taxes: EUR 1.60RK
+Endorsements: TU ONLY//NON ENDOS EUR 13.00RL
+EUR 1.49TN
+EUR 0.08RA
+Airline Surcharges: EUR 45.21YQ
+EUR 5.50YR
+Total Amount: EUR 190.88
+Total OBFees: EUR 2.97
+_
+Grand Total: EUR 193.85
+_
+_
+Thecarriageofcertainhazardousmaterials,likeaerosols,fireworks,andflammableliquids,aboardtheaircraftisforbidden.Ifyoudonot
+understand theserestrictions,furtherinformationmaybeobtainedfromyourairline.
+_
+_
+
+ELECTRONIC MISCELLANEOUS DOCUMENT RECEIPT (EMD)
+Document Number: 1994006016987 Bookingref: 8BWHGE
+In connectionwith: 1992414461248 Date: 22Feb2026
+Coupon Service Date
+1 Discount Prepaid Bag 27Feb2026
+From:MONASTIRHABIB BOURGUIBA INTL To:HAMBURGHAMBURG Flight:TU894
+Quantity RatePerUnit
+1Pc
+Non-refundable
+Non-interlineable
+Remarks X0
+PAYMENT DETAILS FARE DETAILS
+Fare Calculation: MIR TU HAM44.47EUR44.47END Fare: EUR 44.47
+Formof payment: CC CA XXXXXXXXXXXX2919 XXXX Tax and Othercharges:
+614745 Total Amount: EUR 44.47
+_
+LEGAL AND PASSENGER NOTICES
+_
+ELECTRONIC TICKET
+Carriageandotherservicesprovidedbythe carrier aresubjecttoconditionsofcarriage,whichare herebyincorporated byreference.These conditionsmay be
+obtained from the issuing carrier. Theitinerary/receipt constitutes the passenger ticket forthe purposes of article 3of the Warsawconvention, except where
+the carrierdeliverstothe passengeranotherdocumentcomplyingwiththe requirements ofarticle3.Passengersonajourneyinvolving anultimate destination
+ora stop in a countryother than the country ofdeparture are advised that international treaties known as the montrealconvention, or its predecessor, the
+warsawconvention,includingitsamendments(the warsawconventionsystem),mayapplytothe entirejourney,includinganyportionthereofwithin acountry.
+For suchpassengers,the applicabletreaty, includingspecialcontracts ofcarriageembodied inanyapplicabletariffs,governsand maylimitthe liabilityof the
+carrier.These conventions governandmaylimitthe liabilityofaircarriersfordeathorbodilyinjuryorlossofordamagetobaggage,andfordelay.
+ELECTRONIC MISCELLANEOUS DOCUMENT (EMD)
+Carriage and other services provided by the carrier are subject to conditions of carriage, which are hereby incorporated by reference. These conditions may be
+obtained from the issuing carrier.
+https://www.facebook.com/TUNISAIR.OFFICIELLE

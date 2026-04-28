@@ -1,0 +1,218 @@
+Noureddine Slimani Profile
+Employment
+CTO, Cofounder at eSteps Inc. Jun 2022 - Dec 2022
+eSteps Inc., Boston / Bologna / Tunis
+Planning, strategy and implementing the technology of eSteps Health
+IT Specialist Jan 2022 - Mar 2022
+GKSD Investment Holding, Milano
+Personal details Business Analyst Jan 2020 - Jan 2022
+Alfa Group: IT solutions and integrated consulting Company, Bologna
+Project:
+Noureddine Slimani
+Managed data for various processes: Control of quality products, non-
+conforming products, transport of cars for Lamborghini company.
+noursliman66@gmail.com Migrated vulnerability management process: workflow remediation
+management and risk assessments.
+Integration "Tenable security center" with BPM software for risk assessment
++39 3461221846
+and management.
+Provide prepared and well-designed - enterprise data model (EDM) compliant
+Via Piella 2/2, Bologna,
+- data repositories, reports and analytics.
+40126 Italy
+Technical aspects:
+Tenable Security center platform; Nessus; Qualys; Transfert Data tools
+August 23, 1988 Business Intelligence tools: Microsoft SQL Server Reporting Services (SSRS)
+and Power BI.
+Italian Driving License: Category SQL expert.
+B
+Business Consultant May 2017 - Jan 2020
+Alfa Group: IT solutions and integrated consulting Company, Bologna
+linkedin.com/in/noureddine-
+Project:
+slimani-4b94b3119
+Conduct analysis for business projects, processing applications, and reporting
+tools.
+Develop and maintain business requirements and ensure they align with
+Languages
+functional and technical requirements.
+Cleaning up customer data errors to ensure correctness of business
+Italien requirements.
+Presented executives with analysis and support tools used to restructure the
+English
+company and its relocation strategies.
+Analyzed a client’s business requirements and processes using interviews,
+Arabic
+workflow analysis and document analysis.
+French Technical aspects:
+SQL expert; Microsoft Office Suite; Team leadership; Project management.
+Spanish Business Intelligence tools: Microsoft SQL Server Reporting Services (SSRS)
+and Power BI.
+Risk management: Take control of data automation. Automate simple to
+Skills
+complex data processes, end-to-end with one solution.
+KPI dashboards; Reporting and analytics.
+Startup Culture
+Researcher Oct 2014 - Oct 2016
+Fundraising; Venture University of Bologna, Bologna
+capital Projects:
+Optical interconnection in Data Center: control and data plane optimisation;
+Project Management
+Design and implementation of stateful and service- aware control plane
+solutions for Software Defined Networking (SDN) and Network Function
+Information System
+Virtualization (NFV);
+Data warehouse
+I consent to the processing of my personal data for the purpose of recruitment for the position I am
+Security Management
+applying.
+Process
+
+Business Process
+Management Design of programmable, software- defined, hybrid optical network
+architectures, with different switching techniques (e.g., based on circuit and
+Big Data: Hadoop, Spark, packet paradigms);
+and Flink Keywords: Next Generation Networks, Software Defined Networking, Network
+Function Virtualization, Cloud networking performance, Optical Networks and
+Vulnerability Management switching, Network simulation, Network performance evaluation, optical fiber
+telecommunication, Modelling of network functions, Data Center networks, 5G
+SQL:Querying SQL,
+networking.
+Reporting Services SSRS
+Tenable.sc Internships
+Business Intelligence
+Mindset program Nov 2022 - Dec 2022
+Research
+US Market Access Center, Silicon Valley · San Francisco- United States
+I had this experience in the Silicon Valley-based startup accelerator and
+Optical Network & Data
+innovation enabler that helps international tech companies with global market
+center
+access and helps governments with ecosystem creation.
+Programming: java, c,
+Traineeship Feb 2013 - Jul 2013
+c++,sql,HTML5,...
+CERT
+Study, design and development of a monitoring application for servers (software,
+Qualities hardware and network) of the company.
+Traineeship Mar 2012 - Mar 2012
+Scholarship From The European
+CISEN computer
+Union's Erasmus Mundus program
+Implementation of a web application for a residential complex using php.
+AWARD OF MERIT-
+Traineeship Aug 2011 - Aug 2011
+FUNDRAISER- Issued by Gruppo
+ESCOM
+Ospedaliero San Donato
+Literature search on GSM networks.
+The Diploma Supplement Issued
+Traineeship Feb 2010 - Jun 2010
+by Unibo, European Commission,
+Computer System
+Council of Europe and by
+Network security design, implementation and management Microsoft.
+UNESCO/CEPES.
+Education
+MBA - Exchange program of scientist- Sep 2022 - Dec 2022
+entrepreneurs
+The Wharton School, Philadelphia Campus - United States
+Topics: choosing Your Customer; Scaling and Managing Growth; Exits - IPOs and
+Acquisitions; Hackathon: Team Presentations; Corporate Entr. & Wrap-up
+MASTER’S DEGREE IN ENGINEERING AND Mar 2020 - Mar 2022
+COMPUTER SCIENCE
+University of Bologna, Bologna
+The course provides a solid theoretical, methodological and advanced
+technological preparation, combined with practical skills on cooperative work
+processes.
+The reference application context consists of two macro- areas: next-
+generation IT services and products based on networks and systems that
+incorporate information processing components.
+THE DIPLOMA SUPPLEMENT May 2022 - May 2022
+School of Engineering and Architecture, Bologna
+The Diploma Supplement developed by the European Commission, Council
+of Europe and by UNESCO/CEPES.
+The purpose is to provide sufficient independent data to improve the
+international transparency and fair academic and professional recognition of
+I consent to the processing of my personal data for the purpose of recruitment for the position I am
+applying.
+
+qualifications.
+MASTER’S IN SOFTWARE MANAGER AND Mar 2017 - May 2017
+DEVELOPER
+EMILIA ROMAGNA REGION & Adecco Training, Bologna
+European Qualification: Title Level 7 referring to the Framework of the
+European Higher Education Area academic titles.
+ENGINEERING AND COMPUTER SCIENCE Sep 2010 - Sep 2013
+University of Sfax – Faculty of Engineering of Sfax, Sfax
+This formation is focused on software architecture. The students acquire a
+broad knowledge of state of the art technology : development of software,
+enterprise application software distributed on networks or big data software.
+BACHELOR’S DEGREE IN COMPUTER Sep 2007 - Sep 2010
+NETWORKING
+University of Sfax (Tunisia) - Faculty of Science of Sfax, Sfax
+Objective: The Applied Degree in Computer Networks: Computer and
+Telecommunications Technology aims to train, in three years after the
+baccalaureate, skills in Computer Technology and Telecommunications.
+Courses
+1st/2nd- University of Bologna 2021
+Language Course: Italien
+Courses: 'sistemi distribuiti'; 'sistemi informativi'; 'applicazioni e servizi web';
+'cybersecurity'; 'paradigmi di programmazione e sviluppo'; 'programmazione
+concorrente e distribuita'; 'big data'; 'business intelligence'; 'project
+management'.
+3rd-Faculty of Engineering of Sfax, Tunisia 2012
+Language Course: French
+Courses : 'Mini- projet'; 'Transmission Numérique'; 'Protocoles d’accès
+multiples'; 'Génie Logiciel Distribué'; 'Techniques de contrôle d’erreurs';
+'Bureau d’études'; 'Systèmes logiques'; 'Microinformatique & technologie';
+'Architecture des ordinateurs'; 'Electronique numérique'; 'Techniques
+avancées de transmission'; 'Services mobiles et systèmes sans fil'; 'Systèmes
+de télécommunication embarqués'; 'Programmation système'; 'Introduction
+aux systèmes multimédias'; 'Réseaux'; 'Séminaire technique'; 'Mathématiques
+de l’ingénieur'; 'Analyse numérique'; 'Traitement du signal'; 'Probabilités';
+'Théorie des graphes'.
+2nd-Faculty of Engineering of Sfax, Tunisia 2011
+Language Course: French
+Courses: 'Algorithmique et Complexité'; 'Programmation structurée'; 'Logique
+et techniques de preuve'; 'Programmation orientée objet'; 'Réseaux radio
+mobile'; 'Modélisation et simulation des réseaux'; 'Réseaux haut débit';
+'Conception orientée objet'; 'Analyse et conception de systèmes
+d’information'; 'Interface homme/machine'; 'Traitement numérique des
+images'; 'Architectures logicielles et patrons de conception'; 'Interconnexion
+des réseaux'; 'Voix sur IP'; 'Architecture Description Langage'; 'Qualité de
+service dans les réseaux'; 'Techniques et langages d’Internet'; 'Théorie des
+langages'; 'Systèmes d’exploitation des ordinateurs'; 'Environnement UNIX';
+'Intelligence Artificielle'; 'Eléments de recherche opérationnelle'; 'Evaluation
+des performances'; 'Statistique'; 'Optimisation'.
+1st-Faculty of Engineering of Sfax, Tunisia 2010
+Language Course: French
+Courses: 'Métrologie de logiciels'; 'Anglais5'; 'Management de la qualité et
+I consent to the processing of my personal data for the purpose of recruitment for the position I am
+applying.
+
+logistique'; 'Création d’entreprise'; 'Sécurité informatique'; 'Compression et
+cryptage de données'; 'Protocoles de communication'; 'Architectures et
+plateformes avancées'; 'Génie logiciel'; 'Administration des réseaux';
+'Technologie XML'; 'Développement par composant logiciel'; 'Conduite de
+projets informatiques'; 'Fiabilité des systèmes'; 'Structure des données';
+'Environnement de Développement'; 'Projet de programmation'.
+3rd-Faculty of Science of Sfax , Tunisia 2009
+Language Course: French
+Courses: 'eval de perf et qds dans les réseaux'; 'réseaux locaux filaires et
+sans fil'; 'administration et sécurité des réseaux'; 'systémes distribues' ;'atelier
+de genie logiciel'; 'conception et audits des réseaux'; 'gestion des projets';
+'réseaux locaux d'entreprises'.
+2nd-Faculty of Science of Sfax , Tunisia 2008
+Language Course: French
+Courses : 'Création de l'entreprise1'; 'anglais'; 'atelier poo et java';
+'applications client/serveur et web'; 'technologies de l'internet'; 'modélisation
+des réseaux'; 'réseaux 2: routage et transport'; 'atelier déploiement réseau';
+'sgbd, atelier Uml'; 'algorithmique et structures de données 2'.
+1st-Faculty of Science of Sfax , Tunisia 2007
+Language Course: French
+Courses : 'Algèbre1'; 'analyse'; 'electricite- electronique'; 'propagation et
+rayonnement'; 'atelier systèmes d'exploitation'; 'systèmes logiques';
+'algorithmique et structure des données1'; 'atelier programmation c'.
+I consent to the processing of my personal data for the purpose of recruitment for the position I am
+applying.

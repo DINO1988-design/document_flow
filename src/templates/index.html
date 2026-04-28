@@ -1,73 +1,4445 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Document AI</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="container mt-5">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 
-<h1 class="mb-4">Document AI Upload</h1>
+<style>
+:root{
+    --bg: #f6f8fb;
+    --panel: #ffffff;
+    --panel-soft: #f8fafc;
+    --line: #e5e7eb;
+    --line-soft: #edf1f5;
+    --text: #0f172a;
+    --text-soft: #475569;
+    --muted: #64748b;
+    --primary: #2563eb;
+    --primary-soft: #eff6ff;
+    --success: #16a34a;
+    --success-soft: #ecfdf5;
+    --warning: #d97706;
+    --warning-soft: #fff7ed;
+    --danger: #dc2626;
+    --danger-soft: #fef2f2;
+    --shadow-sm: 0 2px 8px rgba(15,23,42,0.05);
+    --shadow-md: 0 10px 30px rgba(15,23,42,0.08);
+    --radius: 16px;
+    --radius-sm: 10px;
+    --radius-xs: 8px;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== TITOLI ===== */
+h1, h2, h3{
+    color: var(--text);
+    margin-top: 0;
+}
+
+h1{
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+}
+
+h2{
+    font-size: 20px;
+    font-weight: 750;
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+}
+
+/* ===== KPI ===== */
+.kpi-card{
+    flex: 1;
+    min-height: 110px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: var(--shadow-sm);
+    padding: 18px 18px 16px 18px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.kpi-card:hover{
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: #d9e2ec;
+}
+
+.kpi-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+}
+
+.kpi-total::before{ background: linear-gradient(90deg, #3b82f6, #2563eb); }
+.kpi-today::before{ background: linear-gradient(90deg, #22c55e, #16a34a); }
+.kpi-type::before{ background: linear-gradient(90deg, #8b5cf6, #6d28d9); }
+.kpi-last::before{ background: linear-gradient(90deg, #64748b, #334155); }
+
+.kpi-title{
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.kpi-value{
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--text);
+}
+
+.kpi-sub{
+    margin-top: 4px;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* ===== SEZIONI ===== */
+section{
+    background: transparent;
+}
+
+/* ===== UPLOAD ===== */
+#drop-area{
+    border: 1.5px dashed #93c5fd;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    color: #1e3a8a;
+    padding: 34px 24px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+#drop-area:hover{
+    border-color: #60a5fa;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+#drop-area.dragover{
+    border-color: var(--primary);
+    background: #eff6ff;
+    box-shadow: 0 0 0 4px rgba(37,99,235,0.10), var(--shadow-md);
+    transform: scale(1.01);
+}
+
+#fileList{
+    list-style: none;
+    padding: 0;
+    margin-top: 14px;
+}
+
+.file-item{
+    list-style: none;
+    margin-top: 12px;
+    padding: 14px 16px !important;
+    border-radius: 16px !important;
+    background: var(--panel) !important;
+    border: 1px solid var(--line) !important;
+    box-shadow: var(--shadow-sm) !important;
+    transition: all 0.18s ease;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 14px;
+    row-gap: 8px;
+}
+
+.file-item:hover{
+    box-shadow: var(--shadow-md) !important;
+    transform: translateY(-1px);
+}
+
+.file-item .file-name{
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    order: 1;
+    margin: 0;
+}
+
+.file-item .status-text{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 600;
+    line-height: 1.2;
+    order: 2;
+}
+
+.file-item .status-text.done{
+    color: var(--success) !important;
+    font-weight: 700;
+}
+
+.file-item .status-text.error-text{
+    color: var(--danger) !important;
+    font-weight: 700;
+}
+
+.file-item .btn-cancel-upload{
+    order: 3;
+    margin: 0;
+    padding: 5px 10px !important;
+    border: none;
+    border-radius: 10px !important;
+    background: #fef3c7 !important;
+    color: #92400e !important;
+    cursor: pointer;
+    font-size: 11px !important;
+    font-weight: 700;
+    line-height: 1.2;
+    transition: all 0.2s ease;
+}
+
+.file-item .btn-cancel-upload:hover{
+    background: #fde68a !important;
+    transform: translateY(-1px);
+}
+
+.file-item .btn-cancel-upload:disabled{
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.file-item .file-progress{
+    order: 10;
+    flex: 0 0 100%;
+    width: 100%;
+    position: relative;
+    height: 8px !important;
+    margin-top: 2px !important;
+    background: #e2e8f0 !important;
+    border-radius: 999px !important;
+    overflow: hidden !important;
+}
+
+.file-item .file-progress div{
+    position: relative;
+    width: 0%;
+    height: 100%;
+    border-radius: 999px !important;
+    transition: width 0.35s ease, background-color 0.3s ease;
+}
+
+.file-item .file-progress div::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -40%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.45), transparent);
+    animation: progressShimmer 1.2s infinite;
+}
+
+@keyframes progressShimmer{
+    100%{ left: 120%; }
+}
+
+.file-progress div.uploading{ background: linear-gradient(90deg, #60a5fa, #2563eb) !important; }
+.file-progress div.phase-preparation{ background: linear-gradient(90deg, #66b3ff, #3399ff) !important; }
+.file-progress div.phase-ocr{ background: linear-gradient(90deg, #8b5cf6, #6d28d9) !important; }
+.file-progress div.phase-save{ background: linear-gradient(90deg, #06b6d4, #0891b2) !important; }
+.file-progress div.phase-final{ background: linear-gradient(90deg, #f59e0b, #ea580c) !important; }
+.file-progress div.completed{ background: linear-gradient(90deg, #22c55e, #16a34a) !important; }
+.file-progress div.error{ background: linear-gradient(90deg, #fb7185, #dc2626) !important; }
+
+.file-item.completed{
+    padding: 10px 14px !important;
+    column-gap: 12px;
+    row-gap: 0;
+}
+
+.file-item.completed .file-progress,
+.file-item.completed .btn-cancel-upload{
+    display: none !important;
+}
+
+/* ===== SEARCH BADGES ===== */
+.search-badge{
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid transparent;
+}
+
+.search-badge.structured{
+    background: #eff6ff;
+    color: var(--primary);
+    border-color: #bfdbfe;
+}
+
+.search-badge.semantic{
+    background: #ecfdf5;
+    color: var(--success);
+    border-color: #bbf7d0;
+}
+
+.search-badge.empty{
+    background: #fef2f2;
+    color: var(--danger);
+    border-color: #fecaca;
+}
+
+/* ===== INPUTS E BUTTONS ===== */
+#aiQuery,
+.multi-search-input,
+#filterDateFrom,
+#filterDateTo{
+    height: 42px;
+    padding: 0 14px;
+    border-radius: 12px !important;
+    border: 1px solid #d6dee8 !important;
+    background: #fff;
+    font-size: 14px !important;
+    color: var(--text);
+    outline: none;
+    transition: all 0.18s ease;
+}
+
+#aiQuery:focus,
+.multi-search-input:focus,
+#filterDateFrom:focus,
+#filterDateTo:focus{
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+}
+
+#aiQuery::placeholder,
+.multi-search-input::placeholder{
+    color: #94a3b8;
+}
+
+#aiSearchBtn,
+#resetSearchBtn,
+#clearTableFilters,
+#resetAllFiltersBtn{
+    height: 42px;
+    padding: 0 16px !important;
+    border-radius: 12px !important;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+#aiSearchBtn{
+    background: var(--primary) !important;
+    color: #fff !important;
+}
+
+#aiSearchBtn:hover{
+    background: #1d4ed8 !important;
+    box-shadow: 0 8px 20px rgba(37,99,235,0.18);
+}
+
+#resetSearchBtn,
+#clearTableFilters{
+    background: #111827 !important;
+    color: #fff !important;
+}
+
+#resetSearchBtn:hover,
+#clearTableFilters:hover{
+    background: #0f172a !important;
+}
+
+#resetAllFiltersBtn{
+    background: #fff !important;
+    color: var(--danger) !important;
+    border: 1px solid #fecaca !important;
+}
+
+#resetAllFiltersBtn:hover{
+    background: #fef2f2 !important;
+    color: #b91c1c !important;
+}
+
+#resetAllFiltersBtn:disabled{
+    opacity: 0.7;
+    cursor: wait;
+}
+
+/* ===== FILTRI ===== */
+.table-filters{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: flex-end;
+    margin-bottom: 18px;
+    padding: 18px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: var(--shadow-sm);
+}
+.table-filters{
+    justify-content: space-between;
+}
+
+.table-filters .filter-group:not(.filter-actions){
+    flex: 0 1 auto;
+}
+
+.filter-actions{
+    margin-left: auto;
+    align-self: flex-end;
+}
+.table-filters.active{
+    border-color: #bfdbfe;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.07), var(--shadow-sm);
+}
+
+.filter-group{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 180px;
+}
+
+.filter-group-tipo{
+    min-width: 290px;
+    position: relative;
+}
+
+.filter-group label{
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.01em;
+}
+
+.multi-dropdown{
+    position: relative;
+    width: 100%;
+}
+
+.multi-dropdown-toggle{
+    width: 100%;
+    height: 42px;
+    padding: 0 38px 0 14px;
+    border: 1px solid #d6dee8;
+    border-radius: 12px;
+    background: #fff;
+    font-size: 14px;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.18s ease;
+}
+
+.multi-dropdown-toggle:hover{
+    border-color: #93c5fd;
+    background: #f8fbff;
+}
+
+.multi-dropdown-toggle::after{
+    content: "▾";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.multi-dropdown.open .multi-dropdown-toggle::after{
+    content: "▴";
+}
+
+.multi-checkbox-box{
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    min-width: 280px;
+    max-height: 320px;
+    overflow-y: auto;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 24px 48px rgba(15,23,42,0.16);
+    z-index: 1000;
+}
+
+.multi-checkbox-actions{
+    position: sticky;
+    top: -10px;
+    background: #fff;
+    display: flex;
+    gap: 8px;
+    margin: -10px -10px 10px -10px;
+    padding: 10px 10px 12px 10px;
+    border-bottom: 1px solid #eef2f7;
+    z-index: 2;
+}
+
+.mini-filter-btn{
+    height: 30px;
+    padding: 0 12px;
+    border: 1px solid #d6dee8;
+    border-radius: 999px;
+    background: #f8fafc;
+    color: #374151;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    transition: all 0.18s ease;
+}
+
+.mini-filter-btn:hover{
+    background: #eef4ff;
+    border-color: #bfdbfe;
+    color: #1d4ed8;
+}
+
+.multi-checkbox-item{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 8px;
+    margin-bottom: 4px;
+    font-size: 13px;
+    border-radius: 10px;
+    transition: background 0.18s ease;
+}
+
+.multi-checkbox-item:hover{
+    background: #f8fbff;
+}
+
+.multi-checkbox-item input[type="checkbox"]{
+    accent-color: var(--primary);
+    transform: scale(1.05);
+}
+
+.multi-checkbox-item span{
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.hidden-by-search{
+    display: none !important;
+}
+
+.multi-search-empty{
+    padding: 10px 8px;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+}
+
+.filter-actions{
+    min-width: auto;
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    padding-left: 20px;
+    border-left: 1px solid #e5e7eb;
+}
+
+/* ===== FILTER PILLS ===== */
+.active-filters-badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-left: 8px;
+}
+
+.active-filters-badge strong{
+    margin-right: 2px;
+    color: var(--muted);
+}
+
+.filter-pill{
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 999px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #334155;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1.2;
+}
+
+.filter-pill.removeable{
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.filter-pill.removeable:hover{
+    background: #eef4ff;
+    border-color: #bfdbfe;
+    color: #1d4ed8;
+}
+
+.filter-pill .pill-close{
+    font-weight: 800;
+    font-size: 13px;
+    opacity: 0.65;
+}
+
+/* ===== WRAPPER TABELLA ===== */
+.dataTables_wrapper{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+#doc_table,
+table#doc_table.dataTable{
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    margin: 0 !important;
+}
+
+#doc_table thead th,
+table#doc_table.dataTable thead th{
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--muted);
+    background: #f8fafc !important;
+    padding: 16px 12px !important;
+    border-bottom: 1px solid var(--line) !important;
+    vertical-align: middle;
+    box-shadow: none !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+table#doc_table.dataTable tbody th,
+table#doc_table.dataTable tbody td,
+table#doc_table.dataTable tbody tr{
+    box-shadow: none !important;
+}
+
+#doc_table tbody tr,
+table#doc_table.dataTable tbody tr{
+    transition: background-color 0.15s ease;
+    background: transparent !important;
+}
+
+#doc_table tbody td,
+table#doc_table.dataTable tbody td{
+    font-size: 13px;
+    color: var(--text);
+    padding: 14px 12px !important;
+    vertical-align: top;
+    border: none !important;
+    background: #ffffff !important;
+}
+
+#doc_table tbody tr:nth-child(even) td,
+table#doc_table.dataTable tbody tr:nth-child(even) td{
+    background: #fcfdff !important;
+}
+
+#doc_table tbody tr:not(:last-child) td,
+table#doc_table.dataTable tbody tr:not(:last-child) td{
+    border-bottom: 1px solid var(--line-soft) !important;
+}
+
+#doc_table tbody tr:hover td,
+table#doc_table.dataTable tbody tr:hover td{
+    background: #f8fbff !important;
+}
+
+#doc_table tbody td:first-child,
+#doc_table thead th:first-child,
+table#doc_table.dataTable tbody td:first-child,
+table#doc_table.dataTable thead th:first-child{
+    width: 42px !important;
+    min-width: 42px !important;
+    text-align: center;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+#doc_table tbody td:nth-child(2){
+    color: var(--muted) !important;
+    font-weight: 600;
+}
+
+#doc_table tbody td:nth-child(3){
+    font-weight: 700;
+    color: #1e3a8a !important;
+}
+
+#doc_table tbody td:nth-child(6),
+#doc_table tbody td:nth-child(7),
+#doc_table thead th:nth-child(6),
+#doc_table thead th:nth-child(7){
+    text-align: center;
+}
+
+table.dataTable thead th.sorting:after,
+table.dataTable thead th.sorting_asc:after,
+table.dataTable thead th.sorting_desc:after{
+    opacity: 0.35;
+    right: 8px;
+}
+
+table#doc_table.dataTable.display tbody tr.odd > .sorting_1,
+table#doc_table.dataTable.display tbody tr.even > .sorting_1,
+table#doc_table.dataTable.order-column.stripe tbody tr.odd > .sorting_1,
+table#doc_table.dataTable.order-column.stripe tbody tr.even > .sorting_1,
+table#doc_table.dataTable.display tbody tr:hover > .sorting_1,
+table#doc_table.dataTable.order-column.hover tbody tr:hover > .sorting_1{
+    background: inherit !important;
+}
+
+#doc_table tbody tr.selected td,
+table#doc_table.dataTable tbody tr.selected td{
+    background: #eff6ff !important;
+}
+
+.dt-select-col{
+    text-align: center !important;
+}
+
+#th-select-all{
+    width: 42px !important;
+    min-width: 42px !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    padding: 8px 4px !important;
+}
+
+#selectAllDocs{
+    display: inline-block !important;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--primary);
+    vertical-align: middle;
+}
+
+.selectDoc{
+    transform: scale(1.15);
+    cursor: pointer;
+    accent-color: var(--primary);
+}
+
+/* ===== BUTTONS TABELLA ===== */
+.btn-action{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.18s ease;
+    box-shadow: none;
+}
+
+.btn-view{
+    background: #eff6ff;
+    color: var(--primary);
+}
+
+.btn-view:hover{
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(37,99,235,0.18);
+}
+
+.btn-danger{
+    background: #fef2f2;
+    color: var(--danger);
+}
+
+.btn-danger:hover{
+    background: var(--danger);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(220,38,38,0.18);
+}
+
+.btn-action:active{
+    transform: scale(0.97);
+}
+
+.btn-danger.deleting{
+    background: linear-gradient(90deg, #ff8a8a, #dc3545);
+    color: white;
+}
+
+.btn-delete.deleting{
+    background: linear-gradient(90deg, #ff8a8a, #dc3545);
+    opacity: 0.85 !important;
+    cursor: wait !important;
+    position: relative;
+    pointer-events: none;
+}
+
+.btn-delete.deleting::after,
+#resetAllFiltersBtn.resetting::after{
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 8px;
+    border: 2px solid rgba(255,255,255,0.7);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: btnSpin 0.8s linear infinite;
+    vertical-align: middle;
+}
+
+@keyframes btnSpin{
+    from{ transform: rotate(0deg); }
+    to{ transform: rotate(360deg); }
+}
+
+/* ===== EXPORT/PAGINAZIONE ===== */
+.table-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    padding: 16px;
+    border-top: 1px solid var(--line-soft);
+}
+
+.table-bottom-left,
+.table-bottom-center,
+.table-bottom-right{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.table-bottom-right{
+    margin-left: auto;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_paginate,
+.dataTables_wrapper .dt-buttons{
+    float: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.dataTables_wrapper .dataTables_length label{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    font-weight: 600;
+    color: var(--text-soft);
+}
+
+.dataTables_wrapper .dataTables_length select{
+    min-width: 64px;
+    height: 34px;
+    padding: 4px 8px;
+    border: 1px solid #d6dee8;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.dataTables_wrapper .dataTables_info{
+    white-space: nowrap;
+    font-weight: 600;
+    color: var(--text-soft);
+}
+
+.dataTables_wrapper .dataTables_paginate{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dataTables_wrapper .dt-buttons{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.dt-button,
+.btn-download-selected{
+    height: 36px !important;
+    padding: 0 14px !important;
+    border-radius: 10px !important;
+    border: 1px solid #dbe4ee !important;
+    background: #fff !important;
+    color: #0f172a !important;
+    font-weight: 700 !important;
+    box-shadow: none !important;
+    transition: all 0.18s ease !important;
+}
+
+.dt-button:hover,
+.btn-download-selected:hover{
+    background: #f8fafc !important;
+    border-color: #bfdbfe !important;
+    color: var(--primary) !important;
+}
+
+.btn-download-selected{
+    background-color: #16a34a !important;
+    border-color: #16a34a !important;
+    color: white !important;
+}
+
+.btn-download-selected:hover{
+    background-color: #15803d !important;
+    border-color: #15803d !important;
+    color: #fff !important;
+}
+
+.btn-download-selected.hidden-download-btn{
+    display: none !important;
+}
+
+/* ===== CHART ===== */
+.chart-box{
+    position: relative;
+    width: 100%;
+    height: 320px;
+    margin-bottom: 20px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 14px;
+    box-sizing: border-box;
+    box-shadow: var(--shadow-sm);
+}
+
+.chart-box canvas{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ===== MODAL ===== */
+#modal{
+    backdrop-filter: blur(2px);
+}
+
+#modal > div{
+    background: #fff !important;
+    border-radius: 18px !important;
+    border: 1px solid var(--line);
+    box-shadow: 0 20px 60px rgba(15,23,42,0.18) !important;
+}
+
+/* ===== AI RESULT ===== */
+.file-cell-wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 560px;
+	align-items: flex-start;
+}
+
+.file-cell-name{
+    font-size: 14px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.35;
+    word-break: break-word;
+    margin-bottom: 2px;
+}
+.file-header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.file-header .file-cell-name{
+    margin-bottom: 0;
+}
+
+.file-header .ai-confidence-badge{
+    flex: 0 0 auto;
+}
+.ai-result-card{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 14px;
+    border: 1px solid #e7edf5;
+    border-radius: 14px;
+    background: #fbfdff;
+    box-shadow: 0 4px 14px rgba(15,23,42,0.04);
+    max-width: 420px;
+	.ai-result-card{
+    margin-left: 0;
+}
+}
+.ai-result-card:hover{
+    border-color: #cfe0ff;
+    box-shadow: 0 8px 22px rgba(37,99,235,0.08);
+}
+.ai-result-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.ai-confidence-badge{
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 11px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    border: 1px solid transparent;
+    letter-spacing: 0.01em;
+}
+
+.ai-confidence-badge.high{
+    background: #ecfdf5;
+    color: #166534;
+    border-color: #bbf7d0;
+}
+
+.ai-confidence-badge.medium{
+    background: #fff7ed;
+    color: #b45309;
+    border-color: #fed7aa;
+}
+
+.ai-confidence-badge.low{
+    background: #fef2f2;
+    color: #b91c1c;
+    border-color: #fecaca;
+}
+
+.ai-result-reason{
+    font-size: 13px;
+    color: #1f2937;
+    line-height: 1.45;
+    font-weight: 600;
+}
+
+.ai-result-meta{
+    font-size: 11px;
+    color: #64748b;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.ai-result-meta span{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ai-result-meta span + span::before{
+    content: "•";
+    color: #cbd5e1;
+    margin-right: 6px;
+}
+
+.ai-details-link{
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--primary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.ai-details-link:hover{
+    text-decoration: underline;
+}
+
+.ai-tech-details{
+    display: none;
+    margin-top: 2px;
+    padding-top: 10px;
+    border-top: 1px solid #eef2f7;
+}
+
+.ai-tech-details.open{
+    display: block;
+}
+
+.ai-snippet{
+    font-size: 12px;
+    color: #374151;
+    line-height: 1.55;
+}
+
+.ai-snippet strong{
+    display: block;
+    margin-bottom: 4px;
+    color: #111827;
+    font-size: 12px;
+}
+
+.ai-snippet mark{
+    background: #fef08a;
+    color: #111827;
+    padding: 0 2px;
+    border-radius: 3px;
+}
+
+.ai-page-info{
+    margin-top: 7px;
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.expand-snippet{
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.expand-snippet:hover{
+    text-decoration: underline;
+}
+
+.semantic-badge{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.badge-semantic-high{
+    background: #ecfdf5;
+    color: #166534;
+}
+
+.badge-semantic-medium{
+    background: #eff6ff;
+    color: var(--primary);
+}
+
+.badge-semantic-low{
+    background: #fff7ed;
+    color: #b45309;
+}
+
+.badge-semantic-text{
+    background: #f5f3ff;
+    color: #7c3aed;
+}
+
+.ai-search-error{
+    color: var(--danger);
+    font-size: 13px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.ai-search-bar{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.ai-search-bar #aiQuery{
+    flex: 1;
+}
+
+.ai-search-bar #aiSearchBtn,
+.ai-search-bar #resetSearchBtn{
+    min-width: 96px;
+}
+.input-error{
+    border-color: var(--danger) !important;
+    box-shadow: 0 0 0 3px rgba(220,38,38,0.10) !important;
+}
+
+/* ===== EMPTY / LOADERS ===== */
+.doc-loader span{
+    opacity: 0.2;
+    animation: blink 1s infinite;
+}
+
+.doc-loader span:nth-child(1){ animation-delay: 0s; }
+.doc-loader span:nth-child(2){ animation-delay: 0.2s; }
+.doc-loader span:nth-child(3){ animation-delay: 0.4s; }
+.doc-loader span:nth-child(4){ animation-delay: 0.6s; }
+
+@keyframes blink{
+    0%,100%{ opacity: 0.2; }
+    50%{ opacity: 1; }
+}
+
+.doc-loader-wrap,
+.dataTables_empty{
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+}
+
+@keyframes newRowFlash{
+    0%{
+        background-color: #d1fae5;
+    }
+    70%{
+        background-color: #ecfdf5;
+    }
+    100%{
+        background-color: transparent;
+    }
+}
+
+#doc_table tbody tr.row-new-highlight td,
+table#doc_table.dataTable tbody tr.row-new-highlight td{
+    background-color: #ecfdf5 !important;
+    animation: newRowFlash 2.8s ease forwards;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px){
+    .table-filters{
+        align-items: stretch;
+    }
+
+    .filter-group,
+    .filter-group-tipo{
+        min-width: 220px;
+        flex: 1 1 220px;
+    }
+}
+
+@media (max-width: 700px){
+    .table-filters{
+        padding: 14px;
+    }
+
+    .filter-group,
+    .filter-group-tipo{
+        min-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .multi-checkbox-box{
+        min-width: 100%;
+    }
+
+    .file-item{
+        column-gap: 10px;
+        row-gap: 8px;
+    }
+
+    .file-item .file-progress{
+        margin-top: 4px !important;
+    }
+}
+#saveFieldsBtn.saving{
+    background: #9ca3af !important;
+    cursor: wait !important;
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+#saveFieldsBtn.saving::after{
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 8px;
+    border: 2px solid rgba(255,255,255,0.7);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: btnSpin 0.8s linear infinite;
+    vertical-align: middle;
+}
+.details-layout{
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.details-left{
+    flex: 1.6;
+    min-width: 0;
+}
+
+.details-right{
+    flex: 1;
+    min-width: 320px;
+    max-height: 75vh;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.details-right-header{
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 5;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e5e7eb;
+}
+@media (max-width: 1000px){
+    .details-layout{
+        flex-direction: column;
+    }
+
+    .details-right{
+        max-height: none;
+        overflow: visible;
+    }
+}
+
+.file-ext-badge{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 54px;
+    height: 26px;
+    padding: 0 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+}
+
+.file-ext-pdf{
+    background: #fef2f2;
+    color: #b91c1c;
+    border-color: #fecaca;
+}
+
+.file-ext-docx,
+.file-ext-doc{
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-color: #bfdbfe;
+}
+
+.file-ext-png,
+.file-ext-jpg,
+.file-ext-jpeg{
+    background: #ecfdf5;
+    color: #166534;
+    border-color: #bbf7d0;
+}
+</style>
+
+<h1 style="display:flex; align-items:center; gap:10px; margin-bottom:22px;">
+    <span style="font-size:28px;">📄</span>
+    <span>Document Flow</span>
+</h1>
+
+<div style="display:flex; gap:15px; margin-bottom:20px;">
+    <div class="kpi-card kpi-total">
+        <div class="kpi-title">📄 Totale documenti</div>
+        <div id="kpi_total" class="kpi-value">0</div>
+    </div>
+    <div class="kpi-card kpi-today">
+        <div class="kpi-title">📅 Documenti oggi</div>
+        <div id="kpi_today" class="kpi-value">0</div>
+    </div>
+    <div class="kpi-card kpi-type">
+        <div class="kpi-title">🏷️ Tipo più comune</div>
+        <div id="kpi_tipo" class="kpi-value">-</div>
+    </div>
+    <div class="kpi-card kpi-last">
+        <div class="kpi-title">🕒 Ultimo upload</div>
+        <div id="kpi_last" class="kpi-value">-</div>
+    </div>
+</div>
+
 
 <!-- Upload -->
-<div class="card p-3 mb-4">
-<h4>Carica documento</h4>
-<form action="/upload/" method="post" enctype="multipart/form-data">
-<div class="mb-3">
-<input type="file" name="file" class="form-control" required>
+<section style="margin-bottom:30px;">
+<h2>Carica documento</h2>
+<div id="drop-area">
+    <p style="margin:0; font-size:17px;">📂 Trascina qui i file oppure clicca per selezionarli</p>
+    <div style="margin-top:8px; font-size:13px; color:#64748b; font-weight:500;">
+        PDF, immagini e documenti supportati
+    </div>
+    <input type="file" id="fileElem" multiple style="display:none;">
 </div>
-<button class="btn btn-primary">Upload</button>
-</form>
-</div>
+
+<ul id="fileList" style="list-style:none; padding:0; margin-top:10px;"></ul>
+
+<p id="statusText" style="margin-top:5px;"></p>
+</section>
 
 <!-- Ricerca AI -->
-<div class="card p-3 mb-4">
-<h4>Ricerca AI</h4>
-<div class="input-group mb-3" style="max-width:500px;">
-<input id="aiSearch" type="text" class="form-control" placeholder="Es: passaporti italiani, nome Mario...">
-<button class="btn btn-success" onclick="searchAI()" type="button">Cerca</button>
-</div>
+<section style="margin-bottom:30px;">
+<h2 style="display:flex; align-items:center; gap:10px;">
+    Ricerca AI documenti
+    <span id="searchStatusBadge" class="search-badge" style="display:none;"></span>
+</h2>
+    <div class="ai-search-bar">
+    <input id="aiQuery" type="text" placeholder="Inserisci query AI..." style="flex:1; padding:6px; border-radius:4px; border:1px solid #ccc;">
+    <button id="aiSearchBtn" style="padding:6px 12px; border:none; border-radius:4px; background-color:#007BFF; color:white; cursor:pointer;">Cerca</button>
+    <button id="resetSearchBtn" style="padding:6px 12px; border:none; border-radius:4px; background-color:#6c757d; color:white; cursor:pointer;">Reset</button>
+	</div>
+
+	<div id="aiSearchError" class="ai-search-error" style="display:none;"></div>
+</section>
+
+<!-- Lista documenti -->
+<!-- Lista documenti -->
+<section>
+<h2 style="display:flex; align-items:center; gap:12px;">
+    Documenti elaborati
+    <span id="activeFiltersBadge" class="active-filters-badge" style="display:none;"></span>
+</h2>
+<div id="tableActionError" class="ai-search-error" style="display:none; margin-bottom:10px;"></div>
+<div class="table-filters">
+    <div class="filter-group filter-group-tipo">
+        <label>Tipo documento</label>
+        <div id="filterTipoDocumentoDropdown" class="multi-dropdown">
+            <button type="button" id="filterTipoDocumentoToggle" class="multi-dropdown-toggle">
+                Seleziona tipo documento
+            </button>
+        <div id="filterTipoDocumentoBox" class="multi-checkbox-box" style="display:none;">
+            <div class="multi-checkbox-actions">
+                <button type="button" id="selectAllTipiBtn" class="mini-filter-btn">Tutti</button>
+                <button type="button" id="clearAllTipiBtn" class="mini-filter-btn">Nessuno</button>
+            </div>
+
+            <div class="multi-search-wrap">
+                <input
+                    type="text"
+                    id="filterTipoDocumentoSearch"
+                    class="multi-search-input"
+                    placeholder="Cerca tipo documento..."
+                    autocomplete="off"
+                >
+            </div>
+
+            <div id="filterTipoDocumentoList"></div>
+        </div>
+        </div>
+    </div>
+
+    <div class="filter-group">
+        <label for="filterDateFrom">Data da</label>
+        <input type="date" id="filterDateFrom">
+    </div>
+
+    <div class="filter-group">
+        <label for="filterDateTo">Data a</label>
+        <input type="date" id="filterDateTo">
+    </div>
+
+    <div class="filter-group filter-actions">
+        <label>&nbsp;</label>
+        <div style="display:flex; gap:10px;">
+            <button id="clearTableFilters" type="button">Pulisci filtri</button>
+            <button id="resetAllFiltersBtn" type="button">Reset tutto</button>
+        </div>
+    </div>
+
 </div>
 
-<!-- Risultati -->
-<div class="card p-3 mb-4">
-<h4>Risultati ricerca</h4>
-<table id="resultsTable" class="table table-bordered table-striped">
+
+<table id="doc_table" class="display" style="width:100%">
 <thead>
 <tr>
+<th id="th-select-all" style="text-align:center;">
+    <input type="checkbox" id="selectAllDocs" title="Seleziona/Deseleziona tutti">
+</th>
 <th>ID</th>
-<th>Tipo</th>
+<th>Tipo Documento</th>
 <th>File</th>
-<th>Data creazione</th>
+<th>Estensione</th>
+<th>Dimensione</th>
+<th>Data Creazione</th>
+<th>Dettagli</th>
+<th>Azioni</th>
 </tr>
 </thead>
 <tbody></tbody>
 </table>
+</section>
+
+<!-- Grafici -->
+<section style="margin-top:30px;">
+    <h2>Dashboard Statistiche</h2>
+
+    <div class="chart-box">
+        <canvas id="chartTipo"></canvas>
+    </div>
+
+    <div class="chart-box">
+        <canvas id="chartDate"></canvas>
+    </div>
+</section>
+
+<!-- Modal -->
+<div id="modal" style="display:none; position:fixed; z-index:10; left:0; top:0; width:100%; height:100%; overflow:auto; background-color: rgba(0,0,0,0.5);">
+    <div style="background-color:#fff; margin:3% auto; padding:20px; border-radius:12px; width:92%; max-width:1200px;">
+        <span id="close" style="float:right; font-size:24px; font-weight:bold; cursor:pointer;">&times;</span>
+        <div id="modal_body"></div>
+    </div>
 </div>
 
+
 <script>
-async function searchAI(){
-    const query = document.getElementById("aiSearch").value.trim();
-    if(!query){ alert("Inserisci una ricerca"); return; }
 
-    const res = await fetch("/search_ai/?query=" + encodeURIComponent(query));
-    const data = await res.json();
+function escapeHtml(value){
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+}
 
-    const tbody = document.querySelector("#resultsTable tbody");
-    tbody.innerHTML = "";
+function getApiErrorMessage(data, fallbackMessage){
+    if(data && typeof data === "object" && data.error){
 
-    data.results.forEach(doc => {
-        const filename = doc.file_path.split("/").pop();
-        tbody.innerHTML += `
-        <tr>
-            <td>${doc.id}</td>
-            <td>${doc.tipo_documento}</td>
-            <td><a href="/uploads/${filename}" target="_blank">${filename}</a></td>
-            <td>${doc.data_creazione}</td>
-        </tr>
+        const err = String(data.error).toLowerCase();
+
+        // mapping intelligente
+        if(err.includes("ai")){
+            return "Il servizio di ricerca AI non è momentaneamente disponibile.";
+        }
+
+        if(err.includes("timeout")){
+            return "La richiesta ha impiegato troppo tempo. Riprova.";
+        }
+
+        if(err.includes("network")){
+            return "Problema di connessione. Verifica la rete.";
+        }
+
+        return "Si è verificato un problema temporaneo.";
+    }
+
+    return fallbackMessage || "Errore temporaneo.";
+}
+
+function showApiError(message){
+    showTemporaryStatus(message || "Si è verificato un errore temporaneo.", true);
+}
+function showSearchError(message){
+    $("#aiSearchError").text(message || "").show();
+    $("#aiQuery").addClass("input-error");
+}
+
+function clearSearchError(){
+    $("#aiSearchError").hide().text("");
+    $("#aiQuery").removeClass("input-error");
+}
+function showTableActionError(message){
+    $("#tableActionError").text(message || "").show();
+
+    setTimeout(() => {
+        $("#tableActionError").fadeOut(300, function(){
+            $(this).text("").show();
+        });
+    }, 3000);
+}
+
+function clearTableActionError(){
+    $("#tableActionError").hide().text("");
+}
+function applyTipoDocumentoSearchOnEnter(){
+    const visibleCheckboxes = $('#filterTipoDocumentoList .multi-checkbox-item:not(.hidden-by-search) .filterTipoDocumentoChk');
+
+    if(visibleCheckboxes.length === 0){
+        return;
+    }
+
+    // se ne resta uno visibile, lo seleziona direttamente
+    if(visibleCheckboxes.length === 1){
+        visibleCheckboxes.prop('checked', true).trigger('change');
+        return;
+    }
+
+    // se ce ne sono più di uno, seleziona tutti quelli visibili
+    visibleCheckboxes.prop('checked', true);
+
+    saveTableFilters();
+    updateTipoDocumentoToggleLabel();
+    updateActiveFiltersBadge();
+    refreshEmptyTableMessage();
+    table.draw();
+    updateDashboardFromTable();
+}
+function filterTipoDocumentoOptions(searchText){
+    const q = String(searchText || "").trim().toLowerCase();
+    let visibleCount = 0;
+
+    $('#filterTipoDocumentoList .multi-checkbox-item').each(function(){
+        const text = $(this).text().trim().toLowerCase();
+        const match = !q || text.includes(q);
+
+        $(this).toggleClass('hidden-by-search', !match);
+
+        if(match){
+            visibleCount++;
+        }
+    });
+
+    $('#filterTipoDocumentoList .multi-search-empty').remove();
+
+    if(visibleCount === 0){
+        $('#filterTipoDocumentoList').append(`
+            <div class="multi-search-empty">Nessun tipo documento trovato</div>
+        `);
+    }
+}
+function showTemporaryStatus(message, isError = false){
+    const el = $("#statusText");
+
+    el.stop(true, true);
+    el.text(message);
+    el.css({
+        color: isError ? "#dc3545" : "#2563eb",
+        fontWeight: "600"
+    }).show();
+
+    setTimeout(() => {
+        el.fadeOut(300, function(){
+            el.text("").css({ color: "", fontWeight: "" }).show();
+        });
+    }, 3000);
+}
+function hasActiveTableFilters(){
+    return (
+        $('.filterTipoDocumentoChk:checked').length > 0 ||
+        !!$('#filterDateFrom').val() ||
+        !!$('#filterDateTo').val()
+    );
+}
+
+function getEmptyTableMessage(){
+    if(isInitialLoad || isTableRefreshing){
+        return `
+            <div style="
+                color:#6b7280;
+                font-weight:600;
+                font-size:16px;
+                text-align:center;
+                padding:28px 20px;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                justify-content:center;
+                gap:8px;
+            ">
+                <div class="doc-loader" style="
+                    display:flex;
+                    gap:8px;
+                    font-size:24px;
+                ">
+                    <span>📄</span>
+                    <span>📄</span>
+                    <span>📄</span>
+                    <span>📄</span>
+                </div>
+                <div style="color:#111827;">Caricamento documenti...</div>
+            </div>
         `;
+    }
+    const totalDocs = totalDocumentsInDb;
+    const hasFilters = hasActiveTableFilters();
+    const hasAiQuery = !!($('#aiQuery').val() || '').trim();
+
+    if(totalDocs === 0 && !hasFilters && !hasAiQuery){
+        return `
+            <div style="
+                color:#6b7280;
+                font-weight:600;
+                font-size:16px;
+                text-align:center;
+                padding:28px 20px;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                justify-content:center;
+                gap:8px;
+            ">
+                <div style="font-size:24px;">📂</div>
+                <div style="color:#111827;">Nessun documento presente</div>
+                <div style="font-size:13px; font-weight:400; color:#6b7280;">
+                    Carica il primo file per iniziare.
+                </div>
+            </div>
+        `;
+    }
+
+    if(hasFilters && !hasAiQuery){
+        return `
+            <div style="
+                color:#dc3545;
+                font-weight:600;
+                font-size:16px;
+                text-align:center;
+                padding:28px 20px;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                justify-content:center;
+                gap:8px;
+            ">
+                <div style="font-size:24px;">🔎</div>
+                <div>Nessun risultato con i filtri attivi</div>
+                <div style="font-size:13px; font-weight:400; color:#6b7280;">
+                    Prova a rimuovere o modificare i filtri.
+                </div>
+                <button
+                    id="emptyStateClearFiltersBtn"
+                    type="button"
+                    style="
+                        margin-top:6px;
+                        height:36px;
+                        padding:0 14px;
+                        border:none;
+                        border-radius:8px;
+                        background:#6b7280;
+                        color:#fff;
+                        cursor:pointer;
+                        font-weight:600;
+                    "
+                >
+                    Rimuovi filtri
+                </button>
+            </div>
+        `;
+    }
+
+    if(hasAiQuery){
+        return `
+            <div style="
+                color:#dc3545;
+                font-weight:600;
+                font-size:16px;
+                text-align:center;
+                padding:28px 20px;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                justify-content:center;
+                gap:8px;
+            ">
+                <div style="font-size:24px;">🤖</div>
+                <div>Nessun risultato per la ricerca AI</div>
+                <div style="font-size:13px; font-weight:400; color:#6b7280;">
+                    Prova a cambiare query oppure a fare reset della ricerca.
+                </div>
+            </div>
+        `;
+    }
+
+    return `
+        <div style="
+            color:#6b7280;
+            font-weight:600;
+            font-size:16px;
+            text-align:center;
+            padding:28px 20px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        ">
+            Nessun dato disponibile
+        </div>
+    `;
+}
+function refreshEmptyTableMessage(){
+    const msg = getEmptyTableMessage();
+    const settings = table.settings()[0];
+
+    settings.oLanguage.sEmptyTable = msg;
+    settings.oLanguage.sZeroRecords = msg;
+
+    // opzionale, per compatibilità
+    settings.oLanguage.emptyTable = msg;
+    settings.oLanguage.zeroRecords = msg;
+}
+
+function updateActiveFiltersBadge(){
+    const tipi = getSelectedTipiDocumento();
+    const dateFrom = $('#filterDateFrom').val();
+    const dateTo = $('#filterDateTo').val();
+    const aiQuery = ($('#aiQuery').val() || '').trim();
+    
+    const pills = [];
+
+    tipi.forEach(tipo => {
+        pills.push(`
+            <span class="filter-pill removeable" data-filter="tipo" data-value="${tipo}">
+                Tipo: ${tipo}
+                <span class="pill-close">×</span>
+            </span>
+        `);
+    });
+
+    if(dateFrom){
+        pills.push(`
+            <span class="filter-pill removeable" data-filter="dateFrom">
+                Dal: ${formatDate(dateFrom)}
+                <span class="pill-close">×</span>
+            </span>
+        `);
+    }
+
+    if(dateTo){
+        pills.push(`
+            <span class="filter-pill removeable" data-filter="dateTo">
+                Al: ${formatDate(dateTo)}
+                <span class="pill-close">×</span>
+            </span>
+        `);
+    }
+
+    if(aiQuery){
+        pills.push(`
+            <span class="filter-pill removeable" data-filter="aiQuery">
+                AI: ${aiQuery}
+                <span class="pill-close">×</span>
+            </span>
+        `);
+    }
+    const badge = $('#activeFiltersBadge');
+
+    if(pills.length === 0){
+        badge.hide();
+        badge.html("");
+        return;
+    }
+
+    badge.html(`<strong>🔎</strong> ${pills.join('')}`);
+    badge.show();
+    
+    const hasFilters =
+    tipi.length > 0 ||
+    !!dateFrom ||
+    !!dateTo ||
+    !!aiQuery;
+    const filterBox = $('.table-filters');
+
+    if(hasFilters){
+        filterBox.addClass('active');
+    } else {
+        filterBox.removeClass('active');
+    }
+}
+
+function formatDate(dateStr){
+    if(!dateStr) return "";
+    const [y, m, d] = dateStr.split("-");
+    return `${d}/${m}`;
+}
+function getProgressClassByPhase(phase, status){
+    if(status === "error") return "error";
+    if(status === "completed") return "completed";
+
+    switch(phase){
+        case "start":
+        case "queued":
+        case "recovered":
+            return "uploading";
+
+        case "Preparazione documento":
+            return "phase-preparation";
+
+        case "Estrazione dati (OCR)":
+            return "phase-ocr";
+
+        case "Generazione output":
+            return "phase-save";
+
+        case "Finalizzazione":
+            return "phase-final";
+
+        default:
+            return "uploading";
+    }
+}
+
+
+function getBaseName(path){
+    if(!path) return "";
+    return path.split(/[\\\\/]/).pop();
+}
+
+function formatFileSize(bytes){
+    const size = Number(bytes || 0);
+
+    if(size < 1024) return size + " B";
+    if(size < 1024 * 1024) return (size / 1024).toFixed(1) + " KB";
+    return (size / (1024 * 1024)).toFixed(2) + " MB";
+}
+function renderFileExtensionBadge(ext){
+    const cleanExt = String(ext || "").replace(".", "").trim().toUpperCase();
+
+    if(!cleanExt){
+        return `<span class="file-ext-badge file-ext-unknown">N/D</span>`;
+    }
+
+    return `<span class="file-ext-badge file-ext-${cleanExt.toLowerCase()}">${cleanExt}</span>`;
+}
+function extractTipoDocumento(cellValue) {
+    const html = String(cellValue || '');
+
+    const match = html.match(/data-tipo="([^"]+)"/);
+    if (match && match[1]) {
+        return match[1].trim();
+    }
+
+    return $('<div>').html(html).text().trim();
+}
+function normalizeFileName(name){
+    return String(name || "").trim().toLowerCase();
+}
+function findFileLi(fileName){
+    return Array.from(document.querySelectorAll("#fileList li")).find(
+        li => li.dataset.name === fileName
+    ) || null;
+}
+
+function safeSetTimeoutRemove(li, delayMs){
+    setTimeout(() => {
+        if(li && li.parentNode){
+            li.remove();
+        }
+    }, delayMs);
+}
+
+let table;
+let chartTipo, chartDate;
+let isAiSearchMode = false;
+let syncRequestId = 0;
+let syncInProgress = false;
+let totalDocumentsInDb = 0;
+let isInitialLoad = true;
+let isTableRefreshing = false;
+
+const sessionUploadedFiles = new Set();
+
+function renderStats(stats){
+
+    const tipoEntries = Object.entries(stats.tipo_count || {})
+        .sort((a, b) => b[1] - a[1]);   // alto -> basso
+
+    const tipoLabels = tipoEntries.map(item => item[0]);
+    const tipoData = tipoEntries.map(item => item[1]);
+
+    const dateLabels = Object.keys(stats.date_count || {}).sort();
+    const dateData = dateLabels.map(d => stats.date_count[d]);
+
+    if(chartTipo){ chartTipo.destroy(); }
+    chartTipo = new Chart(document.getElementById('chartTipo').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: tipoLabels,
+            datasets: [{
+                label: 'Documenti per Tipo',
+                data: tipoData,
+                backgroundColor: '#007BFF'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } }
+        }
+    });
+
+    if(chartDate){ chartDate.destroy(); }
+    chartDate = new Chart(document.getElementById('chartDate').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: dateLabels,
+            datasets: [{
+                label: 'Upload giornalieri',
+                data: dateData,
+                borderColor: '#28a745',
+                backgroundColor: 'rgba(40,167,69,0.2)',
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: true } }
+        }
+    });
+
+    const totalDocs = Object.values(stats.tipo_count || {}).reduce((a, b) => a + b, 0);
+    $("#kpi_total").text(totalDocs);
+
+    const today = new Date().toISOString().slice(0,10);
+    $("#kpi_today").text((stats.date_count && stats.date_count[today]) || 0);
+
+    let maxTipo = "-", maxVal = 0;
+    for(const [k, v] of Object.entries(stats.tipo_count || {})){
+        if(v > maxVal){
+            maxVal = v;
+            maxTipo = k;
+        }
+    }
+
+    $("#kpi_tipo").text(maxTipo);
+    $("#kpi_last").text(stats.last_upload || "-");
+}
+
+async function updateCharts(){
+    try{
+        const res = await fetch('/stats/?t=' + Date.now(), { cache: "no-store" });
+        const stats = await res.json();
+        renderStats(stats);
+    } catch(err){
+        console.error("Errore updateCharts:", err);
+    }
+}
+
+async function syncTableAndStats(highlightDocId = null){
+
+	isAiSearchMode = false;
+	table.order([[1, "desc"]]);
+    const requestId = ++syncRequestId;
+
+    try{
+        syncInProgress = true;
+        isTableRefreshing = true;
+        refreshEmptyTableMessage();
+
+        const res = await fetch('/documents_snapshot/?t=' + Date.now(), {
+            cache: "no-store"
+        });
+
+        const payload = await res.json();
+        const docs = payload.docs || [];
+        const stats = payload.stats || {};
+        totalDocumentsInDb = docs.length;
+        
+        if(requestId !== syncRequestId) return;
+
+        table.clear();
+
+        docs.forEach(doc => {
+            const fileName = getBaseName(doc.file_path);
+            table.row.add([
+                `<input type="checkbox" class="selectDoc" value="${fileName}">`,
+                doc.id,
+                doc.tipo_documento,
+				fileName,
+				renderFileExtensionBadge(doc.file_extension),
+				formatFileSize(doc.file_size),
+				doc.data_creazione,
+                `<button onclick='showDetails(${doc.id})' class="btn-action btn-view" title="Visualizza">
+                    👁️
+                </button>`,
+                `<button onclick='deleteDocument(this, ${doc.id}, "${fileName}")' class="btn-action btn-danger" title="Elimina">
+                    🗑️
+                </button>`
+            ]);
+        });
+        refreshEmptyTableMessage();
+        table.draw(false);
+        
+        if(highlightDocId !== null && highlightDocId !== undefined){
+            $('#doc_table tbody tr').each(function(){
+                const rowData = table.row(this).data();
+                if(!rowData) return;
+
+                const currentDocId = String(rowData[1]);
+                if(currentDocId === String(highlightDocId)){
+                    const $row = $(this);
+
+                    $row.addClass('row-new-highlight');
+
+                    setTimeout(() => {
+                        $row.removeClass('row-new-highlight');
+                    }, 3000);
+                }
+            });
+        }
+        updateDownloadSelectedButtonVisibility();
+        updateSelectAllCheckboxState();
+        populateTipoDocumentoFilterFromTable();
+        updateActiveFiltersBadge();
+
+        if(requestId !== syncRequestId) return;
+
+        const selectedTipi = getSelectedTipiDocumento();
+
+        const hasTableFilters =
+            selectedTipi.length > 0 ||
+            !!($('#filterDateFrom').val() || '').trim() ||
+            !!($('#filterDateTo').val() || '').trim();
+
+        const hasAiSearch = !!($('#aiQuery').val() || '').trim();
+
+        if(hasTableFilters || hasAiSearch){
+            updateDashboardFromTable();
+        } else {
+            renderStats(stats);
+        }
+
+    } catch(err){
+        console.error("Errore syncTableAndStats:", err);
+    } finally {
+        isTableRefreshing = false;
+        isInitialLoad = false;
+        refreshEmptyTableMessage();
+
+        if(requestId === syncRequestId){
+            syncInProgress = false;
+        }
+    }
+}
+
+function setDeleteButtonLoading(btn, isLoading){
+    if(!btn) return;
+
+    if(isLoading){
+        btn.dataset.originalText = btn.innerHTML;
+        btn.innerHTML = "Eliminazione";
+        btn.classList.add("deleting");
+        btn.disabled = true;
+    } else {
+        btn.innerHTML = btn.dataset.originalText || "Elimina";
+        btn.classList.remove("deleting");
+        btn.disabled = false;
+    }
+}
+function updateDownloadSelectedButtonVisibility(){
+    const selectedCount = $('.selectDoc:checked').length;
+    const btn = $('.btn-download-selected');
+
+    if(selectedCount > 0){
+        btn.removeClass('hidden-download-btn');
+    } else {
+        btn.addClass('hidden-download-btn');
+    }
+}
+function updateSelectAllCheckboxState(){
+    const checkboxes = $('.selectDoc');
+    const checked = $('.selectDoc:checked');
+
+    const selectAll = $('#selectAllDocs');
+
+    if(checkboxes.length === 0){
+        selectAll.prop('checked', false);
+        selectAll.prop('indeterminate', false);
+        return;
+    }
+
+    if(checked.length === 0){
+        selectAll.prop('checked', false);
+        selectAll.prop('indeterminate', false);
+    }
+    else if(checked.length === checkboxes.length){
+        selectAll.prop('checked', true);
+        selectAll.prop('indeterminate', false);
+    }
+    else{
+        selectAll.prop('checked', false);
+        selectAll.prop('indeterminate', true);
+    }
+}
+
+function populateTipoDocumentoFilterFromTable(){
+    const list = $('#filterTipoDocumentoList');
+    const currentValues = getSelectedTipiDocumento();
+
+    const tipiMap = new Map();
+
+    table.rows().every(function(){
+        const row = this.data();
+        const tipoRaw = extractTipoDocumento(row[2]);
+
+        if(tipoRaw){
+            const clean = String(tipoRaw).trim();
+            const key = clean.toLowerCase();
+
+            if(!tipiMap.has(key)){
+                tipiMap.set(key, clean);
+            }
+        }
+    });
+
+    const sortedTipi = Array.from(tipiMap.values()).sort((a, b) => a.localeCompare(b, 'it'));
+
+    list.empty();
+
+    sortedTipi.forEach(tipo => {
+        list.append(`
+            <label class="multi-checkbox-item">
+                <input type="checkbox" class="filterTipoDocumentoChk" value="${tipo}">
+                <span>${tipo}</span>
+            </label>
+        `);
+    });
+
+    setSelectedTipiDocumento(
+        currentValues.filter(v =>
+            sortedTipi.some(x => x.toLowerCase() === String(v).toLowerCase())
+        )
+    );
+
+    updateTipoDocumentoToggleLabel();
+   $('#filterTipoDocumentoSearch').val('');
+    filterTipoDocumentoOptions('');
+}
+
+function updateTipoDocumentoToggleLabel(){
+    const selected = getSelectedTipiDocumento();
+    const btn = $('#filterTipoDocumentoToggle');
+
+    if(selected.length === 0){
+        btn.text('Seleziona tipo documento');
+    }
+    else if(selected.length === 1){
+        btn.text(selected[0]);
+    }
+    else{
+        btn.text(`${selected.length} tipi selezionati`);
+    }
+}
+
+function getSelectedTipiDocumento(){
+    return $('.filterTipoDocumentoChk:checked').map(function(){
+        return $(this).val();
+    }).get();
+}
+
+function setSelectedTipiDocumento(values){
+    const selected = Array.isArray(values) ? values : [];
+    $('.filterTipoDocumentoChk').prop('checked', false);
+
+    selected.forEach(val => {
+        $(`.filterTipoDocumentoChk[value="${val}"]`).prop('checked', true);
+    });
+
+    updateTipoDocumentoToggleLabel();
+}
+function selectAllTipiDocumento(){
+    $('.filterTipoDocumentoChk').prop('checked', true);
+    updateTipoDocumentoToggleLabel();
+}
+
+function clearAllTipiDocumento(){
+    $('.filterTipoDocumentoChk').prop('checked', false);
+    updateTipoDocumentoToggleLabel();
+}
+function normalizeDateOnly(value){
+    if(!value) return "";
+    return String(value).substring(0, 10);
+}
+
+function registerCustomTableFilters(){
+    $.fn.dataTable.ext.search.push(function(settings, data, dataIndex){
+        if(settings.nTable.id !== 'doc_table'){
+            return true;
+        }
+
+        const selectedTipi = getSelectedTipiDocumento()
+            .map(x => String(x).trim().toLowerCase());
+
+        const dateFrom = $('#filterDateFrom').val();
+        const dateTo = $('#filterDateTo').val();
+
+        const tipoDocumento = (data[2] || "").trim().toLowerCase();
+        const dataCreazioneRaw = data[6] || "";
+        const dataCreazione = normalizeDateOnly(dataCreazioneRaw);
+
+        if(selectedTipi.length > 0 && !selectedTipi.includes(tipoDocumento)){
+            return false;
+        }
+
+        if(dateFrom && dataCreazione < dateFrom){
+            return false;
+        }
+
+        if(dateTo && dataCreazione > dateTo){
+            return false;
+        }
+
+        return true;
     });
 }
+const STORAGE_KEYS = {
+    tableFilters: "docflow_table_filters",
+    aiQuery: "docflow_ai_query",
+    aiMode: "docflow_ai_mode"
+};
+
+function saveTableFilters(){
+    const payload = {
+        tipo: getSelectedTipiDocumento(),
+        dateFrom: $('#filterDateFrom').val() || "",
+        dateTo: $('#filterDateTo').val() || ""
+    };
+    localStorage.setItem(STORAGE_KEYS.tableFilters, JSON.stringify(payload));
+}
+
+function loadTableFilters(){
+    try{
+        return JSON.parse(localStorage.getItem(STORAGE_KEYS.tableFilters) || "{}");
+    } catch(e){
+        return {};
+    }
+}
+
+function clearTableFiltersStorage(){
+    localStorage.removeItem(STORAGE_KEYS.tableFilters);
+}
+
+function saveAiSearchState(query, mode){
+    localStorage.setItem(STORAGE_KEYS.aiQuery, query || "");
+    localStorage.setItem(STORAGE_KEYS.aiMode, mode || "");
+}
+
+function loadAiSearchState(){
+    return {
+        query: localStorage.getItem(STORAGE_KEYS.aiQuery) || "",
+        mode: localStorage.getItem(STORAGE_KEYS.aiMode) || ""
+    };
+}
+
+function clearAiSearchState(){
+    localStorage.removeItem(STORAGE_KEYS.aiQuery);
+    localStorage.removeItem(STORAGE_KEYS.aiMode);
+}
+async function reloadFullDataAfterReset(){
+    const res = await fetch('/documents_snapshot/?t=' + Date.now(), {
+        cache: "no-store"
+    });
+
+    const payload = await res.json();
+    const docs = payload.docs || [];
+    const stats = payload.stats || {};
+    totalDocumentsInDb = docs.length;
+    
+    // reset totale DataTable
+    table.search('');
+    table.columns().search('');
+    table.order([[1, "desc"]]);
+    table.page.len(10);
+    table.page('first');
+    table.clear();
+
+    docs.forEach(doc => {
+        const fileName = getBaseName(doc.file_path);
+        table.row.add([
+            `<input type="checkbox" class="selectDoc" value="${fileName}">`,
+            doc.id,
+            doc.tipo_documento,
+			fileName,
+			renderFileExtensionBadge(doc.file_extension),
+			formatFileSize(doc.file_size),
+			doc.data_creazione,
+            `<button onclick='showDetails(${doc.id})' class="btn-action btn-view" title="Visualizza">
+                👁️
+            </button>`,
+            `<button onclick='deleteDocument(this, ${doc.id}, "${fileName}")' class="btn-action btn-danger" title="Elimina">
+                🗑️
+            </button>`
+        ]);
+    });
+
+    table.draw(true);
+
+    updateDownloadSelectedButtonVisibility();
+    updateSelectAllCheckboxState();
+    populateTipoDocumentoFilterFromTable();
+    updateActiveFiltersBadge();
+
+    // dashboard e KPI dal backend
+    renderStats(stats);
+}
+async function resetAllFilters(){
+
+	isAiSearchMode = false;
+	table.order([[1, "desc"]]);
+    const btn = $('#resetAllFiltersBtn');
+
+    if(btn.prop('disabled')) return;
+
+    btn
+        .prop('disabled', true)
+        .addClass('resetting')
+        .text('Reset completo...');
+
+    try {
+        setSelectedTipiDocumento([]);
+        $('#filterTipoDocumentoDropdown').removeClass('open');
+        $('#filterTipoDocumentoBox').hide();
+
+        $('#filterDateFrom').val('');
+        $('#filterDateTo').val('');
+        $('#aiQuery').val('');
+        $('#searchStatusBadge').hide().removeClass().text('');
+        $("#statusText").text("");
+		clearSearchError();
+
+        clearTableFiltersStorage();
+        clearAiSearchState();
+
+        table.search('');
+        table.columns().search('');
+        table.order([[1, "desc"]]);
+        table.page.len(10);
+        table.page('first');
+
+        updateActiveFiltersBadge();
+
+        await reloadFullDataAfterReset();
+
+    } catch(err){
+        console.error("Errore resetAllFilters:", err);
+    } finally {
+        btn
+            .prop('disabled', false)
+            .removeClass('resetting')
+            .text('Reset completo');
+    }
+}
+
+async function resetAiSearchOnly(){
+
+	isAiSearchMode = false;
+	table.order([[1, "desc"]]);
+    const btn = $('#resetSearchBtn');
+    if(btn.prop('disabled')) return;
+
+    btn.prop('disabled', true).text('Reset...');
+
+    try {
+        // reset solo ricerca AI
+        $('#aiQuery').val('');
+        $('#searchStatusBadge').hide().removeClass().text('');
+        $("#statusText").text("");
+		
+		clearSearchError();
+
+        clearAiSearchState();
+		
+		table.order([[1, "desc"]]);  // torna al comportamento normale
+        // ricarica tabella completa dal backend
+        await syncTableAndStats();
+
+        // se ci sono filtri tabella attivi, riapplicali
+        table.draw();
+
+        const hasTableFilters =
+            getSelectedTipiDocumento().length > 0 ||
+            !!$('#filterDateFrom').val() ||
+            !!$('#filterDateTo').val();
+
+        if(hasTableFilters){
+            updateDashboardFromTable();
+        }
+    } catch(err){
+        console.error("Errore resetAiSearchOnly:", err);
+    } finally {
+        btn.prop('disabled', false).text('Reset');
+    }
+}
+async function clearOnlyTableFiltersFromEmptyState(){
+    setSelectedTipiDocumento([]);
+    $('#filterDateFrom').val('');
+    $('#filterDateTo').val('');
+
+    $('#filterTipoDocumentoDropdown').removeClass('open');
+    $('#filterTipoDocumentoBox').hide();
+
+    clearTableFiltersStorage();
+    updateActiveFiltersBadge();
+    refreshEmptyTableMessage();
+
+    await syncTableAndStats();
+}
+$(document).ready(function(){
+
+    const dropArea = document.getElementById("drop-area");
+    const fileElem = document.getElementById("fileElem");
+    const fileListUI = document.getElementById("fileList");
+    
+    registerCustomTableFilters();
+
+ // --- Inizializza DataTable ---
+        table = $('#doc_table').DataTable({
+    
+        order: [[1, "desc"]],
+        data: [],
+        columns:[
+            { title: "", width: "42px", orderable: false, className: "dt-select-col" },
+            { title: "ID", width: "50px" },
+            { title: "Tipo Documento", width: "250px" },
+			{ title: "File", width: "300px" },
+			{ title: "Estensione", width: "100px" },
+			{ title: "Dimensione", width: "110px" },
+			{ title: "Data Creazione", width: "150px" },
+			{ title: "Dettagli", width: "100px" },
+			{ title: "Azioni", width: "120px" }
+        ],
+        pageLength: 10,
+        dom: 'rt<"table-bottom"<"table-bottom-left"i><"table-bottom-center"l><"table-bottom-right"pB>>',
+        buttons: [
+            {
+                text: 'Scarica selezionati',
+                className: 'btn-download-selected',
+                action: function () {
+                    const selected = Array.from($('.selectDoc:checked')).map(cb => cb.value);
+
+                    if(selected.length === 0){
+                        return;
+                    }
+
+                    const params = new URLSearchParams();
+                    selected.forEach(f => params.append("filenames", f));
+
+                    window.location.href = "/download_zip/?" + params.toString();
+                }
+            },
+            { extend: 'csvHtml5', text: 'Esporta CSV', exportOptions: { columns: [1,2,3,4,5,6] } },
+            { extend: 'excelHtml5', text: 'Esporta Excel', exportOptions: { columns: [1,2,3,4,5,6] } },
+            { extend: 'pdfHtml5', text: 'Esporta PDF', exportOptions: { columns: [1,2,3,4,5,6] } }
+        ],
+    language: {
+        emptyTable: getEmptyTableMessage(),
+        zeroRecords: getEmptyTableMessage()
+    }
+
+    });
+    $('#th-select-all').html('<input type="checkbox" id="selectAllDocs" title="Seleziona/Deseleziona tutti">');
+    updateDownloadSelectedButtonVisibility();
+    updateSelectAllCheckboxState();
+    populateTipoDocumentoFilterFromTable();
+
+    $(document).on('change', '#selectAllDocs', function(){
+    const isChecked = $(this).is(':checked');
+    $('.selectDoc').prop('checked', isChecked);
+
+    updateDownloadSelectedButtonVisibility();
+    updateSelectAllCheckboxState();
+    populateTipoDocumentoFilterFromTable();
+});
+
+    table.on('draw', function () {
+    $('#doc_table button.btn-primary').css({
+        'background-color':'#007BFF',
+        'color':'white',
+        'border':'none',
+        'border-radius':'4px',
+        'cursor':'pointer',
+        'padding':'4px 8px'
+    });
+
+    $('#doc_table button.btn-delete').css({
+        'background-color':'#dc3545',
+        'color':'white',
+        'border':'none',
+        'border-radius':'4px',
+        'cursor':'pointer',
+        'padding':'4px 8px'
+    });
+
+    updateDownloadSelectedButtonVisibility();
+    updateSelectAllCheckboxState();
+});
+
+$(document).on('change', '.selectDoc', function(){
+    const row = $(this).closest('tr');
+
+    if($(this).is(':checked')){
+        row.addClass('selected');
+    } else {
+        row.removeClass('selected');
+    }
+
+    updateDownloadSelectedButtonVisibility();
+    updateSelectAllCheckboxState();
+});
+$(document).on('change', '.filterTipoDocumentoChk, #filterDateFrom, #filterDateTo', function(){
+    saveTableFilters();
+    updateTipoDocumentoToggleLabel();
+    updateActiveFiltersBadge();
+    refreshEmptyTableMessage();
+    table.draw();
+    updateDashboardFromTable();
+});
+
+
+$(document).on('click', '#clearTableFilters', function(){
+    setSelectedTipiDocumento([]);
+    $('#filterDateFrom').val('');
+    $('#filterDateTo').val('');
+
+    $('#filterTipoDocumentoDropdown').removeClass('open');
+    $('#filterTipoDocumentoBox').hide();
+
+    clearTableFiltersStorage();
+    updateActiveFiltersBadge();
+    refreshEmptyTableMessage();
+    table.draw();
+    updateDashboardFromTable();
+});
+
+$(document).on('click', '.filter-pill.removeable', function(){
+    const filterName = $(this).data('filter');
+
+    if(filterName === 'tipo'){
+        const valueToRemove = String($(this).data('value')).toLowerCase();
+
+        $('.filterTipoDocumentoChk').each(function(){
+            if(String($(this).val()).toLowerCase() === valueToRemove){
+                $(this).prop('checked', false);
+            }
+        });
+    }
+    else if(filterName === 'dateFrom'){
+        $('#filterDateFrom').val('');
+    }
+    else if(filterName === 'dateTo'){
+        $('#filterDateTo').val('');
+    }
+    
+    else if(filterName === 'aiQuery'){
+        $('#aiQuery').val('');
+        $('#searchStatusBadge').hide().removeClass().text('');
+		clearSearchError();
+        clearAiSearchState();
+        syncTableAndStats();
+        return;
+    }
+
+    saveTableFilters();
+    updateActiveFiltersBadge();
+    refreshEmptyTableMessage();
+    table.draw();
+    updateDashboardFromTable();
+});
+
+$(document).on('click', '#resetAllFiltersBtn', async function(){
+    await resetAllFilters();
+});
+
+$(document).on('click', '#filterTipoDocumentoToggle', function(e){
+    e.stopPropagation();
+
+    const dropdown = $('#filterTipoDocumentoDropdown');
+    const box = $('#filterTipoDocumentoBox');
+
+    dropdown.toggleClass('open');
+    box.toggle();
+
+    if(box.is(':visible')){
+        $('#filterTipoDocumentoSearch').val('');
+        filterTipoDocumentoOptions('');
+        setTimeout(() => $('#filterTipoDocumentoSearch').trigger('focus'), 0);
+    }
+});
+
+$(document).on('click', '#filterTipoDocumentoBox', function(e){
+    e.stopPropagation();
+});
+
+$(document).on('click', function(){
+    $('#filterTipoDocumentoDropdown').removeClass('open');
+    $('#filterTipoDocumentoBox').hide();
+});
+$(document).on('click', '#selectAllTipiBtn', function(e){
+    e.stopPropagation();
+    selectAllTipiDocumento();
+    saveTableFilters();
+    updateActiveFiltersBadge();
+    table.draw();
+    updateDashboardFromTable();
+});
+
+$(document).on('click', '#clearAllTipiBtn', function(e){
+    e.stopPropagation();
+    clearAllTipiDocumento();
+    saveTableFilters();
+    updateActiveFiltersBadge();
+    table.draw();
+    updateDashboardFromTable();
+
+    $('#filterTipoDocumentoDropdown').removeClass('open');
+    $('#filterTipoDocumentoBox').hide();
+});
+$(document).on('click', '#emptyStateClearFiltersBtn', async function(){
+    await clearOnlyTableFiltersFromEmptyState();
+});
+$(document).on('input', '#filterTipoDocumentoSearch', function(){
+    filterTipoDocumentoOptions($(this).val());
+});
+$(document).on('keydown', '#filterTipoDocumentoSearch', function(e){
+    if(e.key === 'Enter'){
+        e.preventDefault();
+        e.stopPropagation();
+        applyTipoDocumentoSearchOnEnter();
+    }
+});
+
+$(document).on('click', '.expand-snippet', function(e){
+    e.preventDefault();
+
+    const container = $(this).closest('.ai-snippet');
+    container.find('.snippet-short').hide();
+    container.find('.snippet-full').css('display', 'inline');
+    $(this).remove();
+});
+$(document).on('click', '.ai-tech-toggle', function(e){
+    e.preventDefault();
+
+    const details = $(this).closest('.ai-result-card').find('.ai-tech-details');
+    details.toggleClass('open');
+
+    if(details.hasClass('open')){
+        $(this).text('Nascondi dettagli');
+    } else {
+        $(this).text('Mostra dettagli');
+    }
+});
+$('#doc_table thead').on('click', 'th', function(e){
+    if(isAiSearchMode){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        return false;
+    }
+});
+
+async function awaitReloadDocuments(){
+    try{
+        isTableRefreshing = true;
+        refreshEmptyTableMessage();
+
+        const res = await fetch('/documents/?t=' + Date.now());
+        const docs = await res.json();
+        totalDocumentsInDb = docs.length;
+
+        table.clear();
+
+        docs.forEach(doc => {
+            const fileName = getBaseName(doc.file_path);
+            const row = [
+                `<input type="checkbox" class="selectDoc" value="${fileName}">`,
+                doc.id,
+                doc.tipo_documento,
+				fileName,
+				renderFileExtensionBadge(doc.file_extension),
+				formatFileSize(doc.file_size),
+				doc.data_creazione,
+                `<button onclick='showDetails(${doc.id})' class="btn-action btn-view" title="Visualizza">
+                    👁️
+                </button>`,
+                `<button onclick='deleteDocument(this, ${doc.id}, "${fileName}")' class="btn-action btn-danger" title="Elimina">
+                    🗑️
+                </button>`
+            ];
+            table.row.add(row);
+        });
+
+        refreshEmptyTableMessage();
+        table.draw(true);
+        updateDownloadSelectedButtonVisibility();
+        updateSelectAllCheckboxState();
+        populateTipoDocumentoFilterFromTable();
+        totalDocumentsInDb = docs.length;
+    } catch(err){
+        console.error("Errore refresh documents:", err);
+    } finally {
+        isTableRefreshing = false;
+        isInitialLoad = false;
+        refreshEmptyTableMessage();
+    }
+}
+    
+(async function initPage(){
+    try{
+        const hasActive = await loadJobsStatus();
+        if(hasActive){
+            ensureJobsPolling();
+        }
+    } catch(err){
+        console.error("Errore loadJobsStatus:", err);
+    }
+
+    try{
+        await syncTableAndStats();
+
+        const savedFilters = loadTableFilters();
+        setSelectedTipiDocumento(savedFilters.tipo || []);
+        $('#filterDateFrom').val(savedFilters.dateFrom || '');
+        $('#filterDateTo').val(savedFilters.dateTo || '');
+
+        const savedAi = loadAiSearchState();
+        if(savedAi.query){
+            $('#aiQuery').val(savedAi.query);
+        }
+
+        updateActiveFiltersBadge();
+        refreshEmptyTableMessage();
+        table.draw();
+        updateDashboardFromTable();
+
+
+    } catch(err){
+        console.error("Errore sync iniziale:", err);
+    }
+})();
+
+    
+$("#aiSearchBtn").click(async function(){
+    const query = $("#aiQuery").val().trim();
+    clearSearchError();	
+	
+	if(!query){
+		showSearchError("Inserisci una query per la ricerca AI.");
+		$("#aiQuery").focus();
+		return;
+	}
+
+    // --- Mostra loader nella tabella ---
+    const settings = table.settings()[0];
+    settings.oLanguage.sEmptyTable = `
+        <div style="
+            color:#007BFF; 
+            font-weight:bold; 
+            font-size:16px; 
+            text-align:center; 
+            padding:20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+        ">
+            <div class="doc-loader" style="
+                display:flex;
+                gap:8px;
+                font-size:24px;
+                margin-bottom:10px;
+            ">
+                <span>📄</span>
+                <span>📄</span>
+                <span>📄</span>
+                <span>📄</span>
+            </div>
+            Caricamento documenti in corso...
+        </div>
+    `;
+    settings.oLanguage.sZeroRecords = settings.oLanguage.sEmptyTable;
+    
+    table.clear().draw();   // reset tabella e mostra loader
+	table.order([]);   // disabilita ordinamento → usa ordine AI
+	isAiSearchMode = true;
+    $("#statusText").text(""); // niente messaggio sopra
+
+try {
+	
+	const res = await fetch('/search_documents/?query=' + encodeURIComponent(query), {
+		cache: "no-store"
+	});
+
+	const data = await res.json();
+
+	if(!res.ok || data.success === false){
+		const userMessage = getApiErrorMessage(
+			data,
+			"Problema temporaneo durante la ricerca. Riprova tra qualche secondo."
+		);
+
+		$("#searchStatusBadge")
+			.removeClass()
+			.addClass("search-badge empty")
+			.text("⚠️ Ricerca non disponibile")
+			.show();
+
+		$("#statusText").text("");
+
+		const settings = table.settings()[0];
+		settings.oLanguage.sEmptyTable = `
+			<div style="
+				color:#dc3545;
+				font-weight:600;
+				font-size:16px;
+				text-align:center;
+				padding:28px 20px;
+				font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				display:flex;
+				flex-direction:column;
+				align-items:center;
+				justify-content:center;
+				gap:8px;
+			">
+				<div style="font-size:24px;">⚠️</div>
+				<div>${userMessage}</div>
+			</div>
+		`;
+		settings.oLanguage.sZeroRecords = settings.oLanguage.sEmptyTable;
+
+		table.clear().draw();
+		return;
+	}
+    const results = data.results || [];
+    const mode = data.mode || "";
+    
+    saveAiSearchState(query, mode);
+    updateActiveFiltersBadge();
+
+const badge = $("#searchStatusBadge");
+
+// 🔵 1. Badge (tipo ricerca) — SEMPRE prima
+if(mode === "structured"){
+    badge
+        .removeClass()
+        .addClass("search-badge structured")
+        .text("🔎 Strutturata")
+        .show();
+}
+else if(mode === "semantic"){
+    badge
+        .removeClass()
+        .addClass("search-badge semantic")
+        .text("🤖 Semantica")
+        .show();
+}
+else{
+    badge.hide();
+}
+
+// 🔵 2. Gestione risultati
+if(results.length === 0){
+    refreshEmptyTableMessage();
+}
+
+// 🔵 3. Pulizia tabella
+table.clear().draw();
+
+    if(results.length === 0){
+        const settings = table.settings()[0];
+        settings.oLanguage.sEmptyTable = `
+            <div style="
+                color:#dc3545;
+                font-weight:600;
+                font-size:16px;
+                text-align:center;
+                padding:28px 20px;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                justify-content:center;
+                gap:8px;
+            ">
+                <div style="font-size:24px;">🔎</div>
+                <div>Nessun documento trovato</div>
+                <div style="font-size:13px; font-weight:400; color:#6b7280;">
+                    Prova a modificare la ricerca AI o a rimuovere qualche filtro.
+                </div>
+            </div>
+        `;
+        settings.oLanguage.sZeroRecords = settings.oLanguage.sEmptyTable;
+    } else {
+        // --- Risultati trovati ---
+    const settings = table.settings()[0];
+    settings.oLanguage.sEmptyTable = "";
+    settings.oLanguage.sZeroRecords = "";
+
+		results.forEach(doc => {
+			const fileName = getBaseName(doc.file_path);
+
+			const tipoDocumentoHtml = mode === "semantic"
+				? `
+					<div class="tipo-doc-wrap"
+						data-tipo="${String(doc.tipo_documento).replace(/"/g, '&quot;')}"
+						style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+						<span class="tipo-doc-text">${doc.tipo_documento}</span>
+						${renderSemanticBadge(doc)}
+					</div>
+				`
+				: doc.tipo_documento;
+
+			const fileCellHtml = renderFileCell(doc, fileName, mode);
+
+			const row = [
+				`<input type="checkbox" class="selectDoc" value="${fileName}">`,
+				doc.id,
+				tipoDocumentoHtml,
+				fileCellHtml,
+				renderFileExtensionBadge(doc.file_extension),
+				formatFileSize(doc.file_size),
+				doc.data_creazione,
+				`<button onclick='showDetails(${doc.id})' class="btn-action btn-view" title="Visualizza">👁️</button>`,
+				`<button onclick='deleteDocument(this, ${doc.id}, "${fileName}")' class="btn-action btn-danger" title="Elimina">🗑️</button>`
+			];
+
+			table.row.add(row);
+		});
+    }
+
+    table.draw(true);
+    updateDownloadSelectedButtonVisibility();
+    updateSelectAllCheckboxState();
+    populateTipoDocumentoFilterFromTable();
+    updateDashboardFromTable();
+    updateActiveFiltersBadge();
+} catch(err){
+    console.error("Errore nella ricerca AI:", err);
+
+    $("#searchStatusBadge")
+        .removeClass()
+        .addClass("search-badge empty")
+        .text("⚠️ Ricerca non disponibile")
+        .show();
+
+    $("#statusText").text("");
+
+    const settings = table.settings()[0];
+    settings.oLanguage.sEmptyTable = `
+        <div style="
+            color:#dc3545;
+            font-weight:600;
+            font-size:16px;
+            text-align:center;
+            padding:28px 20px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            gap:8px;
+        ">
+            <div style="font-size:24px;">⚠️</div>
+            <div>Ricerca AI momentaneamente non disponibile</div>
+            <div style="font-size:13px; font-weight:400; color:#6b7280;">
+                Riprova tra qualche secondo.
+            </div>
+        </div>
+    `;
+    settings.oLanguage.sZeroRecords = settings.oLanguage.sEmptyTable;
+
+    table.clear().draw();
+}
+});
+
+    // --- Reset ricerca ---
+$("#resetSearchBtn").click(async function(){
+    await resetAiSearchOnly();
+});
+
+	
+	$("#aiQuery").on("input", function(){
+    clearSearchError();
+	});
+
+	$("#aiQuery").keypress(function(e){
+		if(e.which == 13){ $("#aiSearchBtn").click(); }
+	});
+
+    const deletingDocIds = new Set();
+    const deletingFileNames = new Set();
+    let deleteSyncInProgress = false;
+    let jobsPollingTimer = null;
+    
+let refreshTimer = null;
+let refreshInProgress = false;
+let refreshPending = false;
+
+async function runRefreshUI(){
+    if(refreshInProgress){
+        refreshPending = true;
+        return;
+    }
+
+    refreshInProgress = true;
+
+    try{
+        await awaitReloadDocuments();
+        await updateCharts();
+    } catch(err){
+        console.error("Errore refresh UI:", err);
+    } finally {
+        refreshInProgress = false;
+
+        if(refreshPending){
+            refreshPending = false;
+            setTimeout(() => {
+                runRefreshUI();
+            }, 200);
+        }
+    }
+}
+
+function scheduleRefreshUI(){
+    clearTimeout(refreshTimer);
+    refreshTimer = setTimeout(() => {
+        runRefreshUI();
+    }, 400);
+}
+
+function ensureJobsPolling(){
+    if(jobsPollingTimer) return;
+
+    jobsPollingTimer = setInterval(async () => {
+        try{
+            const hasActive = await loadJobsStatus();
+
+            if(!hasActive){
+                clearInterval(jobsPollingTimer);
+                jobsPollingTimer = null;
+            }
+        } catch(err){
+            console.error("Errore polling jobs:", err);
+        }
+    }, 3000);
+}
+
+async function loadJobsStatus(){
+    const res = await fetch('/jobs_status/');
+    const data = await res.json();
+    const jobs = data.jobs || [];
+
+    const visibleJobs = jobs.filter(job => {
+        if (
+            job.status === "queued" ||
+            job.status === "processing" ||
+            job.status === "error"
+        ) {
+            return true;
+        }
+
+        if (job.status === "completed" && job.completed_at) {
+            const completedMs = new Date(job.completed_at).getTime();
+            return (Date.now() - completedMs) < 15000;
+        }
+
+        return false;
+    });
+
+    visibleJobs.forEach(job => {
+        if(!job.file_name) return;
+
+        const jobFileName = getBaseName(job.file_name);
+        let li = findFileLi(jobFileName);
+
+        if(!li){
+            li = document.createElement("li");
+            li.dataset.name = jobFileName;
+            li.dataset.jobId = job.id;
+            li.className = "file-item";
+            li.innerHTML = `
+                <span class="file-name">📄 ${jobFileName}</span>
+                <button class="btn-cancel-upload">Annulla</button>
+                <div class="file-progress"><div></div></div>
+            `;
+            fileListUI.appendChild(li);
+
+            const cancelBtn = li.querySelector(".btn-cancel-upload");
+            if(cancelBtn){
+                cancelBtn.onclick = async function(){
+                    cancelBtn.disabled = true;
+                    cancelBtn.textContent = "Annullamento...";
+
+                    try{
+                        const res = await fetch(`/jobs/${job.id}/cancel`, {
+                            method: "POST",
+                            cache: "no-store"
+                        });
+
+                        const data = await res.json();
+
+                        if(!res.ok || !data.success){
+                            cancelBtn.disabled = false;
+                            cancelBtn.textContent = "Annulla";
+                            showApiError("Errore durante l'annullamento del job.");
+                        }
+                    } catch(err){
+                        console.error("Errore annullamento job:", err);
+                        cancelBtn.disabled = false;
+                        cancelBtn.textContent = "Annulla";
+                        showApiError("Errore durante l'annullamento del job.");
+                    }
+                };
+            }
+        }
+
+        const progressDiv = li.querySelector('.file-progress div');
+        progressDiv.style.width = (job.progress || 0) + "%";
+        progressDiv.style.background = "";
+
+        let statusText = li.querySelector('.status-text');
+        if(!statusText){
+            statusText = document.createElement('span');
+            statusText.className = 'status-text';
+            statusText.style.marginLeft = '10px';
+            li.appendChild(statusText);
+        }
+
+        if(job.status === "error"){
+            const errorTime = job.updated_at || job.completed_at;
+            let remainingMs = 0;
+
+            if(errorTime){
+                const errorDate = new Date(errorTime);
+                const elapsedMs = Date.now() - errorDate.getTime();
+                remainingMs = Math.max(0, 10000 - elapsedMs);
+            }
+
+            if(remainingMs <= 0){
+                if(li && li.parentNode){
+                    li.remove();
+                }
+                return;
+            }
+
+            progressDiv.className = getProgressClassByPhase(job.phase, "error");
+            progressDiv.style.width = "100%";
+            statusText.textContent = job.error_message || "❌ Errore";
+            statusText.classList.remove("done");
+            statusText.classList.add("error-text");
+            statusText.style.color = "#dc3545";
+            statusText.style.fontWeight = "bold";
+
+            safeSetTimeoutRemove(li, remainingMs);
+
+            const cancelBtn = li.querySelector(".btn-cancel-upload");
+            if(cancelBtn){
+                cancelBtn.remove();
+            }
+        }
+        else if(job.status === "completed"){
+            const completedTime = job.completed_at;
+            let remainingMs = 10000;
+
+            if(completedTime){
+                const completedDate = new Date(completedTime);
+                const elapsedMs = Date.now() - completedDate.getTime();
+                remainingMs = Math.max(0, 10000 - elapsedMs);
+            }
+
+            if(remainingMs <= 0){
+                if(li && li.parentNode){
+                    li.remove();
+                }
+                return;
+            }
+
+            li.classList.add("completed");
+
+            progressDiv.className = getProgressClassByPhase(job.phase, "completed");
+            progressDiv.style.width = "100%";
+
+            statusText.textContent = "✅ Documento pronto";
+            statusText.classList.remove("error-text");
+            statusText.classList.add("done");
+            statusText.style.color = "";
+            statusText.style.fontWeight = "";
+
+            const cancelBtn = li.querySelector(".btn-cancel-upload");
+            if(cancelBtn){
+                cancelBtn.remove();
+            }
+
+            const bar = li.querySelector('.file-progress');
+            if(bar){
+                bar.style.display = "none";
+            }
+
+            safeSetTimeoutRemove(li, remainingMs);
+        }
+        else if(job.status === "cancelled"){
+            progressDiv.className = "error";
+            progressDiv.style.width = "100%";
+            statusText.textContent = "⛔ Caricamento annullato";
+            statusText.classList.remove("done");
+            statusText.classList.add("error-text");
+            statusText.style.color = "#dc3545";
+            statusText.style.fontWeight = "bold";
+
+            const cancelBtn = li.querySelector(".btn-cancel-upload");
+            if(cancelBtn){
+                cancelBtn.remove();
+            }
+
+            safeSetTimeoutRemove(li, 2500);
+        }
+        else {
+            progressDiv.className = getProgressClassByPhase(job.phase, job.status);
+
+            const phaseLabels = {
+                "queued": "📥 In coda…",
+                "recovered": "♻️ Job recuperato dopo riavvio…",
+                "start": "📤 Avvio job…",
+                "Preparazione documento": "🔄 Preparazione documento…",
+                "Estrazione dati (OCR)": "📝 Estrazione dati…",
+                "Generazione output": "⚙️ Generazione output…",
+                "Finalizzazione": "⏳ Finalizzazione…"
+            };
+
+            statusText.textContent = phaseLabels[job.phase] || `⏳ ${job.phase || 'Elaborazione'}…`;
+            statusText.classList.remove("done", "error-text");
+            statusText.style.color = "";
+            statusText.style.fontWeight = "";
+        }
+    });
+
+    return jobs.some(job => job.status === "queued" || job.status === "processing");
+}
+
+    // --- Upload ---
+
+
+    dropArea.addEventListener("click", () => fileElem.click());
+
+    dropArea.addEventListener("dragover", (e) => { 
+        e.preventDefault(); 
+        dropArea.classList.add("dragover");
+        dropArea.querySelector("p").textContent = "Rilascia qui i file";
+    });
+
+    dropArea.addEventListener("dragleave", (e) => { 
+        e.preventDefault(); 
+        dropArea.classList.remove("dragover");
+        dropArea.querySelector("p").textContent = "📂 Trascina qui i file oppure clicca per selezionarli";
+    });
+
+    dropArea.addEventListener("drop", (e) => { 
+        e.preventDefault(); 
+        dropArea.classList.remove("dragover");
+        dropArea.querySelector("p").textContent = "📂 Trascina qui i file oppure clicca per selezionarli";
+        handleFiles(e.dataTransfer.files);
+
+        if(fileElem){
+            fileElem.value = "";
+        }
+    });
+    fileElem.addEventListener("change", (e) => handleFiles(e.target.files));
+
+
+function handleFiles(files){
+    const newFiles = [];
+    const skippedFiles = [];
+
+    for(const file of files){
+        const normalizedName = normalizeFileName(file.name);
+
+        if(sessionUploadedFiles.has(normalizedName)){
+            skippedFiles.push(file.name);
+            continue;
+        }
+
+        sessionUploadedFiles.add(normalizedName);
+
+        const li = document.createElement("li");
+        li.dataset.name = file.name;
+        li.dataset.normalizedName = normalizedName;
+        li.className = "file-item";
+        li.innerHTML = `
+            <span class="file-name">📄 ${file.name}</span>
+            <button class="btn-cancel-upload">Annulla</button>
+            <div class="file-progress"><div></div></div>
+        `;
+        fileListUI.appendChild(li);
+        newFiles.push(file);
+    }
+
+    if(skippedFiles.length > 0){
+        if(skippedFiles.length === 1){
+            showTemporaryStatus(`⚠️ Il file "${skippedFiles[0]}" è già stato caricato o è in caricamento.`, true);
+        } else {
+            showTemporaryStatus(`⚠️ Alcuni file sono già stati caricati o sono in caricamento.`, true);
+        }
+    }
+
+    if(newFiles.length){
+        uploadFiles(newFiles);
+    }
+
+    if(fileElem){
+        fileElem.value = "";
+    }
+}
+
+function uploadFiles(files){
+    const formData = new FormData();
+    files.forEach(f => formData.append("files", f));
+
+    fetch("/upload_multiple/", { method:"POST", body:formData })
+        .then(async res => {
+            const data = await res.json();
+
+            if(!res.ok || data.success === false){
+                throw new Error(data.error || "Errore durante il caricamento dei file.");
+            }
+
+            return data;
+        })
+        .then(data => {
+            if(!data || !Array.isArray(data.uploaded)){
+                throw new Error("Risposta upload non valida");
+            }
+
+            data.uploaded.forEach(f => {
+                const li = findFileLi(f.file_name);
+                if(li){
+                    li.dataset.jobId = f.job_id;
+
+                    const progressEl = li.querySelector(".file-progress div");
+                    if(progressEl){
+                        progressEl.style.width = "0%";
+                    }
+
+                    const cancelBtn = li.querySelector(".btn-cancel-upload");
+                    if(cancelBtn){
+                        cancelBtn.onclick = async function(){
+                            cancelBtn.disabled = true;
+                            cancelBtn.textContent = "Annullamento...";
+
+                            try{
+                                const res = await fetch(`/jobs/${f.job_id}/cancel`, {
+                                    method: "POST",
+                                    cache: "no-store"
+                                });
+
+                                const data = await res.json();
+
+                                if(!res.ok || !data.success){
+                                    cancelBtn.disabled = false;
+                                    cancelBtn.textContent = "Annulla";
+                                    showApiError(data.error || "Errore durante annullamento job");
+                                }
+                            } catch(err){
+                                console.error("Errore annullamento job:", err);
+                                cancelBtn.disabled = false;
+                                cancelBtn.textContent = "Annulla";
+                                showApiError("Errore durante annullamento job");
+                            }
+                        };
+                    }
+                }
+            });
+        })
+        .catch(err => {
+            console.error("Errore uploadFiles:", err);
+
+            files.forEach(f => {
+                sessionUploadedFiles.delete(normalizeFileName(f.name));
+
+                const li = findFileLi(f.name);
+                if(li && li.parentNode){
+                    li.remove();
+                }
+            });
+
+            showUploadError(
+				"Caricamento non disponibile al momento. Riprova tra qualche secondo."
+			);
+        });
+}
+
+    // --- WebSocket ---
+    const ws = new WebSocket("ws://" + window.location.host + "/ws/docs");
+
+    ws.onclose = function(){
+        console.warn("WebSocket chiuso, riallineo la UI...");
+        scheduleRefreshUI();
+    };
+    
+
+    ws.onmessage = async function(event){
+    const msg = JSON.parse(event.data);
+    const li = msg.file_name ? findFileLi(getBaseName(msg.file_name)) : null;
+
+    if(msg.event === "job_queued"){
+        let li = findFileLi(getBaseName(msg.file_name));
+
+        if(!li){
+            li = document.createElement("li");
+            li.dataset.name = getBaseName(msg.file_name);
+            li.className = "file-item";
+            li.innerHTML = `
+                <span class="file-name">📄 ${getBaseName(msg.file_name)}</span>
+                <button class="btn-cancel-upload">Annulla</button>
+                <div class="file-progress"><div></div></div>
+            `;
+            fileListUI.appendChild(li);
+        }
+
+        const progressDiv = li.querySelector('.file-progress div');
+        progressDiv.style.width = "2%";
+        progressDiv.className = "uploading";
+        progressDiv.style.background = "";
+
+        let statusText = li.querySelector('.status-text');
+        if(!statusText){
+            statusText = document.createElement('span');
+            statusText.className = 'status-text';
+            statusText.style.marginLeft = '10px';
+            li.appendChild(statusText);
+        }
+
+        statusText.textContent = msg.message || "📥 In coda…";
+        statusText.classList.remove("done", "error-text");
+        statusText.style.color = "";
+        statusText.style.fontWeight = "";
+    }
+
+    else if(msg.event === "job_progress" && li){
+        const progressDiv = li.querySelector('.file-progress div');
+        progressDiv.style.transition = "width 0.4s ease";
+        progressDiv.style.width = (msg.progress || 0) + "%";
+
+        let statusText = li.querySelector('.status-text');
+        
+        const cancelBtn = li ? li.querySelector(".btn-cancel-upload") : null;
+
+        if(msg.status === "error" || msg.status === "completed" || msg.status === "cancelled"){
+            if(cancelBtn){
+                cancelBtn.remove();
+            }
+        }
+
+        if(!statusText){
+            statusText = document.createElement('span');
+            statusText.className = 'status-text';
+            statusText.style.marginLeft = '10px';
+            li.appendChild(statusText);
+        }
+
+        progressDiv.style.background = "";
+
+        if(msg.status === "error"){
+            progressDiv.className = getProgressClassByPhase(msg.phase, "error");
+            statusText.textContent = msg.message || "❌ Errore";
+            statusText.style.color = "#dc3545";
+            statusText.style.fontWeight = "bold";  
+            
+
+            setTimeout(() => {
+                if(li && li.parentNode){
+                    li.remove();
+                }
+            }, 10000);
+        }
+        else {
+            progressDiv.className = getProgressClassByPhase(msg.phase, msg.status);
+
+            const phaseLabels = {
+                "queued": "📥 In coda…",
+                "recovered": "♻️ Job recuperato dopo riavvio…",
+                "start": "📤 Avvio job…",
+                "Preparazione documento": "🔄 Preparazione documento…",
+                "Estrazione dati (OCR)": "📝 Estrazione dati…",
+                "Generazione output": "⚙️ Generazione output…",
+                "Finalizzazione": "⏳ Finalizzazione…"
+            };
+
+        statusText.textContent = phaseLabels[msg.phase] || msg.message || "⏳ Elaborazione in corso…";
+        statusText.classList.remove("done", "error-text");
+        statusText.style.color = "";
+        statusText.style.fontWeight = "";
+        }
+    }
+
+else if(msg.event === "document_ready_fast"){
+    const docId = msg.doc.id;
+    const fileName = getBaseName(msg.doc.file_path);
+
+    if(deletingDocIds.has(String(docId)) || deletingFileNames.has(String(fileName))){
+        return;
+    }
+
+    const li = findFileLi(fileName);
+
+    if(li){
+        li.classList.add("completed");
+
+        const progressDiv = li.querySelector('.file-progress div');
+        if(progressDiv){
+            progressDiv.style.width = "100%";
+            progressDiv.className = "completed";
+        }
+
+        let statusText = li.querySelector('.status-text');
+        if(!statusText){
+            statusText = document.createElement('span');
+            statusText.className = 'status-text';
+            li.appendChild(statusText);
+        }
+
+        statusText.textContent = "✅ Documento pronto";
+        statusText.classList.remove("error-text");
+        statusText.classList.add("done");
+        statusText.style.color = "";
+        statusText.style.fontWeight = "";
+
+        const cancelBtn = li.querySelector(".btn-cancel-upload");
+        if(cancelBtn){
+            cancelBtn.remove();
+        }
+
+        const bar = li.querySelector('.file-progress');
+        if(bar){
+            bar.style.display = "none";
+        }
+
+        li.style.opacity = "1";
+        li.style.transition = "opacity 0.5s ease";
+
+        setTimeout(() => {
+            if(li){
+                li.style.opacity = "0";
+            }
+        }, 9500);
+
+        setTimeout(() => {
+            if(li && li.parentNode){
+                li.remove();
+            }
+        }, 10000);
+    }
+}
+
+    else if(msg.event === "document_ready_full"){
+    const doc = msg.doc;
+    const fileName = getBaseName(doc.file_path);
+
+    if(deletingDocIds.has(String(doc.id)) || deletingFileNames.has(String(fileName))){
+        return;
+    }
+
+    await syncTableAndStats(doc.id);
+}
+
+    else if(msg.event === "document_deleted"){
+        sessionUploadedFiles.delete(normalizeFileName(msg.file_name));
+
+        const li = msg.file_name ? findFileLi(getBaseName(msg.file_name)) : null;
+
+        if(li && li.parentNode){
+            li.remove();
+        }
+
+        if($('#modal').is(':visible')){
+            $('#modal').hide();
+        }
+    }
+
+else if(msg.event === "job_cancelled"){
+    sessionUploadedFiles.delete(normalizeFileName(msg.file_name));
+
+    const li = msg.file_name ? findFileLi(getBaseName(msg.file_name)) : null;
+
+    if(li){
+        const progressDiv = li.querySelector('.file-progress div');
+        if(progressDiv){
+            progressDiv.className = "error";
+            progressDiv.style.width = "100%";
+        }
+
+        let statusText = li.querySelector('.status-text');
+        if(!statusText){
+            statusText = document.createElement('span');
+            statusText.className = 'status-text';
+            statusText.style.marginLeft = '10px';
+            li.appendChild(statusText);
+        }
+
+        statusText.textContent = "⛔ Caricamento annullato";
+        statusText.classList.remove("done");
+        statusText.classList.add("error-text");
+        statusText.style.color = "#dc3545";
+        statusText.style.fontWeight = "bold";
+
+        const cancelBtn = li.querySelector(".btn-cancel-upload");
+        if(cancelBtn){
+            cancelBtn.remove();
+        }
+
+        setTimeout(() => {
+            if(li && li.parentNode){
+                li.remove();
+            }
+        }, 2500);
+    }
+}
+    };
+
+function renderEditableFields(doc){
+    const campi = doc.campi || {};
+    let html = '<div id="editableFieldsContainer" style="margin-top:15px;">';
+
+    for(const [k, v] of Object.entries(campi)){
+        const value = v == null ? "" : String(v);
+        const safeKey = escapeHtml(k);
+        const safeValue = escapeHtml(value);
+
+        const isLongText = value.length > 120 || value.includes("\n");
+
+        html += `
+            <div class="edit-field-row" style="margin-bottom:12px; padding:10px; border:1px solid #e5e7eb; border-radius:8px; background:#f9fafb;">
+                <label style="display:block; font-weight:700; margin-bottom:6px; color:#374151;">
+                    ${safeKey}
+                </label>
+                ${
+                    isLongText
+                    ? `<textarea 
+                            class="doc-edit-field" 
+                            data-field-name="${safeKey}"
+                            rows="3"
+                            style="width:100%; padding:8px; border:1px solid #d1d5db; border-radius:6px; resize:vertical;"
+                       >${safeValue}</textarea>`
+                    : `<input 
+                            type="text"
+                            class="doc-edit-field"
+                            data-field-name="${safeKey}"
+                            value="${safeValue}"
+                            style="width:100%; padding:8px; border:1px solid #d1d5db; border-radius:6px;"
+                       >`
+                }
+            </div>
+        `;
+    }
+
+    html += '</div>';
+    return html;
+}
+
+window.saveDocumentFields = async function(docId){
+    console.log("[SAVE_FIELDS] docId=", docId);
+
+    const inputs = document.querySelectorAll(".doc-edit-field");
+    const fields = {};
+
+    inputs.forEach(input => {
+        const fieldName = input.dataset.fieldName;
+        fields[fieldName] = input.value;
+    });
+
+    console.log("[SAVE_FIELDS] payload=", fields);
+
+    const saveBtn = document.getElementById("saveFieldsBtn");
+    if(saveBtn){
+        saveBtn.disabled = true;
+        saveBtn.classList.add("saving");
+        saveBtn.textContent = "Salvataggio...";
+    }
+
+    try{
+        const res = await fetch(`/documents/${docId}/update_fields`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                fields: fields
+            })
+        });
+
+        const data = await res.json();
+
+        if(!res.ok || !data.success){
+            showTableActionError(data.error || "Errore durante il salvataggio dei campi.");
+            return;
+        }
+
+        showTemporaryStatus("✅ Campi aggiornati con successo");
+
+        if(saveBtn){
+            saveBtn.textContent = "Salvato!";
+            setTimeout(() => {
+                saveBtn.textContent = "Salva modifiche";
+                saveBtn.disabled = false;
+                saveBtn.classList.remove("saving");
+            }, 800);
+        }
+    }
+    catch(err){
+        console.error("Errore saveDocumentFields:", err);
+        showTableActionError("Errore durante il salvataggio dei campi.");
+
+        if(saveBtn){
+            saveBtn.disabled = false;
+            saveBtn.classList.remove("saving");
+            saveBtn.textContent = "Salva modifiche";
+        }
+    }
+};
+
+window.showDetails = async function(docId){
+    fetch('/documents/' + docId + '?t=' + Date.now())
+        .then(r => r.json())
+        .then(doc => {
+            if(!doc || doc.success === false){
+                showTableActionError(doc?.error || "Errore nel caricamento dei dettagli del documento.");
+                return;
+            }
+
+            const filename = getBaseName(doc.file_path);
+            const fileExt = filename.split('.').pop().toLowerCase();
+            const fileUrl = "/uploads/" + encodeURIComponent(filename) + "?t=" + Date.now();
+
+			let previewHtml = "";
+
+			if(fileExt === 'pdf'){
+				previewHtml = `<iframe src="${fileUrl}" width="100%" height="650px" style="border:1px solid #ccc; border-radius:8px;"></iframe>`;
+			}
+			else if(['png','jpg','jpeg','gif','webp','bmp'].includes(fileExt)){
+				previewHtml = `<img src="${fileUrl}" style="max-width:100%; max-height:650px; display:block; border:1px solid #ccc; border-radius:8px;">`;
+			}
+			else if(['docx','doc'].includes(fileExt)){
+				previewHtml = `
+					<div style="padding:30px; border:1px dashed #cbd5e1; border-radius:12px; background:#f8fafc; text-align:center;">
+						<div style="font-size:42px; margin-bottom:10px;">📄</div>
+						<div style="font-weight:700; margin-bottom:8px;">Anteprima Word non disponibile nel browser</div>
+						<div style="color:#64748b; font-size:13px; margin-bottom:14px;">
+							Il documento è stato letto correttamente, ma i file Word non possono essere mostrati direttamente come PDF o immagini.
+						</div>
+						<a href="${fileUrl}" target="_blank" style="color:#2563eb; font-weight:700;">
+							Apri / scarica documento originale
+						</a>
+					</div>
+				`;
+			}
+			else{
+				previewHtml = `
+					<div style="padding:30px; border:1px dashed #cbd5e1; border-radius:12px; background:#f8fafc; text-align:center;">
+						Anteprima non disponibile per questo formato.
+					</div>
+				`;
+			}
+
+			let html = `
+				<h3 style="margin-top:0;">${doc.tipo_documento} - ${filename}</h3>
+
+				<div class="details-layout">
+					<div class="details-left">
+						${previewHtml}
+					</div>
+
+					<div class="details-right">
+						<div class="details-right-header">
+							<div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
+								<h4 style="margin:0;">Campi estratti</h4>
+								<button 
+									id="saveFieldsBtn"
+									onclick="saveDocumentFields(${doc.id})"
+									style="
+										padding:8px 14px;
+										border:none;
+										border-radius:8px;
+										background:#16a34a;
+										color:white;
+										font-weight:600;
+										cursor:pointer;
+									"
+								>
+									Salva modifiche
+								</button>
+							</div>
+						</div>
+
+						${renderEditableFields(doc)}
+
+				
+					</div>
+				</div>
+			`;
+
+			html += `
+				<p style="margin-top:15px;">
+					<a href="/download/${filename}" style="color:#28a745; font-weight:bold;">
+						Scarica Word
+					</a>
+				</p>
+			`;
+
+            $('#modal_body').html(html);
+            $('#modal').show();
+        })
+        .catch(err => {
+            console.error("Errore showDetails:", err);
+            showTableActionError("Errore nel caricamento dei dettagli del documento.");
+        });
+};
+    $("#close").click(()=>{ $('#modal').hide(); });
+    $(window).click((event)=>{ if(event.target.id=='modal') $('#modal').hide(); });
+
+window.deleteDocument = async function(button, docId, fileName){
+    const conferma = confirm("Vuoi davvero eliminare questo documento?");
+    if(!conferma) return;
+
+    const btn = button;
+    setDeleteButtonLoading(btn, true);
+
+    if($('#modal').is(':visible')){
+        $('#modal').hide();
+    }
+
+    try{
+        const res = await fetch(`/documents/${docId}`, {
+            method: "DELETE",
+            cache: "no-store"
+        });
+
+        const data = await res.json();
+
+        if(!res.ok || !data.success){
+            setDeleteButtonLoading(btn, false);
+			showTableActionError(data.error || "Errore durante l'eliminazione del documento.");
+            return;
+        }
+
+        await syncTableAndStats();
+
+        const hasTableFilters =
+            getSelectedTipiDocumento().length > 0 ||
+            !!($('#filterDateFrom').val() || '').trim() ||
+            !!($('#filterDateTo').val() || '').trim();
+
+        const hasAiSearch = !!($('#aiQuery').val() || '').trim();
+
+        if(hasTableFilters || hasAiSearch){
+            table.draw(false);
+            updateDashboardFromTable();
+        }
+
+    } catch(err){
+        console.error("Errore deleteDocument:", err);
+        setDeleteButtonLoading(btn, false);
+
+        await syncTableAndStats();
+
+        const hasTableFilters =
+            getSelectedTipiDocumento().length > 0 ||
+            !!($('#filterDateFrom').val() || '').trim() ||
+            !!($('#filterDateTo').val() || '').trim();
+
+        const hasAiSearch = !!($('#aiQuery').val() || '').trim();
+
+        if(hasTableFilters || hasAiSearch){
+            table.draw(false);
+            updateDashboardFromTable();
+        }
+
+		showTableActionError("Errore durante l'eliminazione del documento.");
+    }
+};
+function updateDashboardFromTable(){
+    const rowsData = table.rows({ search: 'applied' }).data().toArray();
+    const info = table.page.info();
+
+    const tipo_count = {};
+    const date_count = {};
+    let lastUploadRaw = null;
+
+    rowsData.forEach(row => {
+        const rawTipo = extractTipoDocumento(row[2] || "");
+        const dataCreazione = row[6] || "";
+
+        const tipoNormalized = String(rawTipo).trim().toLowerCase();
+
+        const tipo =
+            tipoNormalized === "-" || tipoNormalized === ""
+                ? "-"
+                : tipoNormalized.charAt(0).toUpperCase() + tipoNormalized.slice(1);
+
+        tipo_count[tipo] = (tipo_count[tipo] || 0) + 1;
+
+        if(dataCreazione){
+            const day = dataCreazione.substring(0, 10);
+            date_count[day] = (date_count[day] || 0) + 1;
+
+            if(!lastUploadRaw || dataCreazione > lastUploadRaw){
+                lastUploadRaw = dataCreazione;
+            }
+        }
+    });
+
+    const tipoEntries = Object.entries(tipo_count)
+        .sort((a, b) => b[1] - a[1]);   // alto -> basso
+
+    const tipoLabels = tipoEntries.map(item => item[0]);
+    const tipoData = tipoEntries.map(item => item[1]);
+
+
+    const dateLabels = Object.keys(date_count).sort();
+    const dateData = dateLabels.map(d => date_count[d]);
+
+    if(chartTipo){ chartTipo.destroy(); }
+    chartTipo = new Chart(document.getElementById('chartTipo').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: tipoLabels,
+            datasets: [{
+                label: 'Documenti per Tipo',
+                data: tipoData,
+                backgroundColor: '#007BFF'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        maxRotation: 35,
+                        minRotation: 20
+                    }
+                }
+            }
+        }
+    });
+
+    if(chartDate){ chartDate.destroy(); }
+    chartDate = new Chart(document.getElementById('chartDate').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: dateLabels,
+            datasets: [{
+                label: 'Upload giornalieri',
+                data: dateData,
+                borderColor: '#28a745',
+                backgroundColor: 'rgba(40,167,69,0.2)',
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: true } }
+        }
+    });
+
+    const totalFiltered = info.recordsDisplay;
+    $("#kpi_total").text(totalFiltered);
+
+    const today = new Date().toISOString().slice(0,10);
+    $("#kpi_today").text(date_count[today] || 0);
+
+    let maxTipo = "-", maxVal = 0;
+    for(const [k, v] of Object.entries(tipo_count)){
+        if(v > maxVal){
+            maxVal = v;
+            maxTipo = k;
+        }
+    }
+
+    if(totalFiltered === 0){
+        $("#kpi_tipo").text("Nessun risultato");
+        $("#kpi_last").text("—");
+        return;
+    }
+
+    $("#kpi_tipo").text(maxTipo);
+
+    if(lastUploadRaw){
+        const dt = new Date(lastUploadRaw.replace(" ", "T"));
+        if(!isNaN(dt.getTime())){
+            const dd = String(dt.getDate()).padStart(2, '0');
+            const mm = String(dt.getMonth() + 1).padStart(2, '0');
+            const yyyy = dt.getFullYear();
+            const hh = String(dt.getHours()).padStart(2, '0');
+            const mi = String(dt.getMinutes()).padStart(2, '0');
+            const ss = String(dt.getSeconds()).padStart(2, '0');
+            $("#kpi_last").text(`${dd}/${mm}/${yyyy}, ${hh}:${mi}:${ss}`);
+        } else {
+            $("#kpi_last").text(lastUploadRaw);
+        }
+    } else {
+        $("#kpi_last").text("—");
+    }
+}
+
+
+    let chartsRequestId = 0;
+
+    
+});
+
+function renderAiSourceBadge(doc){
+    if(!doc || !doc.semantic_source){
+        return "";
+    }
+
+    const label = doc.semantic_source === "chunk"
+        ? "📍 Match nel contenuto"
+        : "📄 Match sul documento";
+
+    return `<span class="ai-source-badge">${label}</span>`;
+}
+
+
+
+
+
+function normalizeExplanationLabel(label){
+    const map = {
+        "Match persona forte": "Nome trovato",
+        "Match persona medio": "Dati compatibili",
+        "Match persona debole": "Riferimento trovato",
+        "Nome completo riconosciuto": "Nome completo trovato",
+        "Persona confermata da OCR": "Contenuto verificato",
+        "Contesto rilevante nel contenuto": "Contenuto coerente",
+        "Tipo documento coerente": "Documento coerente",
+        "Tipo documento non coerente": "Tipo diverso",
+        "Match testuale presente": "Testo compatibile",
+        "Corrispondenza solo nel nome file": "Solo nome file",
+        "Nome file parzialmente coerente": "Nome file compatibile"
+    };
+
+    return map[label] || label;
+}
+
+function normalizePrimaryReason(label){
+    const map = {
+        "Persona e tipo documento coerenti": "Documento corretto per la ricerca",
+        "Persona trovata in campo forte": "Nome trovato nel documento",
+        "Persona trovata in campo medio": "Dati persona compatibili",
+        "Persona trovata tramite OCR": "Nome trovato nel contenuto OCR",
+        "Tipo documento coerente": "Tipo documento coerente",
+        "Match testuale": "Contenuto coerente con la ricerca",
+        "Corrispondenza generica": "Corrispondenza rilevata"
+    };
+
+    return map[label] || label;
+}
+
+function renderMatchExplanation(doc){
+    if(!doc || !doc.match_primary_reason){
+        return "";
+    }
+
+    const confidenceRaw = String(doc.match_confidence_label || "").toLowerCase();
+    let confidenceClass = "low";
+	let confidenceText = "Attendibilità bassa";
+
+	if(confidenceRaw === "alta"){
+		confidenceText = "Attendibilità alta";
+	} else if(confidenceRaw === "media"){
+		confidenceText = "Attendibilità media";
+	}
+
+    const normalizedPrimaryReason = normalizePrimaryReason(doc.match_primary_reason);
+
+    let visibleTags = Array.isArray(doc.match_explanations)
+        ? doc.match_explanations
+            .map(normalizeExplanationLabel)
+            .filter((value, index, arr) => arr.indexOf(value) === index)
+        : [];
+
+    if (visibleTags.includes("Nome completo trovato")) {
+        visibleTags = visibleTags.filter(tag => tag !== "Nome trovato");
+    }
+
+    visibleTags = visibleTags.slice(0, 3);
+
+	const tagsHtml = "";
+
+	return `
+		<div class="ai-match-box">
+			<a href="#" class="ai-tech-toggle">Mostra informazioni</a>
+
+			<div class="ai-tech-details">
+				<div class="ai-match-topline">
+					<span class="ai-match-confidence ${confidenceClass}">
+						${confidenceText}
+					</span>
+				</div>
+
+				<div class="ai-match-reason-title">
+					${normalizedPrimaryReason}
+				</div>
+			</div>
+		</div>
+	`;
+}
+function getMainBadge(doc){
+    const conf = String(doc?.match_confidence_label || "").toLowerCase();
+
+    if(conf === "alta"){
+        return "Risultato consigliato";
+    }
+    if(conf === "media"){
+        return "Da verificare";
+    }
+    return "Possibile corrispondenza";
+}
+
+function renderSemanticBadge(doc){
+    if(!doc) return '';
+
+    if(doc.match_type === "text"){
+        return `
+            <span class="semantic-badge badge-semantic-text" title="Trovato per corrispondenza testuale">
+                Match testuale
+            </span>
+        `;
+    }
+
+    const isHybrid =
+        doc.match_type === "hybrid_chunk" ||
+        doc.match_type === "hybrid_doc";
+
+    const isSemantic =
+        doc.match_type === "semantic_chunk" ||
+        doc.match_type === "semantic_doc";
+
+    if(isHybrid || isSemantic){
+        let badgeClass = 'badge-semantic-low';
+
+        if((doc.score || 0) >= 0.80){
+            badgeClass = 'badge-semantic-high';
+        } else if((doc.score || 0) >= 0.60){
+            badgeClass = 'badge-semantic-medium';
+        }
+
+        return `
+            <span class="semantic-badge ${badgeClass}" title="${doc.score_label || ''}">
+                ${doc.score_percent != null ? doc.score_percent + '%' : (doc.score_label || 'Match AI')}
+            </span>
+        `;
+    }
+
+    return '';
+}
+
+function getConfidenceInfo(doc){
+    const conf = String(doc?.match_confidence_label || "").toLowerCase();
+
+    if(conf === "alta"){
+        return { text: "Alta confidenza", className: "high" };
+    }
+    if(conf === "media"){
+        return { text: "Confidenza media", className: "medium" };
+    }
+    return { text: "Da verificare", className: "low" };
+}
+
+function getSourceText(doc){
+    if(doc?.semantic_source === "chunk"){
+        return "Match nel contenuto";
+    }
+    if(doc?.semantic_source === "document"){
+        return "Match sul documento";
+    }
+    return "Risultato AI";
+}
+
+function truncateSnippetHtmlPreserveMarks(html, maxLength = 180){
+    if(!html) return "";
+
+    const temp = document.createElement("div");
+    temp.innerHTML = html;
+
+    let count = 0;
+    let done = false;
+
+    function cloneNodeLimited(node){
+        if(done) return null;
+
+        if(node.nodeType === Node.TEXT_NODE){
+            const text = node.textContent || "";
+            const remaining = maxLength - count;
+
+            if(remaining <= 0){
+                done = true;
+                return null;
+            }
+
+            if(text.length <= remaining){
+                count += text.length;
+                return document.createTextNode(text);
+            }
+
+            count += remaining;
+            done = true;
+            return document.createTextNode(text.slice(0, remaining) + "...");
+        }
+
+        if(node.nodeType === Node.ELEMENT_NODE){
+            const clone = document.createElement(node.tagName.toLowerCase());
+
+            for(const attr of node.attributes){
+                clone.setAttribute(attr.name, attr.value);
+            }
+
+            for(const child of node.childNodes){
+                const limitedChild = cloneNodeLimited(child);
+                if(limitedChild){
+                    clone.appendChild(limitedChild);
+                }
+                if(done) break;
+            }
+
+            return clone;
+        }
+
+        return null;
+    }
+
+    const wrapper = document.createElement("div");
+
+    for(const child of temp.childNodes){
+        const limited = cloneNodeLimited(child);
+        if(limited){
+            wrapper.appendChild(limited);
+        }
+        if(done) break;
+    }
+
+    return wrapper.innerHTML;
+}
+
+function renderAiSnippet(doc){
+    if(!doc || !doc.best_chunk_preview_html){
+        return "";
+    }
+
+    const shortHtml = truncateSnippetHtmlPreserveMarks(doc.best_chunk_preview_html, 180);
+    const fullHtml = doc.best_chunk_preview_html;
+    const hasLongText = shortHtml !== fullHtml;
+
+    return `
+        <div class="ai-snippet">
+            <strong>Estratto trovato</strong>
+            <span class="snippet-short">${shortHtml}</span>
+            <span class="snippet-full" style="display:none;">${fullHtml}</span>
+            ${hasLongText ? `<a href="#" class="expand-snippet">mostra altro</a>` : ""}
+            ${doc.best_chunk_page != null ? `<div class="ai-page-info">Pagina ${Number(doc.best_chunk_page)}</div>` : ""}
+        </div>
+    `;
+}
+
+function getSimpleReason(doc){
+    const map = {
+        "Persona e tipo documento coerenti": "Questo documento contiene le informazioni più coerenti con la ricerca.",
+        "Persona trovata in campo forte": "Il nominativo cercato è stato trovato in un campo principale del documento.",
+        "Persona trovata in campo medio": "Sono presenti dati compatibili con il nominativo cercato.",
+        "Persona trovata tramite OCR": "Il nominativo cercato è stato trovato nel contenuto del documento.",
+        "Tipo documento coerente": "Il tipo di documento è coerente con la richiesta.",
+        "Match testuale": "Il contenuto del documento è coerente con i termini cercati.",
+        "Corrispondenza generica": "È stata trovata una corrispondenza compatibile con la ricerca."
+    };
+
+    return map[doc?.match_primary_reason] || "È stata trovata una corrispondenza compatibile con la ricerca.";
+}
+
+function renderFileCell(doc, fileName, mode){
+    if(mode !== "semantic"){
+        return `<span class="file-cell-name">${fileName}</span>`;
+    }
+
+    const confidence = getConfidenceInfo(doc);
+    const sourceText = getSourceText(doc);
+    const pageText = doc?.best_chunk_page != null ? `Pagina ${Number(doc.best_chunk_page)}` : "";
+
+    return `
+        <div class="file-cell-wrap">
+            <div class="file-header">
+                <div class="file-cell-name">${fileName}</div>
+                <span class="ai-confidence-badge ${confidence.className}">
+                    ${confidence.text}
+                </span>
+            </div>
+
+            <div class="ai-result-card">
+                <div class="ai-result-reason">
+                    Questo documento contiene le informazioni più coerenti con la ricerca.
+                </div>
+
+                <div class="ai-result-meta">
+                    <span>${sourceText}</span>
+                    ${pageText ? `<span>${pageText}</span>` : ""}
+                </div>
+
+                <a href="#" class="ai-details-link ai-tech-toggle">Mostra dettagli</a>
+
+                <div class="ai-tech-details">
+                    ${renderAiSnippet(doc)}
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+
 </script>
 
-</body>
-</html>

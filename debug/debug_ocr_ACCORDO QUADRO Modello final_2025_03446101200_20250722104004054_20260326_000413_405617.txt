@@ -1,0 +1,747 @@
+Os
+is0200001 AO L T E
+
+ACCORDO QUADRO
+
+DEL
+
+Altea S.p.A.
+Via Benigno Crespi 24 - 20159 Milano (MI) Cap.Soc. € 1.000.000 i.v.
+T +39 02 82823200 - alteafederation.it P.IVA - C.C_LA.A. / C.F. 01440580031
+
+
+
+Tra
+ALTEA S.p.A, con sede legale in Milano, Via Benigno Crespi 24, capitale sociale di 1000000, iscritta nel
+registro delle imprese di Camera di Commercio di Milano Monza Brianza Lodi, numero di iscrizione MI -
+1753325, Codice Fiscale e Partita IVA 01440580031, in persona del legale rappresentante, Ruscica
+Andrea, nato a Mirabella Imbaccari (CT) il 01/06/1965, C.F. RSCNDR65H01F231O, nella sua qualità di
+Presidente, domiciliato per la carica presso la sede della Società, munito degli occorrenti poteri ( di
+seguito, il "ALTEA")
+e
+14 TEC SRLS con sede legale CASTEL MAGGIORE via VIA GRAMSCI 3, P.I. e Codice Fiscale 03446101200
+in persona del legale rappresentante, domiciliato per la carica presso la sede della Società, munito degli
+occorrenti poteri ( di seguito, il "FORNITORE")
+(di seguito, ALTEA ed il Fornitore saranno anche definiti, congiuntamente, le “Parti” e, singolarmente, la
+“Parte”)
+Premesso che
+1) ALTEA ha necessità di usufruire dei servizi di consulenza informatica;
+2) ALTEA ha manifestato l’intenzione che i richiamati servizi vengano prestati da parte del FORNITORE a
+favore sia della medesima ALTEA.
+3) il Fornitore è idoneo a rispondere alle esigenze di ALTEA;
+4) con la sottoscrizione del presente Accordo Quadro, le Parti intendono disciplinare le modalità, le
+condizioni ed i termini della prestazione dei richiamati servizi da parte del FORNITORE.
+Tutto ciò premesso,
+si conviene e si stipula quanto segue
+1. PREMESSE E ALLEGATI
+1.1 Le premesse e gli allegati costituiscono parte integrante e sostanziale del presente Accordo
+Quadro.
+
+2. OGGETTO
+2.1 ALTEA affida al Fornitore, che accetta, l’incarico di svolgere a favore della medesima ALTEA i servizi
+meglio descritti nell’Allegato sub “A” al presente Accordo Quadro (di seguito, i “Servizi”).
+2.2 I Servizi dovranno essere realizzati da parte del FORNITORE nel rispetto ed in conformità delle
+condizioni, delle modalità e dei termini stabiliti da ALTEA e riportati nell’Allegato sub “B”.
+2.3 Il FORNITORE prende atto ed espressamente accetta che il presente Accordo Quadro non comporta
+alcun obbligo di esclusiva a carico di ALTEA nei confronti del FORNITORE. ALTEA resterà pertanto
+libera di avviare e condurre trattative con altri soggetti in ordine al medesimo oggetto qui trattato.
+3. DURATA
+3.1 Il presente Accordo Quadro avrà durata a decorrere dal 31/12/2025 e cesserà in data 01/08/2025.
+Ogni eventuale rinnovo dovrà essere oggetto di specifico accordo scritto fra le Parti.
+3.2 Resta inteso in ogni caso che ALTEA potrà recedere dal presente contratto in qualsiasi momento, a
+mezzo lettera raccomandata a.r., o con comunicazione via PEC, con preavviso di 30 giorni.
+4. ORDINI DI ACQUISTO E DETERMINAZIONE DEI CORRISPETTIVI
+4.1 Le forniture aventi ad oggetto la prestazione dei Servizi a favore di ALTEA, saranno formalizzate
+esclusivamente per mezzo di Ordini di Acquisto (di seguito, “ODA”).
+4.2 Le Parti convengono che gli ODA andranno emessi con un numero identificativo, che dovrà essere
+indicato sulle relative fatture, e dovranno riportare un espresso richiamo al presente Accordo Quadro
+ed alla disciplina da esso stabilita.
+4.3 Non saranno accettate fatture emesse sulla base di altri documenti o comunicazioni.
+4.4 Le Parti convengono che i corrispettivi per la prestazione dei Servizi sono riportati nell’Allegato sub
+“C”.
+4.5 ALTEA avrà diritto di verificare e di richiedere al FORNITORE tutte le informazioni necessarie e/o
+ritenute da ALTEA necessarie e/o opportune in merito allo stato di avanzamento degli incarichi
+oggetto del presente Accordo Quadro ed alle modalità di svolgimento dei Servizi. Al riguardo, il
+FORNITORE si impegna a rendere, su richiesta di ALTEA, ogni comunicazione concernente lo stato
+di avanzamento degli incarichi oggetto del presente Accordo Quadro.
+4.6 Le Parti convengono altresì che, al raggiungimento delle soglie di fatturato annuo determinate
+nell’Allegato sub “D”, ALTEA avranno diritto a vedersi riconosciuto dal FORNITORE uno sconto, la
+cui determinazione è contenuta nel medesimo allegato sub “D”.
+5. MODALITÀ DI FATTURAZIONE E PAGAMENTO
+5.1 Le Parti convengono che, sulle fatture relative alla prestazione dei Servizi e su ogni altro documento
+di addebito, dovrà essere riportato il numero degli ODA emessi da ALTEA.
+5.2 Tutte le fatture saranno pagate da ALTEA, secondo le modalità indicate nell’Allegato sub “E”, ed in
+ogni caso previa regolare presentazione, da parte del Fornitore, della Documentazione (come di
+seguito definita).
+
+5.3 Le fatture di cortesia (se da Voi previsto invio) dovranno essere inviate all’indirizzo purchase-
+services@alteanet.it attenzione dell’Ufficio Purchase.
+6. RESPONSABILI DELL’ACCORDO QUADRO
+6.1 Le Parti convengono che tutti i contatti tra ALTEA ed il FORNITORE in relazione al presente Accordo
+Quadro e tutte le determinazioni relative saranno presi da persone i cui nominativi dovranno essere
+comunicati per iscritto.
+6.2 ALTEA riconosce quale proprio rappresentante al compimento di tutti gli atti in relazione al presente
+Accordo Quadro, il sig.CASIRAGHI LUDOVICA,
+6.3 Il FORNITORE riconosce esclusivamente, quale proprio rappresentante al compimento di tutti gli atti
+in relazione al presente Accordo Quadro, il sig.
+6.4 Le Parti si impegnano a mantenere strettamente riservati l’esistenza e il contenuto del presente
+Accordo Quadro e tutte le altre informazioni comunque e in qualunque maniera ricevute in relazione
+al presente Accordo Quadro (le “Informazioni Confidenziali”) e faranno in modo che tale impegno
+sia rispettato anche dai loro amministratori, dipendenti e consulenti ai quali le Informazioni
+Confidenziali siano state comunicate.
+6.5 Le Parti adotteranno ogni necessaria precauzione ai fini di salvaguardare la riservatezza e segretezza
+delle Informazioni Confidenziali e di impedire la loro rivelazione a terzi, restando inteso che non
+saranno ritenute inadempienti alle disposizioni di questo articolo 7 per effetto di comunicazioni
+eseguite in ottemperanza alle disposizioni contenute in qualsiasi norma o regolamento promulgato
+da autorità governative, di controllo o di borsa aventi giurisdizione sulle Parti in relazione alla
+esecuzione della presente scrittura ed alle operazioni in essa previste.
+6.6 Ogni informazione pubblicitaria o comunicazione scritta ed orale concernente gli ODA ed i relativi
+dettagli è soggetta al previo consenso scritto di ALTEA.
+7. OBBLIGHI DEL FORNITORE
+7.1 Fermo restando quanto disposto dal precedente articolo 2, il FORNITORE presterà i Servizi
+attenendosi ai più alti standard di diligenza, con organizzazione dei mezzi e risorse necessari, con
+esercizio proprio del potere organizzativo e gestione a proprio rischio, adempiendo con esattezza
+alle obbligazioni che ne derivano, secondo buona fede e mantenendo i più alti livelli qualitativi.
+7.2 Il FORNITORE si impegna altresì a fornire a ALTEA, la seguente documentazione (di seguito, la
+“Documentazione”):
+a) ai sensi e per gli effetti di cui all’articolo 29, comma 2, del D.Lgs. n. 276/2003, la documentazione
+attestante la regolarità retributiva, assicurativa e contributiva nei confronti dei propri dipendenti.
+7.3 Il FORNITORE si impegna a trasmettere mensilmente a ALTEA (indirizzo mail purchase-
+services@alteanet.it) la Documentazione unitamente alle eventuali fatture di cortesia relative alla
+prestazione dei Servizi e ad ogni altro documento di addebito di cui al precedente articolo 5,
+restando inteso che, i dati contenuti nella Documentazione dovranno risultare di volta in volta
+aggiornati sino alla data della suddetta trasmissione, fatto salvo nel solo caso di presentazione del
+Documento Unico di Regolarità Contributiva avente validità trimestrale.
+7.4 Infine, il FORNITORE si impegna ad adempiere, qualora ai Servizi oggetto del presente Accordo
+Quadro sia applicabile la relativa normativa, agli obblighi previsti dall’articolo 26 del D.lgs. n.
+
+81/2008, in particolar modo al fine di evitare l’operare della solidarietà di cui al comma 4 del
+medesimo articolo.
+7.5 Il FORNITORE si impegna a tenere indenne e manlevata ALTEA da ogni pretesa che dovesse essere
+sollevata nei confronti di quest’ultima dai dipendenti e/o collaboratori del FORNITORE ovvero dagli
+enti di riscossione fiscale, assicurativa e/o previdenziale (pubblici e privati) in ragione dei Servizi
+oggetto del presente Accordo Quadro, ed in particolare in relazione a:
+(a) pretese salariali o normative che dovessero essere avanzate verso ALTEA in forza del vincolo di
+solidarietà o comunque in virtù di violazioni delle norme di legge ed in particolare del D.Lgs. n.
+276/2003 e successive modificazioni nella misura in cui si riveleranno applicabili al rapporto
+disciplinato dal presente Contratto;
+(b) richieste patrimoniali e/o costi sostenuti (ivi incluse le spese legali) derivanti da eventuali
+domande avanzate dai lavoratori del FORNITORE e/o delle imprese da quest’ultimo incaricate,
+nei confronti di ALTEA, ivi incluse eventuali conseguenze patrimoniali derivanti da una domanda
+di accertamento di subordinazione avanzata dai predetti lavoratori;
+(c) violazioni della normativa e della contrattazione collettiva applicabile.
+7.6 Il FORNITORE si impegna a tenere indenne e manlevata ALTEA per ogni danno, costo, onere e spesa,
+incluse eventuali spese legali, derivanti dallo svolgimento dei Servizi quali, a titolo esemplificativo e
+non esaustivo, eventuali ritardi, interruzioni, malfunzionamenti, dispersioni, errori o omissioni.
+7.7 Resta inteso che le disposizioni di cui al precedente articolo 8.6 resteranno efficaci anche alla
+scadenza o cessazione di efficacia del presente Contratto per qualsiasi motivo intervenuta.
+8. PROPRIETA’ INTELLETTUALE
+8.1 Si conviene che ALTEA sarà titolare esclusivo – a titolo definitivo e senza necessità di ulteriore
+corrispettivo – dei diritti di autore e di ogni altro diritto di proprietà industriale e intellettuale in genere
+relativo a qualsiasi materiale prodotto dal Fornitore e/o dal suo personale nell’esecuzione degli
+stessi, così come l’esclusivo diritto di sfruttamento commerciale.
+9. CESSIONE DEL CONTRATTO
+10.1 Il FORNITORE non potrà cedere a terzi né il presente Accordo Quadro né l’esecuzione dei singoli
+ODA, né tanto meno i diritti di credito derivanti dai medesimi, senza il preventivo consenso scritto di
+ALTEA.
+10.2 La violazione di tale impegno legittimerà ALTEA alla risoluzione di diritto del presente Accordo
+Quadro ai sensi e per gli effetti dell’art. 1456 del Codice civile secondo quanto previsto dal
+successivo articolo 12, impregiudicato il risarcimento del danno.
+10. FORNITURA LIBERA DA VINCOLI
+11.1 Il FORNITORE garantisce che sui Servizi forniti a ALTEA nell’ambito del presente Accordo Quadro,
+nessun terzo vanta, né può vantare, alcun diritto.
+
+11.2 Fermi restando tutti i diritti, rimedi ed azioni spettanti a ALTEA in forza del presente Accordo
+Quadro e della legge, Il FORNITORE si impegna a garantire e manlevare ALTEA in relazione ad
+ogni e qualsivoglia costo, perdita, onere o danno dovesse derivare alle stesse in dipendenza di
+diritti vantati da terzi sui Servizi.
+11. DIFFIDA AD ADEMPIERE E CLAUSOLA RISOLUTIVA ESPRESSA
+12.1 E’ facoltà di ALTEA, in caso di inadempimento da parte del FORNITORE degli obblighi previsti nel
+presente Accordo Quadro ovvero negli ODA che saranno eseguiti ai sensi del presente Accordo
+Quadro, procedere mediante diffida ad adempiere ai sensi e per gli effetti dell’art. 1454 c.c., a
+mezzo lettera raccomandata con avviso di ricevimento, nella quale fisserà un congruo termine
+entro il quale il FORNITORE dovrà adempiere alle obbligazioni oggetto di violazione e segnalerà
+che, decorso inutilmente tale termine, l’Accordo Quadro si intenderà risolto ex art. 1454 c.c..
+12.2 Il presente Accordo Quadro potrà essere inoltre risolto di diritto da parte di ALTEA, ai sensi e per
+gli effetti di cui all’art. 1456 c.c., mediante comunicazione scritta da inviarsi al FORNITORE a mezzo
+lettera raccomandata con avviso di ricevimento con la quale dichiara di avvalersi della presente
+clausola, in caso di violazione da parte del FORNITORE degli obblighi in capo ad esso previsti dai
+precedenti articoli: 8, 10 e 11.
+12. MODIFICHE O INTEGRAZIONI
+13.1 Ogni modifica o integrazione al presente Accordo Quadro dovrà essere concordata fra le Parti e
+risultare da apposito atto scritto.
+13. ALTRI ACCORDI
+14.1 Il presente Accordo Quadro annulla e sostituisce ogni altra precedente intesa, orale o scritta,
+eventualmente intervenuta fra ALTEA e il FORNITORE in ordine allo stesso oggetto e costituisce la
+manifestazione integrale degli accordi conclusi fra le Parti in merito a tale oggetto.
+15 TOLLERANZA ALL'INADEMPIMENTO
+15.1 La tolleranza di una delle Parti all'inadempimento di quanto indicato nel presente Accordo Quadro
+non costituisce in alcun caso rinuncia o modifica ai corrispettivi diritti.
+16 FORO COMPETENTE
+16.1 Per ogni controversia in ordine al presente Accordo Quadro, comprese quelle inerenti alla sua
+esecuzione, validità e/o interpretazione, sarà competente in via esclusiva il Foro di Milano, con
+esclusione di ogni altro foro concorrente e/o alternativo.
+17 INFORMATIVA IN TEMA DI TRATTAMENTO DEI DATI PERSONALI
+17.1 Il FORNITORE e ALTEA si impegnano reciprocamente ad osservare tutti gli obblighi derivanti dalla
+normativa applicabile al trattamento di dati personali, con particolare riferimento al Regolamento
+(UE) 2016/679 del Parlamento Europeo e del Consiglio del 27 aprile 2016 “relativo alla protezione
+delle persone fisiche con riguardo al trattamento dei dati personali” (“GDPR”) e al D. Lgs. 196/2003
+(“Codice Privacy”), come integrato e modificato dal D. Lgs. 101/2018.
+17.2 Il Fornitore dichiara di aver ricevuto l’informativa da ALTEA relativa al trattamento dei dati personali
+ai sensi dell’art. 13 del Regolamento (UE) 2016/679 (“GDPR”).
+
+17.3 Relativamente ai Servizi oggetto del presente Accordo, ALTEA, in qualità di Responsabile del
+trattamento per i trattamenti di dati personali effettuati, provvede a nominare il FORNITORE Sub
+Responsabile del trattamento ai sensi dell’art. 28 del GDPR, con apposito atto di nomina allegato al
+presente Accordo, cui si rinvia.
+18 DISPOSIZIONI FINALI
+18.1 Le Parti espressamente dichiarano che il presente Accordo Quadro costituisce accordo discusso e
+valutato in ogni sua singola clausola e liberamente e consapevolmente sottoscritto e che pertanto
+rispetto a nessuna delle condizioni sopra pattuite trovano applicazione le disposizioni degli artt. 1341
+e 1342 c.c.. Per tutto quanto non previsto nel presente Accordo Quadro, le Parti fanno riferimento a
+quanto previsto in materia dal Codice Civile e dalla normativa vigente.
+ALLEGATI
+Fanno parte integrante del presente accordo i seguenti allegati:
+A Servizi oggetto dell’Accordo Quadro.
+B Condizioni, modalità e termini per l’espletamento dei Servizi.
+C Corrispettivi per i Servizi.
+D Soglie di fatturato e criteri di determinazione degli sconti.
+E Modalità di fatturazione.
+F Informativa Privacy ALTEA
+G Atto di nomina a Responsabile del trattamento ai sensi dell’art. 28 del GDPR
+H Condizioni generali di acquisto ALTEA
+14 TEC SRLS ALTEA S.p.A
+___ <firmaFornitore>_________ _________<firmaAzienda>__________________
+
+Allegato A all’Accordo Quadro
+SERVIZI
+1. Descrizione del servizio
+Oggetto del presente contratto è la fornitura di un servizio per attività in economia di da svolgere
+secondo necessità remotamente e/o presso sede clienti.
+
+Allegato B all’Accordo Quadro
+MODALITA’ DI ESECUZIONE
+2. Modalità di esecuzione
+Nell’esecuzione delle attività oggetto del presente ordine, la Società Fornitrice sarà tenuta ad operare al
+meglio delle sue conoscenze ed al più alto livello tecnico ed in ogni caso con il miglior grado di diligenza
+richiesto dalla natura del servizio fornito, assumendo piena responsabilità per ogni pregiudizio che avesse
+a derivare ad Altea a causa di sua colpa, errore, negligenza o imperizia.
+La Società Fornitrice si impegnerà affinché l’incarico sia completato ed i servizi siano resi nel tempo previsto
+e concordato tra le parti, adeguandosi a tutti gli standard e a tutte le procedure qualitative di Altea
+Nell'esecuzione dei servizi, la Società Fornitrice sarà inoltre tenuta al rispetto di tutte le disposizioni di legge
+in materia di lavoro subordinato e di appalto di servizi, manlevando Altea da qualsiasi pretesa o
+rivendicazione di terzi in proposito.
+La Società Fornitrice si impegna altresì a comunicare tempestivamente qualsiasi variazioni societaria che
+dovesse intervenire nel corso del rapporto.
+
+Allegato C all’Accordo Quadro
+CORRISPETTIVI PER I SERVIZI
+Il tariffario utilizzato per quotare i progetti è riportato di seguito:
+EUR 8,000.00 + IVA al giorno
+Le tariffe elencate si riferiscono ad una normale giornata lavorativa (8 ore, stante l’attuale legislazione)
+presso le sedi ALTEA o presso le sedi dei clienti della stessa e si intendono al netto dell’IVA.
+In caso di utilizzo minore di una giornata, la tariffa giornaliera verrà ripartita e suddivisa sulle ore
+effettivamente lavorate.
+Verranno considerate e corrisposte unicamente le giornate effettivamente lavorate e fatturate.
+Eventuali spese di trasferta e/o altre spese di qualsivoglia genere (quali ad esempio viaggi, alberghi,
+spedizioni ecc.) che sosterrete Vi saranno da noi rimborsate, se preventivamente autorizzate e
+dettagliatamente documentate, in base ai seguenti massimali:
+• Pranzo max 10€/gg su media mensile
+• Cena max 25€/gg su media mensile
+• Alberghi max 60€/gg
+• Viaggio in treno in 2a classe
+• Viaggio in aereo in classe economy
+• Rimborso km 0,21 €/km
+• Pedaggi autostradali
+Eventuali variazioni del team di lavoro ovvero delle risorse coinvolte dovranno essere preventivamente
+concordate da ALTEA.
+La modifica di detti criteri sarà valida solo previo accordo scritto tra le Parti.
+
+Allegato D all’Accordo Quadro
+SOGLIE DI FATTURATO E CRITERI DI DETERMINAZIONE DEGLI SCONTI
+Allo scopo di consolidare la nostra fruttuosa e positiva collaborazione e di poter garantire l’utilizzo
+continuativo delle Vostre risorse, con la seguente, siamo a proporVi un piano di REBATE annuale a favore
+di ALTEA S.p.A, come riconoscimento di maggior sconto al raggiungimento di determinate soglie di fatturato
+da parte Vostra.
+Per soglie di fatturato si intende la somma del Vostro fatturato verso il Cliente ALTEA S.p.A: il periodo rilevante
+per il calcolo è Gennaio – Dicembre di ogni anno, partendo dal mese di inizio delle attività come da lettera
+di incarico e fino al mese di conclusione della stessa (tenendo conto anche delle proroghe di incarico).
+Entro il primo trimestre dell’anno successivo a quello che fa da base di calcolo, riceverete da ALTEA S.p.A
+una nota di debito pari alla percentuale come da schema sotto indicato e calcolata sul fatturato di
+competenza annuale delle sole attività (spese di trasferta escluse se rifatturate):
+• Fatturato da 50.000,00 € a 140.000,00 €: rebate applicato del 3% sul fatturato;
+• Fatturato da 140.000,00 € a 250.000,00 €: rebate applicato del 4% sul fatturato;
+• Fatturato oltre 250.000,00 €: rebate applicato del 5% sul fatturato.
+L’ importo della nota di debito calcolata come sopra, verrà da noi dedotto in sede di pagamento delle Vs.
+fatture entro Maggio dell’anno successivo a quello che fa da base di calcolo. Ove non presenti fatture da
+compensare, attenderemo l’incasso della nota di debito, a 30 giorni data fattura fine mese.
+
+Allegato E all’Accordo Quadro
+MODALITA’ DI FATTURAZIONE E PAGAMENTI
+Le Parti convengono che, sulle fatture relative alla prestazione dei Servizi e su ogni altro documento di
+addebito, dovrà essere riportato il numero degli ODA emessi da ALTEA.
+Tutte le fatture saranno pagate da ALTEA tramite bonifico bancario sul conto indicato dal Fornitore, fissata
+in
+giorni data fattura fine mese.
+La fatturazione potrà essere emessa solo dopo la restituzione del presente ordine controfirmato per
+accettazione, e dopo approvazione da parte del responsabile del rapporto di lavoro mensile, indicando il
+codice della commessa sulla quale è stata svolta l’attività di consulenza e il numero di ODA. L’invio della
+fattura dovrà avvenire entro e non oltre il giorno 3 del mese successivo alla prestazione effettuata.
+LA FATTURA DOVRA’ ESSERE INTESTATA ED INVIATA A:
+ALTEA S.p.A
+Via Benigno Crespi 24 – 20159 Milano
+Partita IVA e Cod. Fisc. 01440580031
+Purchase-services@alteanet.it
+PEC: altea@pec.alteanet.it
+Codice SDI: A4707H7
+
+Allegato F all’Accordo Quadro
+Allegato 12.01 - Informativa fornitori servizi – Rev 02
+INFORMATIVA PRIVACY EX ART. 13 – ART. 14 REGOLAMENTO UE 2016/679 – FORNITORI
+1. Chi siamo e quale è lo scopo di questo documento
+Altea Federation, brand sotto il quale società di consulenza aziendale collaborano in un modello
+federativo fornendo ai propri clienti un’ampia offerta di consulenza, soluzioni gestionali e soluzioni
+informatiche innovative, da sempre considera di fondamentale importanza la tutela dei dati personali dei
+propri clienti, di quelli potenziali e di tutti coloro che vogliono relazionarsi con essa, garantendo che
+avvenga nel pieno rispetto delle normative all’uopo predisposte, come da ultimo il Regolamento (UE)
+2016/679.
+Se necessario, la presente informativa potrà essere integrata da un modulo per il rilascio del consenso ai
+sensi e per gli effetti dell’art. 7 del Regolamento, predisposto in base all’utilizzo che verrà eventualmente
+fatto dei Dati Personali.
+2. Chi tratterà i Dati personali
+La società che tratterà i Dati Personali per le finalità di cui al successivo articolo 3 della presente Informativa
+e che, quindi, rivestirà il ruolo di titolare del trattamento secondo la relativa definizione contenuta
+nell’articolo 4 al punto 7) del Regolamento, ‘’la persona fisica o giuridica, l’autorità pubblica, il servizio o
+altro organismo che, singolarmente o insieme ad altri, determina le finalità e i mezzi del trattamento di dati
+personali’’ è:
+ALTEA S.p.A, con sede legale in Milano, Via Benigno Crespi 24, capitale sociale di Euro 1000000, iscritta
+nel registro delle imprese di Camera di Commercio di Milano Monza Brianza Lodi, numero di iscrizione MI
+- 1753325, Codice Fiscale e Partita IVA 01440580031 (di seguito il “Titolare del Trattamento”).
+3. La finalità principale di utilizzo dei Dati Personali – Base giuridica trattamento
+Il Titolare del Trattamento, al fine di consentire l’esecuzione di uno o più contratti, per consentire la fruizione
+di uno specifico servizio nonché per l’adempimento di obblighi legali, ha necessità di raccogliere e trattare
+Dati Personali per le seguenti finalità:
+- l’adempimento di tutte le operazioni imposte da obblighi normativi;
+- le operazioni strettamente connesse e strumentali all’avvio di rapporti contrattuali, ivi compresa
+l’acquisizione di informazioni preliminari alla conclusione del Contratto;
+- la gestione dei rapporti con il Fornitore per attività di amministrazione, contabilità, ordini,
+spedizioni, fatturazione, servizi, gestione dell'eventuale contenzioso;
+- l’ammissione, sulla base del possesso dei requisiti soggettivi e tecnici, a procedure competitive di
+selezione del Fornitore e successiva selezione in rapporto alle necessità della Società;
+- l’iscrizione all’albo Fornitori sulla base delle istruzioni impartite e del possesso dei requisiti
+soggettivi e tecnici richiesti.
+4. Modalità di raccolta dei Dati Personali
+
+Il trattamento dei dati:
+a) avverrà nel pieno rispetto dei principi di riservatezza, correttezza, necessità, pertinenza, liceità e
+trasparenza in modo da garantire la sicurezza e la riservatezza dei dati, mediante l’adozione delle
+misure previste dall’articolo 32 del Regolamento al fine di preservare l'integrità dei dati trattati e
+prevenire l'accesso agli stessi da parte di soggetti non autorizzati.
+b) sarà effettuato da personale incaricato e specializzato con strumenti cartacei, informatici, elettronici e
+con ogni altro tipo di supporto tecnologicamente ritenuto idoneo.
+5. Le categorie dei dati personali raccolti
+I Dati Personali raccolti e trattati dal Titolare del Trattamento sono di natura personale (a titolo
+esemplificativo e non esaustivo: nome, cognome, azienda di appartenenza, indirizzo e-mail, numero di
+telefono).
+Il conferimento dei dati stessi è indispensabile per l’instaurazione del rapporto contrattuale o per la sua
+esecuzione, pertanto, l’eventuale rifiuto a fornirli o al successivo trattamento potrà determinare
+l’impossibilità della scrivente a dar corso ai rapporti contrattuali medesimi.
+6. Eventuale comunicazione dei Dati Personali
+I Dati Personali non saranno oggetto di diffusione, ovvero non ne verrà data conoscenza a soggetti
+indeterminati. Potranno essere invece oggetto di comunicazione a specifici soggetti considerati destinatari
+ai sensi e per gli effetti dell’art. 4 punto 9 del Regolamento.
+In particolare, al fine di svolgere correttamente il Trattamento e perseguire le finalità sopra descritte, i Dati
+Personali potranno essere trattati anche dai seguenti destinatari:
+- personale autorizzato dal Titolare del Trattamento che, sulla base dei ruoli e delle mansioni lavorative
+espletate, tratta dati personali (nei limiti delle loro competenze ed in conformità alle istruzioni ad essi
+impartite dal Titolare stesso);
+- altre società controllate e collegate di Altea Federation;
+- soggetti esterni che collaborano con il Titolare del Trattamento;
+- soggetti che per finalità di emissione di ordini o richieste di informazioni e preventivi debbano fornire
+beni e/o eseguire prestazioni o servizi o a professionisti e/o società incaricati di svolgere attività
+tecniche, di sviluppo, gestionali e amministrativo contabili legati al Titolare del Trattamento da un
+rapporto contrattuale o incarico professionale;
+- ad autorità giudiziarie o enti pubblici, ove richiesto per legge.
+7. Luogo di trattamento ed eventuale trasferimento al di fuori dell’UE
+I Dati Personali verranno trattati dal Titolare del Trattamento all’interno del territorio dell’Unione Europea.
+Qualora per questioni di natura tecnica e/o operativa si renda necessario avvalersi di soggetti al di fuori
+dell’UE, il Titolare del Trattamento provvede alla loro nomina come responsabili del trattamento ai sensi e
+per gli effetti dell’art. 28 del Regolamento, assicurando fin da ora che l’eventuale trasferimento dei dati
+Extra UE, avverrà in conformità alle disposizioni di legge applicabili. Per proteggere i tuoi dati nell’ambito
+di questi trasferimenti, verranno adottate garanzie appropriate, tra cui le decisioni di adeguatezza e le
+clausole contrattuali standard approvate dalla Commissione Europea.
+8. Conservazione e cancellazione dei dati
+I dati personali sono conservati per la gestione del rapporto di fornitura e per l’adempimento degli obblighi
+di legge. Gli stessi dati sono conservati per 10 anni successivamente al termine del contratto di fornitura,
+al fine di dare corso ad eventuali richieste di tutela di diritti ed interessi.
+
+9. Quali sono i diritti dell’Interessato – Rapporti Autorità di controllo
+L’interessato potrà in ogni momento esercitare i diritti previsti dagli artt. da 15 a 22 Regolamenti UE
+2016/679 fra cui:
+a) ricevere conferma dell’esistenza dei propri dati personali, conoscere le finalità del trattamento o il
+loro ambito di circolazione e accedere al loro contenuto;
+b) aggiornare, modificare e/o correggere i propri dati personali;
+c) chiedere la cancellazione, la trasformazione in forma anonima, il blocco dei dati eventualmente
+trattati in violazione di legge o la limitazione del trattamento;
+d) opporsi per motivi legittimi al trattamento dei dati, compresa la profilazione;
+e) opporsi al trattamento di dati a fini di invio di materiale pubblicitario o di vendita diretta o per il
+compimento di ricerche di mercato o di comunicazione commerciale;
+f) revocare il consenso, ove prestato, senza pregiudizio per la liceità del trattamento basata sul
+consenso prestato prima della revoca;
+g) ricevere copia dei dati forniti e chiedere che tali dati siano trasmessi ad un altro titolare del
+trattamento.
+Si sottolinea che il diritto di opposizione dell'interessato al trattamento dei propri dati personali per le
+finalità commerciali e di marketing effettuato attraverso modalità automatizzate di contatto, si estende
+anche a quelle tradizionali restando comunque salva la possibilità per l'Interessato di esercitare tale diritto
+in parte ossia, in tal caso, opponendosi, ad esempio, al solo invio di comunicazioni promozionali effettuato
+tramite strumenti automatizzati.
+Per esercitare i suddetti diritti, basterà contattare il Titolare del Trattamento e nelle seguenti modalità:
+- inviando e-mail a privacy@alteanet.it
+- telefonando a +39 0323 280811
+Qualora l’Interessato ravvisasse una violazione dei propri diritti può rivolgersi all’autorità di controllo
+competente ai sensi dell’art. 77 del GDPR, resta salva la possibilità di rivolgersi direttamente all’autorità
+giudiziaria.
+10. Contatti
+Il Titolare del trattamento è ALTEA S.p.A, con sede legale in Milano, Via Benigno Crespi 24, capitale sociale
+di Euro 1000000, iscritta nel registro delle imprese di Camera di Commercio di Milano Monza Brianza Lodi,
+numero di iscrizione MI - 1753325, Codice Fiscale e Partita IVA 01440580031 - E-mail: privacy@alteanet.it
+Il Data Protection Officer (D.P.O.) è raggiungibile al seguente indirizzo E-mail: privacy@alteanet.it
+L’elenco dei responsabili e degli incaricati al trattamento è custodito presso la sede del Titolare.
+Questa informativa potrà subire modifiche. Per ogni aggiornamento, La invitiamo a consultare i nostri siti
+web e gli altri canali messi a disposizione da Altea Federation.
+
+Allegato G all’Accordo Quadro
+Atto di nomina a sub - Responsabile del trattamento ai sensi dell’art. 28 del GDPR
+CONTRATTO DI OUTSOURCING PER IL TRATTAMENTO DI DATI PERSONALI
+(“Contratto di outsourcing”)
+PER IL CLIENTE
+stipulato il 31/07/2025 a Milano tra:
+ALTEA S.p.A (di seguito, per brevità, denominata “Responsabile del trattamento”),
+e
+14 TEC SRLS con sede legale in CASTEL MAGGIORE, VIA GRAMSCI 3, CAP 40013, P.I. e Codice Fiscale
+03446101200, qui rappresentata da Giuseppe Barbera (di seguito, per brevità, denominata “Sub-
+Responsabile del trattamento”),
+Nel seguito il Responsabile del trattamento e il Sub-Responsabile del trattamento vengono indicati
+collettivamente con “le Parti” e singolarmente con “la Parte”.
+DEFINIZIONI
+Salvo altra indicazione qui contenuta, ai fini del presente documento s’intende per:
+Dato personale: qualsiasi informazione riguardante una persona fisica identificata o
+identificabile che individua l’interessato ai sensi del Contratto di
+outsourcing; i dati personali sono indicati ai punti 2 e 3 del presente
+contratto, dove sono specificati i soggetti interessati, le tipologie di
+dati e le attività di trattamento a cui sono sottoposti i dati;
+Regolamento: il Regolamento (UE) 2016/679
+Responsabile del trattamento: la persona fisica o giuridica che tratta dati personali per conto del
+Titolare del trattamento; in conformità al presente Contratto di
+outsourcing il Responsabile del trattamento è ALTEA S.p.A ;
+
+Sub-Responsabile del trattamento: la persona fisica o giuridica che tratta dati personali per conto del
+Responsabile del trattamento; in conformità al presente Contratto
+di outsourcing il Sub-Responsabile del trattamento è 14 TEC SRLS;
+Paese terzo: paese che non fa parte dello Spazio economico europeo;
+
+DISPOSIZIONI GENERALI
+1. Le Parti stipulano il presente contratto in conseguenza dell’ORDINE DI ACQUISTO DI SERVIZI
+(ODA) intercorrente tra le parti a cui si rimanda (di seguito “Contratto”).
+2. Il Responsabile del trattamento affida il trattamento dei dati personali indicati (DATI PERSONALI –
+DATI IDENTIFICATIVI – DATI DI PROGETTO – DATI PARTICOLARI, ove presenti relativi a Dipendenti,
+Clienti e Fornitore del/ dei Clienti assegnato/i) al Sub-Responsabile del trattamento, che accetta
+l’incarico impegnandosi a trattarli in conformità al Regolamento e alle normative vigenti.
+3. Il Sub-Responsabile del trattamento esegue il trattamento dei Dati Personali in adempimento ai suoi
+obblighi per tutti gli adempimenti e finalità derivanti dal contratto e in sintesi:
+Il Sub-Responsabile del trattamento effettua il trattamento dei Dati Personali per la durata del
+contratto di outsourcing e, una volta terminato il Contratto, fino alla richiesta di cancellazione o
+restituzione dei dati da parte del Responsabile del trattamento dei dati e salvo esigenze di
+conservazione per obblighi di legge.
+4. Il Sub-Responsabile del trattamento effettua il trattamento dei Dati Personali rispettando ogni
+indicazione fornita dal Responsabile.
+5. Il Sub-Responsabile del trattamento non può trasferire i Dati Personali a paesi terzi salvo che lo
+richieda il diritto dell'Unione o nazionale cui è soggetto il Sub-Responsabile del trattamento; in tal
+caso, il Sub-Responsabile del trattamento informa il Responsabile del trattamento circa tale obbligo
+giuridico prima del trattamento, a meno che il diritto vieti tale informazione per rilevanti motivi di
+interesse pubblico.
+6. Le Parti si danno reciprocamente atto del fatto che il Sub-Responsabile del trattamento non attuerà
+procedure decisionali automatizzate in singoli casi mediante l’uso dei Dati Personali.
+7. Il Sub-Responsabile del trattamento si impegna a effettuare il trattamento dei Dati Personali solo
+nell'ambito di applicazione e per le finalità specificate nel presente contratto, in conformità alle
+istruzioni del Responsabile del trattamento, e solo se vi sono i presupposti per il trattamento a norma
+del presente Regolamento.
+8. Il Sub-Responsabile del trattamento si impegna ad assistere il Responsabile del trattamento con
+misure tecniche e organizzative adeguate, nella misura in cui ciò sia possibile, al fine di soddisfare
+l'obbligo del Responsabile del trattamento di dare seguito alle richieste per l'esercizio dei diritti
+dell'interessato di cui al capo III del Regolamento.
+9. Il Sub-Responsabile del trattamento dichiara di fornire garanzie sufficienti per l’implementazione di
+misure tecniche e organizzative adeguate, affinché il trattamento soddisfi tutti i requisiti del
+Regolamento a tutela dei diritti degli interessati.
+10. Il Sub-Responsabile del trattamento si impegna a assistere il Responsabile del trattamento nel
+garantire il rispetto degli obblighi di cui agli articoli da 32 a 36 del Regolamento, tenendo conto della
+natura del trattamento e delle informazioni a disposizione del Sub-Responsabile del trattamento.
+
+11. Il Sub-Responsabile del trattamento si impegna a mettere a disposizione del Responsabile del
+trattamento tutte le informazioni necessarie per dimostrare il rispetto degli obblighi in capo ad esso
+e si impegna a collaborare con il Responsabile del trattamento sia in caso di ispezioni degli organi di
+controllo, sia in caso di verifiche del Titolare del trattamento, nell’ambito delle quali si impegna a
+collaborare fornendo quanto richiesto.
+12. Il Sub-Responsabile del trattamento si impegna a informare immediatamente il Responsabile del
+trattamento qualora, a suo parere, un'istruzione violi il Regolamento o altre disposizioni, nazionali o
+dell'Unione, relative alla protezione dei dati.
+13. Il Responsabile del trattamento ha il diritto di emanare direttive sulle misure di sicurezza dei Dati
+Personali in qualsiasi momento e il Sub-Responsabile del trattamento ne deve tener conto, laddove
+possibile.
+14. Il Sub-Responsabile del trattamento si impegna a individuare per iscritto le persone autorizzate al
+trattamento che agiscono per suo conto, nominandole per iscritto, definendone i profili di
+autorizzazione e l’ambito del trattamento consentito, e fornendo loro per iscritto le istruzioni
+necessarie per un corretto, lecito, sicuro trattamento.
+Si impegna, inoltre, a vigilare sull’operato delle persone autorizzate al trattamento dei dati di cui al
+punto precedente, verificando che i dati siano trattati in maniera lecita e pertinente seguendo le
+istruzioni impartite.
+15. Il Sub-Responsabile del trattamento non ricorre a un altro sub-responsabile senza previa
+autorizzazione scritta, specifica o generale, del Responsabile del Trattamento. Saranno volta per volta
+definiti con il Responsabile del Trattamento modalità, contenuti e vincoli in ordine ed eventuali
+affidamenti a terzi di operazioni di trattamento che si rendessero necessari per l’esecuzione del
+trattamento in oggetto.
+16. Il Sub-Responsabile del trattamento si impegna ad assistere il Responsabile del trattamento
+nell’adempimento degli obblighi di cui agli articoli da 32 a 36 del Regolamento, tenendo conto della
+natura del trattamento e delle informazioni rese disponibili al Sub-Responsabile del trattamento.
+Il Sub-Responsabile del trattamento si impegna a tenere un registro dei trattamenti ai sensi dell’art.
+30 del Regolamento per conto del Responsabile del trattamento per i dati da esso trattati e conservati
+per conto del Titolare del trattamento.
+17. Il Sub-Responsabile del trattamento si impegna ad assistere il Responsabile del trattamento
+nell’adempimento agli obblighi di notifica di eventuali violazioni dei Dati Personali all’autorità di
+controllo e ai rispettivi interessati in conformità agli articoli 33 e 34 del Regolamento.
+18. Laddove sia rilevata una violazione dei Dati Personali, il Sub-Responsabile del trattamento è tenuto
+ad informarne il Responsabile del trattamento entro 24 ore dal momento in cui ne è venuto a
+conoscenza fornendo tutte le informazioni richieste dall’art 33 e 34 del Regolamento.
+19. Prima di iniziare il trattamento, il Sub-Responsabile del trattamento è tenuto a comunicare al
+Responsabile del trattamento di avere un obbligo legale al trattamento dei dati personali derivante
+dal diritto dell'Unione o dello Stato membro a cui è soggetto. Tale disposizione non si applica
+
+laddove il diritto dell'Unione o dello Stato membro a cui il Sub-Responsabile del trattamento è
+soggetto vieti la trasmissione di tali informazioni al Responsabile del trattamento.
+20. Il Sub-Responsabile del trattamento si impegna a informare tempestivamente il Responsabile del
+trattamento riguardo a richieste ai sensi degli articoli da 15 a 22 del Regolamento presentate dagli
+interessati direttamente al Sub-Responsabile del trattamento collaborando anche alle richieste
+effettuate al Responsabile del trattamento che riguardino dati gestiti dal Sub-Responsabile del
+trattamento.
+21. Il Sub-Responsabile del trattamento si impegna a conservare i dati solo per il periodo necessario a
+perseguire le finalità di cui al trattamento prevedendo apposite procedure che si impegna a mettere
+a disposizione del Responsabile del trattamento.
+22. Il Sub-Responsabile del trattamento dei dati dovrà provvedere, per quanto attiene ai dati presso la
+sua sede, all’adempimento di quanto contenuto nel provvedimento 27 novembre 2008 dell’Autorità
+Garante per la protezione dei dati personali, inerente gli amministratori di sistema e quindi tra le altre
+cose, individuarli (ricordano che devono essere scelti solo soggetti che abbiano capacità tecniche e
+serietà professionale), nominarli nei termini previsti dal provvedimento, vigilare sul loro operato e
+almeno annualmente effettuare una verifica del loro operato complessivo anche attraverso la lettura
+dei file log generati con le loro credenziali (file log che, si rammenta, dovranno essere registrati dal
+Sub-Responsabile del trattamento nelle modalità previste dal provvedimento e dovranno essere
+conservati per almeno 6 mesi).
+Il Sub-Responsabile del trattamento dei dati dovrà inoltre seguire tutti gli ulteriori precetti di tale
+provvedimento e dovrà tenere una lista aggiornata e completa di tali amministratori di sistema (che
+dovrà essere a nostra disposizione) e informarli che, qualora nello svolgimento delle loro funzioni
+vengano a conoscenza di dati dei dipendenti dei Clienti i loro nominativi potranno essere conosciuti
+da tali dipendenti.
+23. Il presente contratto sostituisce ogni precedente nomina o contratto inerente il Sub-Responsabile del
+trattamento dei dati.
+24. Il Sub-Responsabile del trattamento risponderà di tutti gli illeciti commessi in seguito al suo operato,
+sollevando il Responsabile da ogni responsabilità.
+25. Nessuna modifica al presente contratto sarà valida se non effettuata per iscritto o in formato
+elettronico.
+26. Tutta la corrispondenza sarà inviata agli indirizzi di posta elettronica comunicati tra le parti.
+27. La legge applicabile al presente contratto è quella italiana. In caso di controversie sarà competente,
+in via esclusiva, il Tribunale di Milano.
+* * *
+Il Responsabile del trattamento Il Sub-Responsabile del trattamento
+ALTEA S.p.A 14 TEC SRLS
+
+S
+
+ae 150 45001 == coset R L T = A
+ALTE decried
+Vie Ber a 24
+Cod. Ft oF a 1440580031
+Altea S.p.A.
+Via Benigno Crespi 24 - 20159 Milano (MI) Cap.Soc. € 1.000.000 iv.
+
+T +39 02 82823200 - alteafederation.it P.IVA - C.C.LA.A. / C.F. 01440580031
+
+
+Allegato H all’Accordo Quadro
+Condizioni Generali per l’acquisizione di
+Servizi di ALTEA S.p.A
+1 ORDINI E CONDIZIONI GENERALI
+2.3 La Data Ultimazione Servizi indicata nell’ordine costituirà il
+Le presenti Condizioni Generali (in seguito “Condizioni”) termine ultimo e perentorio per il completamento dei Servizi,
+regolamentano l’acquisto da parte di ALTEA S.p.A di servizi inclusi eventuali test di collaudo. Qualora i Servizi non siano
+forniti da altre società (in seguito “la Società Fornitrice”). completati entro la Data Ultimazione Servizi, ALTEA S.p.A
+Le Condizioni si applicano, quindi, a tutti i contratti e/o Ordini senza pregiudizio di ogni altro suo diritto, avrà la facoltà di
+di acquisto in cui ALTEA S.p.A figuri come acquirente, concedere alla Società Fornitrice una proroga per un
+prevalendo su eventuali condizioni generali di vendita o di ulteriore periodo massimo – fissato a sua discrezione – al fine
+contratto della Società Fornitrice anche se non sia stata di pervenire all’ultimazione dei Servizi. Per tale eventuale
+manifestata specifica obiezione alle medesime. periodo di proroga potrà essere prevista una penale a carico
+Qualsiasi modifica o aggiunta alle Condizioni, sarà valida ed della Società Fornitrice indicata nell’Ordine o
+efficace solo se redatta per iscritto e sottoscritta da ALTEA successivamente concordata fra le parti. Se anche al termine
+S.p.A dell’eventuale periodo di proroga i Servizi non saranno stati
+ALTEA S.p.A trasmetterà alla Società Fornitrice un proprio completati, ALTEA S.p.A potrà risolvere il rapporto
+ordine (in seguito “Ordine”) contenente l’indicazione dei contrattuale, dandone comunicazione scritta – anche a mezzo
+servizi da acquisire (in seguito “Servizi”) nell’interesse proprio fax – alla Società Fornitrice, che, salvo diverse pattuizioni fra
+o dei propri clienti, con la precisazione della data prevista per le parti, dovrà restituire quanto già versatole da ALTEA S.p.A
+l’inizio dei Servizi (in seguito “ Data Inizio Servizi”), della data per i Servizi, fatto salvo il diritto di ALTEA S.p.A al
+prevista per l’ultimazione dei Servizi (in seguito “Data risarcimento degli eventuali maggiori danni.
+Ultimazione Servizi”), delle località previste per lo svolgimento 2.4 Nel corso dello svolgimento dei Servizi, ciascuna parte potrà
+dei Servizi e di ogni altro dato necessario per la corretta chiedere variazioni dei Servizi, mediante richiesta scritta
+esecuzione dei Servizi da parte della Società Fornitrice, ivi inviata all’altra parte. La Società Fornitrice – in relazione alle
+compresa l’indicazione, se possibile, della tipologia della variazioni richieste – dovrà provvedere a trasmettere con
+eventuale documentazione (in seguito “Documentazione”) e tempestività ad ALTEA S.p.A una proposta, indicando le
+degli eventuali materiali (in seguito “Materiali”) da consegnare modificazioni che le variazioni dei Servizi comporteranno
+ad ALTEA S.p.A in esecuzione dei Servizi, cui si applicherà il quanto ai termini, alle condizioni ed, in particolare, ai
+disposto del successivo art. 4. L’accordo tra ALTEA S.p.A e la corrispettivi relativi ai Servizi; tale proposta potrà essere
+Società Fornitrice sarà costituito esclusivamente dall’Ordine, accettata o meno da ALTEA S.p.A senza necessità di
+dalle Condizioni e dagli eventuali allegati menzionati motivazione. In ogni caso, qualsiasi variazione dei Servizi non
+nell’ordine e si considererà concluso al ricevimento da parte potrà essere resa operativa dalla Società Fornitrice se prima
+di ALTEA S.p.A di tali documenti debitamente sottoscritti dal non sarà stata approvata per iscritto da ALTEA S.p.A
+legale rappresentante della Società Fornitrice, anche ai sensi
+degli artt. 1341 e 1342 c.c. Resta inteso che in caso di 3 RESPONSABILI DEI SERVIZI
+eventuale contrasto fra il contenuto dell’Ordine e quello delle
+Condizioni prevarrà quanto previsto nell’Ordine. Nel caso di Qualora lo reputi necessario, ALTEA S.p.A designerà
+nullità od annullamento di qualsiasi disposizione delle nell’Ordine un proprio responsabile che avrà il compito di
+Condizioni, le rimanenti disposizioni rimarranno pienamente mantenere i rapporti tecnici con la Società Fornitrice,
+valide e vincolanti. ALTEA S.p.A verificando lo svolgimento dei Servizi e il loro
+completamento nei termini pattuiti; la Società Fornitrice
+2 REGOLAMENTO DEI SERVIZI-VARIANTI
+dovrà, in tal caso, nominare a sua volta un proprio
+responsabile tecnico che si coordini con il responsabile
+2.1 I Servizi dovranno essere resi in conformità a quanto
+indicato da ALTEA S.p.A e ne segua le direttive.
+previsto nell’Ordine e nelle presenti Condizioni, e
+comunque usando la massima diligenza e rispettando la
+regola dell’arte.
+4 PROPRIETA’ DELLA DOCUMENTAZIONE E DEI
+MATERIALI – GARANZIA
+2.2 Qualora nell’Ordine non sia espressamente indicata la Data
+Inizio Servizi, i Servizi dovranno iniziare non appena la Società L’eventuale Documentazione e gli eventuali Materiali, in
+Fornitrice avrà provveduto a restituire ad ALTEA S.p.A qualunque forma, anche leggibile da elaboratore, che la
+l’Ordine e le Condizioni sottoscritti per accettazione ai sensi Società Fornitrice dovesse consegnare ad ALTEA S.p.A nel
+dell’art 1. corso o al termine dei Servizi saranno di esclusiva proprietà
+
+di ALTEA S.p.A cui spetteranno anche tutti gli eventuali diritti dell’Ordine; saranno pertanto conservati per tutta la durata
+d’autore e di utilizzazione, fermo restando che la Società dell’Ordine e/o del rapporto, e successivamente alla sua
+Fornitrice garantisce che l’eventuale Documentazione e gli scadenza per l’ordinario periodo di prescrizione.
+eventuali Materiali consegnati ad ALTEA S.p.A saranno
+originali, esenti da “virus” od altri difetti, e non violeranno 7.4 I dati trattati non verranno diffusi e verranno comunicati a
+alcun diritto di terzi; di conseguenza, la Società Fornitrice sarà soggetti terzi solo in adempimento di obblighi normativi.
+obbligata – per il periodo di 1 (un) anno dalla consegna – a
+intervenire per correggere eventuali vizi o inconvenienti 7.5 Qualora l’incarico affidato alla Società Fornitrice attraverso
+riscontrati nella Documentazione o nei Materiali. l’Ordine comporti il trattamento da parte della stessa di dati
+Al termine delle attività la Società Fornitrice si impegna a personali come definiti all’art. 4 del Regolamento UE
+cancellare dai propri computer, e dai supporti elettronici in 2016/679 dei quali è titolare e/o responsabile del
+genere, tutti i documenti e le basi-dati di cui sia entrata in trattamento ALTEA S.p.A , la Società Fornitrice si impegna a
+possesso durante l’espletamento delle attività fornite, ed in trattare detti dati in conformità a quanto disposto dal
+particolare modo di tutti quei dati ed informazioni di predetto Regolamento ed a perfezionare apposito
+proprietà di clienti ALTEA S.p.A “Contratto di outsourcing per il trattamento di dati personali”.
+La Società Fornitrice sarà responsabile del rispetto di A tale stregua, la Società Fornitrice prende atto che il
+quest’obbligo da parte di tutti i propri dipendenti, anche ove mancato perfezionato del suddetto contratto darà diritto ad
+il rapporto di dipendenza dovesse cessare, al momento della ALTEA S.p.A di risolvere immediatamente il rapporto in
+cessazione del rapporto stesso. essere ai sensi del successivo art. 10.
+5 CORRISPETTIVO
+5.1 Per la fornitura dei Servizi, ALTEA S.p.A verserà alla Società 8 DIVIETO DI CESSIONE E SUBAPPALTO – CONSEGNA
+Fornitrice il corrispettivo complessivo indicato nell’Ordine, DOCUMENTAZIONE
+da intendersi al netto di IVA e comprensivo di qualsiasi onere,
+spesa, presenti e futuri, sostenuti dalla Società Fornitrice per 8.1 E’ fatto espresso divieto di cedere a terzi la fornitura e/o
+l’esecuzione dei Servizi (in seguito il “Corrispettivo”), secondo l’esecuzione dei Servizi ovvero di subappaltare, in tutto o in
+i termini e le modalità di pagamento definite nell’Ordine. parte, i Servizi, che dovranno essere eseguiti da personale –
+dotato di ogni necessaria esperienza e professionalità –
+5.2 La Società Fornitrice rinuncia espressamente, ora per allora, regolarmente assunto alle dipendenze della Società
+a chiedere la risoluzione del rapporto contrattuale per Fornitrice, la quale si impegna ad ottemperare a tutti gli
+eccessiva onerosità sopravvenuta ai sensi dell’articolo 1467 obblighi derivanti da leggi e regolamenti vigenti in materia di
+c.c., e/o la revisione di cui all’articolo 1664 c.c.. lavoro e di assicurazioni sociali, assumendo i relativi oneri,
+nonché ad attuare, nei confronti di tale personale, condizioni
+6 RISERVATEZZA nominative e retributive non inferiori a quelle risultanti dagli
+applicabili contratti collettivi di lavoro.
+Per l’intera durata del rapporto contrattuale e (per i tre anni L'inosservanza di tale divieto comporterà la facoltà di ALTEA
+successivi) la Società Fornitrice si obbliga a mantenere S.p.A di risolvere con effetto immediato il presente
+strettamente riservati tutti i dati e le informazioni relativi ai contratto, ai sensi del successivo articolo 10.
+Servizi e/o ad ALTEA S.p.A , alle sue consociate ad ai suoi
+clienti, salvo i dati e le informazioni di pubblico dominio. La 8.2 ALTEA S.p.A si riserva in qualsiasi momento di richiedere
+Società Fornitrice sarà responsabile del rispetto di alla Società Fornitrice copia del DURC e/o di tutta la
+quest’obbligo da parte di tutti i propri dipendenti, anche ove documentazione comprovante l’adempimento in generale
+il rapporto di dipendenza dovesse cessare, fino a dei predetti obblighi. ALTEA S.p.A potrà, inoltre, richiedere
+conclusione del suddetto periodo. alla Società Fornitrice una apposita autocertificazione o
+dichiarazione rilasciata dalla Società Fornitrice stessa in
+7 TRATTAMENTO DEI DATI PERSONALI merito all’avvenuto e regolare adempimento dei propri
+obblighi in materia retributiva, contributiva, fiscale.
+7.1 ALTEA S.p.A e la Società Fornitrice riconosco il proprio
+diritto reciproco ad un corretto trattamento dei dati personali
+8.3 La Società Fornitrice dichiara espressamente di conoscere ed
+e, in conformità con i requisiti e gli obblighi associati
+accettare che la mancata consegna della documentazione di
+all’Ordine, si impegnano al rispetto della legislazione
+cui all’art. 8.2 potrà comportare la sospensione del
+applicabile al trattamento dei dati personali e dell’Ordine
+pagamento del Corrispettivo.
+stesso.
+7.2 Le parti concordano che il conferimento dei dati ha natura 9 ASSICURAZIONI
+obbligatoria, risultando altrimenti impossibile la corretta
+conclusione ed esecuzione dell’Ordine. Qualora la Società Fornitrice debba eseguire i Servizi presso
+le sedi di ALTEA S.p.A o di un suo cliente, la Società
+7.3 I dati della Società Fornitrice acquisiti da ALTEA S.p.A sono Fornitrice garantisce che il proprio personale osserverà le
+raccolti e trattati in conformità alla normativa in materia ed norme antinfortunistiche e disciplinari in vigore presso tali
+esclusivamente per le finalità connesse all’esecuzione sedi e si impegna, ove richiesto da ALTEA S.p.A , anche nel
+
+corso dell’esecuzione dei Servizi, a stipulare con una primaria Il presente contratto, la sua interpretazione ed esecuzione
+Compagnia di assicurazioni una polizza – con adeguati sono regolate dalla legge italiana.
+massimali – contro i rischi di responsabilità civile verso terzi Per ogni controversia tra le parti relativa all’interpretazione
+(ivi inclusi ALTEA S.p.A , le sue consociate ed i dipendenti e/o all’esecuzione delle Condizioni, dell’Ordine e/o del
+delle stesse) per danni a persone o cose che possono rapporto contrattuale instauratosi tra ALTEA S.p.A e la
+derivare da fatto della Società Fornitrice per tutti gli eventuali Società Fornitrice sarà competente in via esclusiva il Foro di
+ulteriori danni, nessuno escluso. Milano.
+10 CLAUSOLA RISOLUTIVA ESPRESSA E RECESSO
+La Società Fornitrice
+10.1 Senza pregiudizio di ogni altro suo diritto, ALTEA S.p.A
+potrà risolvere il rapporto contrattuale con effetto immediato,
+senza necessità di messa in mora, dandone avviso alla
+Società Fornitrice mediante lettera raccomandata con
+ricevuta di ritorno, qualora la Società Fornitrice: <firmaFornitore> data: 31/07/2025
+- sia posta in liquidazione o sia dichiarata fallita ovvero
+(firmato per accettazione)
+altrimenti sia assoggettata ad una procedura di tipo
+concorsuale;
+Ai sensi e per gli effetti degli artt. 1341 e 1342 Cod. Civ. la Società Fornitrice,
+- ritardi lo svolgimento dei Servizi o non provveda al loro dopo attenta lettura, approva espressamente le condizioni e le pattuizioni
+completamento nei termini pattuiti; contenute negli artt. 1 (Ordini e Condizioni Generali), 2 (Regolamento dei Servizi –
+Varianti), 4 (Proprietà della documentazione e dei materiali – Garanzia), 5
+- violi l’obbligo di riservatezza o il divieto di cessione e
+(Corrispettivo), 6 (Riservatezza), 7 (Trattamento dei dati personali), 8 (Divieto di
+subappalto di cui ai precedenti artt.6 e 8; cessione e subappalto – Consegna Documentazione), 9 (Assicurazioni), 10
+- non perfezioni il contratto di outsourcing di cui all’articolo (Clausola risolutiva espressa e Recesso), 11 (Divieto di cessione dei crediti), 13
+(Legge applicabile e Foro competente).
+7.5.
+10.2 Fermo restando quanto previsto al precedente paragrafo e
+senza pregiudizio di ogni altro suo diritto, ALTEA S.p.A La Società Fornitrice
+potrà risolvere il rapporto contrattuale previa diffida ai sensi
+dell’art. 1454 cod. civ. in caso di inadempimento della
+Società Fornitrice alle obbligazioni a suo carico previste
+nell’Ordine e nelle Condizioni.
+<firmaFornitore> data: 31/07/2025
+10.3 ALTEA S.p.A si riserva la facoltà di recedere dal rapporto
+(firmato per accettazione)
+contrattuale in qualsiasi momento con un preavviso di
+almeno 30 (trenta) giorni. In tal caso ALTEA S.p.A
+corrisponderà alla Società Fornitrice, in deroga all’art. 1671
+cod. civ., il solo corrispettivo dovuto per i Servizi prestati fino
+alla data di efficacia del recesso.
+11 DIVIETO DI CONCESSIONE DEI CREDITI
+La Società Fornitrice non potrà, ad alcun titolo, cedere a terzi
+i propri crediti nei confronti di ALTEA S.p.A
+12 DISPOSIZIONI GENERALI
+12.1 Qualora una delle parti tolleri comportamenti dell’altra, che
+costituiscano violazione di quanto previsto nell’Ordine e
+nelle Condizioni, ciò non potrà essere inteso come rinuncia
+ad avvalersi dei diritti che a tale parte derivano dall’Ordine e
+dalle Condizioni.
+12.2 L’Ordine e le Condizioni annullano e sostituiscono ogni altro
+eventuale precedente accordo relativo ai Servizi, e
+costituiscono la manifestazione integrale delle intese
+raggiunte: gli stessi non potranno quindi essere modificati se
+non per atto scritto firmato dai legali rappresentanti delle
+parti.
+13 LEGGE APPLICABILE E FORO COMPETENTE

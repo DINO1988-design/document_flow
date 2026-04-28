@@ -1,0 +1,126 @@
+1LY0MP
+Passenger Name AZRI EP SLIMANI / NESRINE (24JUL95)
+Booking Reference Number (PNR) 1LY0MP
+Ticket Number 7962428099428
+Issued By BJ TUN IN ISO:TN 11NOV2025 12345678 INTERNET /A
+Flight 1 - Bologna (BLQ) to Tunis (TUN)
+CARRIER CODE FLIGHT NO. DEPARTURE ARRIVE
+BJ 613
+20:20 22:00
+Bologna (BLQ) Tunis (TUN)
+Bologna Tunis-Carthage
+12 NOV 2025 12 NOV 2025
+REZ. CLASS TICKET STATUS(1) FARE BASIS NVB(2) NVA(3) SEAT TKT ST BAG(4) DEP TERMINAL ARR TERMINAL
+U OK UOWC1IIT 12NOV26 O 0 KG
+(1) OK = confirmed (2) NVB = Not Valid Before (3) NVA = Not Valid After (4) Each passenger can check-in a specific amount of baggage at no extra cost as indicated in this column.
+Enhance your trip with these extras
+Car Rental
+Do you need to rent a car as
+you get off the plane? Let us
+offer you the best rates
+available on the dates of your
+choice.
+See Details
+
+1LY0MP
+Receipt
+Name AZRI EP SLIMANI / NESRINE (24JUL95)
+Ticket Number 7962428099428
+Form of payment CREDIT CARD ****************
+Fare 33 EUR
+Taxes 12 EUR A6 2 EUR TN 7 EUR HB 9 EUR IT
+1 EUR MJ 3 EUR VT
+Other Fees
+Total Amount 67 EUR
+Issuing Airline And Date BJ Company / 11NOV25
+IATA Number 12345678
+Endorsements/Restrictions(s) ST
+Fare Calculation BLQ BJ TUN38.16NUC38.16END ROE0.864700
+The carriage of certain hazardous materials, like aerosols, fireworks, and flammable liquids, aboard the aircraft is forbidden. If you do not understand these restrictions, further information may be
+obtained from your airline.
+Data Protection Notice: Your personal data will be processed in accordance with the applicable carrier's privacy policy and, if your booking is made via a travel agency (user of GDS reservation system)
+. These are available at http://www.iatatravelcenter.com/privacy or from the carrier or GDS directly. You should read this documentation, which applies to your booking and specifies, for example, how
+your personal data is collected, stored, used, disclosed and transferred. (Applicable for interline carriage)
+1. Air transportation on Nouvelair is subject to our Conditions of Carriage which can be viewed at https://www.nouvelair.com/
+2. Passengers on a journey involving an ultimate destination or a stop in a country other than the country of departure are advised that international treaties known as the Montreal Convention, or its
+predecessor, the Warsaw Convention, including its amendments, may apply to the entire journey, including any portion thereof entirely within a country. For such passengers, the treaties, including
+special contracts of carriage embodied in applicable tariffs, govern and may limit the liability of the carrier for death of or injury to passengers, and for destruction or loss of, or damage to, baggage, and
+for delay of passengers and baggage.
+3. This electronic ticket is non-transferable. It can only be used by the person whose name is indicated on this electronic ticket. Please retain a copy of your electronic ticket receipt, and all valid travel
+documents, throughout your journey for security and immigration purposes. Please note government regulations may require that we provide information on or permit access to passenger(s) data.
+4. For payment made through credit card, you may be required to present the valid credit card for verification purposes upon Check-In.
+5. Kindly present your valid travel documents/passport upon check-in, please take note that Nouvelair reserves the right to refuse carriage if your passport is found to be damaged or has less than 6
+months validity.
+6. Economy Class cabin baggage is limited to 1 piece per passenger and weigh not more than 8kg (17 lbs); . Cabin baggage must not exceed 115cm (45 inches) in total linear dimensions.
+7. In compliance with global occupational health and safety regulations for baggage handling, each single piece of baggage that is checked-in shall not exceed 32kg.
+8. Dangerous Goods (Hazardous Materials). For safety reasons, dangerous goods must not be packed in checked or cabin (unchecked) baggage except as specifically permitted. Dangerous goods include
+but are not limited to: compressed gases, corrosive, explosives, flammable liquids and solids, radioactive materials, oxidizing materials, poisons, infectious substances and briefcases with installed alarm
+devices.
+9. Reservations and boarding passes may be cancelled if you fail to comply with applicable Check-In requirements for your flights. In addition, your onward and/or return reservation may be cancelled for
+failure to meet these Check-In requirements or fly each segment of your itinerary.
+10. For any travel-related changes or additional in-flight requests, please contact your nearest Nouvelair office at least 72 hours before departure. Additional fees may apply to some booking changes,
+ticket reissues and other additional in-flight requests. For further information, please contact your nearest Nouvelair office, or visit www.nouvelair.com/.
+11. If you have any feedback or complaints pertaining to our services, you may direct your feedback or complaints at https://www.nouvelair.com/en/contact/
+
+1LY0MP
+Passenger Name SLIMANI / TULINE (19AUG24)
+Booking Reference Number (PNR) 1LY0MP
+Ticket Number 7962428099429
+Issued By BJ TUN IN ISO:TN 11NOV2025 12345678 INTERNET /A
+Flight 1 - Bologna (BLQ) to Tunis (TUN)
+CARRIER CODE FLIGHT NO. DEPARTURE ARRIVE
+BJ 613
+20:20 22:00
+Bologna (BLQ) Tunis (TUN)
+Bologna Tunis-Carthage
+12 NOV 2025 12 NOV 2025
+REZ. CLASS TICKET STATUS(1) FARE BASIS NVB(2) NVA(3) SEAT TKT ST BAG(4) DEP TERMINAL ARR TERMINAL
+U NS UOWC1IIT/IN 12NOV26 O 10 KG
+(1) OK = confirmed (2) NVB = Not Valid Before (3) NVA = Not Valid After (4) Each passenger can check-in a specific amount of baggage at no extra cost as indicated in this column.
+Enhance your trip with these extras
+Car Rental
+Do you need to rent a car as
+you get off the plane? Let us
+offer you the best rates
+available on the dates of your
+choice.
+See Details
+
+1LY0MP
+Receipt
+Name SLIMANI / TULINE (19AUG24)
+Ticket Number 7962428099429
+Form of payment CREDIT CARD ****************
+Fare 4 EUR
+Taxes 2 EUR TN
+Other Fees
+Total Amount 6 EUR
+Issuing Airline And Date BJ Company / 11NOV25
+IATA Number 12345678
+Endorsements/Restrictions(s) ST
+Fare Calculation BLQ BJ TUN3.81NUC3.81END ROE0.864700
+The carriage of certain hazardous materials, like aerosols, fireworks, and flammable liquids, aboard the aircraft is forbidden. If you do not understand these restrictions, further information may be
+obtained from your airline.
+Data Protection Notice: Your personal data will be processed in accordance with the applicable carrier's privacy policy and, if your booking is made via a travel agency (user of GDS reservation system)
+. These are available at http://www.iatatravelcenter.com/privacy or from the carrier or GDS directly. You should read this documentation, which applies to your booking and specifies, for example, how
+your personal data is collected, stored, used, disclosed and transferred. (Applicable for interline carriage)
+1. Air transportation on Nouvelair is subject to our Conditions of Carriage which can be viewed at https://www.nouvelair.com/
+2. Passengers on a journey involving an ultimate destination or a stop in a country other than the country of departure are advised that international treaties known as the Montreal Convention, or its
+predecessor, the Warsaw Convention, including its amendments, may apply to the entire journey, including any portion thereof entirely within a country. For such passengers, the treaties, including
+special contracts of carriage embodied in applicable tariffs, govern and may limit the liability of the carrier for death of or injury to passengers, and for destruction or loss of, or damage to, baggage, and
+for delay of passengers and baggage.
+3. This electronic ticket is non-transferable. It can only be used by the person whose name is indicated on this electronic ticket. Please retain a copy of your electronic ticket receipt, and all valid travel
+documents, throughout your journey for security and immigration purposes. Please note government regulations may require that we provide information on or permit access to passenger(s) data.
+4. For payment made through credit card, you may be required to present the valid credit card for verification purposes upon Check-In.
+5. Kindly present your valid travel documents/passport upon check-in, please take note that Nouvelair reserves the right to refuse carriage if your passport is found to be damaged or has less than 6
+months validity.
+6. Economy Class cabin baggage is limited to 1 piece per passenger and weigh not more than 8kg (17 lbs); . Cabin baggage must not exceed 115cm (45 inches) in total linear dimensions.
+7. In compliance with global occupational health and safety regulations for baggage handling, each single piece of baggage that is checked-in shall not exceed 32kg.
+8. Dangerous Goods (Hazardous Materials). For safety reasons, dangerous goods must not be packed in checked or cabin (unchecked) baggage except as specifically permitted. Dangerous goods include
+but are not limited to: compressed gases, corrosive, explosives, flammable liquids and solids, radioactive materials, oxidizing materials, poisons, infectious substances and briefcases with installed alarm
+devices.
+9. Reservations and boarding passes may be cancelled if you fail to comply with applicable Check-In requirements for your flights. In addition, your onward and/or return reservation may be cancelled for
+failure to meet these Check-In requirements or fly each segment of your itinerary.
+10. For any travel-related changes or additional in-flight requests, please contact your nearest Nouvelair office at least 72 hours before departure. Additional fees may apply to some booking changes,
+ticket reissues and other additional in-flight requests. For further information, please contact your nearest Nouvelair office, or visit www.nouvelair.com/.
+11. If you have any feedback or complaints pertaining to our services, you may direct your feedback or complaints at https://www.nouvelair.com/en/contact/

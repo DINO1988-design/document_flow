@@ -1,0 +1,13 @@
+ORDINE DI ACQUISTO n° #numerooda#
+In riferimento all’Accordo Quadro del #datastipulacontratto#
+Tra
+#societaaltea#, con sede legale in #sedelegalealtea#, Via #viaindirizzoaltea# #civicoindirizzoaltea#, capitale sociale di Euro #capitalesocialealtea#, iscritta nel registro delle imprese di Camera di Commercio di #LuogoRegistroImpresealtea#, numero di iscrizione #NumeroRegistroImpresealtea#, Codice Fiscale e Partita IVA #pivasocietaaltea#, in persona del legale rappresentante, #personalegalerappaltea#, nato a #LuogoNascPersonaLegaleRappaltea# il #DataNascPersonaLegaleRappaltea#, C.F. #CFiscalePersonaLegaleRappaltea#, nella sua qualità di Presidente, domiciliato per la carica presso la sede della Società, munito degli occorrenti poteri ( di seguito, il "ALTEA")
+e
+#nomefornitore# con sede legale in #localitafornitore# , #inidirizzofornitore# , P.I. e Codice Fiscale #pivafornitore# in persona del legale rappresentante, #pivafornitore# domiciliato per la carica presso la sede della Società, munito degli occorrenti poteri ( di seguito, il "FORNITORE")
+Con la presente siamo a formalizzare la richiesta di fornitura di prestazione di servizi come di seguito riportate:
+#TableImportiRighe#
+Le Parti convengono che il numero identificativo di ODA dovrà essere indicato sulle relative fatture.
+Firma per accettazione				 				Firma per accettazione
+#societaaltea#									#nomefornitore#
+<firmaAzienda>              							         <firmaFornitore>
+#sedelegalealtea# #datadocumentocomposition#

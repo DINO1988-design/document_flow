@@ -1,0 +1,432 @@
+documenti di noureddine slimani che non sono cedolino  si
+documenti di noureddine slimani che non sono cedolini  si
+documenti di noureddine slimani che sono cedolino si
+documenti di noureddine slimani che sono cedolini si
+documenti di noureddine slimani che non sono contratto si
+documenti di noureddine slimani che non sono contratti si
+documenti di noureddine slimani che sono contratto si
+documenti di noureddine slimani che non sono bonifico si
+documenti di noureddine slimani che non sono bonifici si
+documenti di noureddine slimani che sono bonifici si
+documenti di noureddine slimani si
+
+VARIANTI LINGUISTICHE (sinonimi + alias):
+documenti di noureddine slimani che sono ricevuta bonifico si
+documenti di noureddine slimani che sono ricevute bonifico si
+documenti di noureddine slimani che sono ricevuta di bonifico si
+documenti di noureddine slimani che sono bonifico bancario si
+documenti di noureddine slimani che sono contabile bancaria si
+
+2. SINGOLARE vs PLURALE (già buono ma stressiamo)
+documenti di noureddine slimani che sono bonifico si
+documenti di noureddine slimani che sono bonifici si
+documenti di noureddine slimani che non sono bonifico si
+documenti di noureddine slimani che non sono bonifici si
+
+3. POSITIVO vs NEGATIVO (CRITICO)
+👉 Qui spesso si rompono i parser
+documenti di noureddine slimani che sono bonifici si
+documenti di noureddine slimani che NON sono bonifici si
+documenti di noureddine slimani esclusi bonifici si
+documenti di noureddine slimani senza bonifici si
+
+🔗 4. MULTI-CONDITION (molto importante)
+👉 Qui verifichi AND logico
+
+****NO******documenti di noureddine slimani che sono bonifici e del 2026 si
+****NO****** documenti di noureddine slimani che sono bonifici e del 2025 si
+documenti di noureddine slimani che sono bonifici con importo di 2000 SI
+documenti di noureddine slimani che sono bonifici con importo di 2100 si
+documenti di noureddine slimani che sono contratti e non bonifici si
+documenti di noureddine slimani che non sono cedolini e non sono contratti si
+documenti di noureddine slimani che sono cedolini e sono contratti si
+
+5. PERSONA + TIPO (core del tuo sistema)
+documenti di slimani noureddine bonifici si
+documenti di slimani noureddine bonifico si
+bonifici di noureddine slimani si
+bonifici slimani si
+bonifico slimani si
+documenti slimani bonifici si
+documenti slimani bonifico si
+
+------------------------
+6. QUERY SPORCHE (real world)
+👉 Qui testiamo robustezza GPT
+slimani bonifici si
+bonifici slimani documenti si
+documenti slimani tipo bonifico si
+dammi bonifici di slimani si 
+
+documenti che non sono contratti ma parlano di bonifico si 
+documenti che non sono bonifici ma parlano di bonifico si 
+documenti che non sono cedolini ma parlano di bonifico si 
+
+
+7. CASI LIMITE IMPORTANTI
+👉 Questi sono quelli che ti rompono in produzione
+documenti che sono bonifici  SI
+documenti che non sono bonifici si
+tutti i bonifici  SI
+tutti i documenti tranne bonifici si
+
+🧬 8. MIX SEMANTICO + TIPO (super avanzato)
+👉 Qui entra la tua AI vera
+documenti di noureddine slimani pagamenti si 
+documenti slimani trasferimenti bancari si
+documenti slimani soldi inviati si
+
+9. TEST CHE DEVE FALLIRE (IMPORTANTISSIMO)
+👉 Devi anche verificare i falsi positivi
+documenti di noureddine slimani che sono fattura SI
+documenti di makrem nhari che sono fattura SI
+10. IL TUO BUG SPECIFICO
+Ripeti dopo fix:
+documenti di noureddine slimani che sono bonifici SI
+documenti di noureddine slimani che non sono bonifico SI
+
+
+documenti di viaggio slimani                 si  
+documenti di viaggio mohamed amine boughattas si
+viaggi Mohamed amine boughattas  si
+documenti che non sono bonifici ma parlano di bonifico si 
+documenti che non sono cedolino ma parlano di bonifico si
+documenti di MOHAMED AMINE BOUGHATTAS si
+
+
+
+1. Test “persona ambigua”
+"documenti di mohamed" si
+"documenti di kamel mohamed" si
+"documenti di mohamed amine boughattas si
+"documenti di mohamed amine si
+"documenti di boughattas si
+"documenti di slimani" si
+"documenti di noureddine slimani" si
+
+Test “tema + persona”:
+viaggi mohamed amine boughattas" si
+documenti di viaggio mohamed amine boughattas"si
+biglietti mohamed amine boughattas"si
+traghetto mohamed amine boughattas"si
+"voli mohamed amine boughattas"si
+prenotazioni mohamed amine boughattas"si
+
+Test “tema senza documenti” si
+"documenti di viaggio noureddine slimani" si
+voli noureddine slimani" si
+"traghetti noureddine slimani" si
+"boarding pass noureddine slimani" si
+
+Test “negativi con tema”
+"documenti di slimani che non sono cedolini" si
+"documenti di slimani che non sono bonifici" si
+"documenti di slimani che non sono contratti" si
+"documenti di mohamed amine boughattas che non sono biglietti" si
+documenti di noureddine slimani che non sono biglietti si
+"documenti che non sono bonifici ma parlano di bonifico" si 
+"documenti che non sono cedolini ma parlano di bonifico" si
+
+Test “singolare / plurale / sinonimi”:
+"bonifico slimani" si
+"bonifici slimani" si
+"contabile bancaria slimani" si
+"ricevuta di bonifico slimani" si
+"cedolino slimani" si
+"cedolini slimani" si
+"busta paga slimani" si 
+"contratto slimani" si
+"lettera assunzione slimani" si
+
+6. Test “keyword rumorose”:
+"dammi i documenti viaggio di mohamed amine boughattas" si
+"fammi vedere i bonifici di slimani" si
+"cerco il contratto di noureddine slimani" si
+"mi trovi i documenti di mohamed amine boughattas" si
+"voglio vedere i cedolini di slimani" si
+
+Test “persona incompleta”:
+"amine boughattas" si
+"mohamed boughattas" si
+"noureddine" si
+"slimani noureddine" si
+"azri yasmine" si
+"yasmine azri" si
+
+Test “OCR sporco / fuzzy”:
+"slimani noureddi" si
+"mohamed amne boughattas" si
+"yasmin azri" si
+"nuredine slimani no ma si 
+
+9. Test “tipo documento puro vs tema”
+Questo per capire se il sistema separa bene le due cose.
+Da provare in coppia:
+
+"biglietti mohamed amine boughattas" si
+"viaggi mohamed amine boughattas" si
+
+"bonifici slimani" si
+"movimenti bancari slimani" si
+
+"cedolini slimani" si
+"stipendi slimani" si
+
+10. Test “vuoto corretto”
+"passaporto slimani" si
+"fatture mohamed amine boughattas" si
+"bonifici mohamed amine boughattas" si
+"documenti di viaggio noureddine slimani" si
+
+
+"documenti di viaggio noureddine slimani" si
+"viaggi noureddine slimani" si
+"documenti di viaggio mohamed amine boughattas" si
+"viaggi mohamed amine boughattas" si
+"viaggi noureddine" si
+"biglietti mohamed amine boughattas" si
+"documenti di mohamed amine boughattas" si
+"documenti di mohamed" si
+"documenti di slimani che non sono bonifici" si
+"documenti che non sono bonifici ma parlano di bonifico" si 
+"busta paga slimani" si
+
+------------------------------------------------------------------------------------------
+test di precedenza logica:
+documenti di slimani che sono bonifici e non contratti si
+documenti di slimani che non sono bonifici e non contratti si
+documenti di slimani che sono bonifici o contratti si
+documenti di slimani che non sono bonifici ma sono contratti si
+documenti di slimani che sono contratti ma non cedolini si
+documenti di slimani che non sono contratti ma sono bonifici del 2026 si
+
+1. Doppie negazioni / combinazioni lunghe
+
+Esempi:
+documenti di slimani che non sono bonifici e non sono cedolini si
+documenti di slimani che sono contratti e non sono bonifici si
+
+2. Priorità tra tipo e tema
+Esempi:
+documenti di slimani che non sono bonifici ma parlano di bonifico si
+documenti di slimani che sono contratti ma parlano di stipendio si
+
+3. Mix persona incompleta + condizioni tipo
+Esempi:
+documenti di noureddine che sono contratti si
+documenti di slimani che non sono bonifici ma sono contratti si
+
+4. Coerenza singolare/plurale nelle query composte
+Non solo:
+sono contratto / sono contratti
+ma anche:
+non sono bonifico ma sono contratti si
+non sono bonifici ma sono contratto si
+
+
+test di conflitto semantico:
+documenti di slimani che sono cedolini e bonifici si
+documenti di slimani che sono contratti e bonifici si
+documenti di slimani che non sono bonifici ma sono bonifici  (giusto che non tira fuori niente) si
+documenti di slimani che sono fatture e bonifici si
+documenti di makrem che sono fatture e bonifici si
+documenti di slimani che sono biglietti e cedolini si
+
+test di ranking, non solo di recall:
+bonifici slimani si
+documenti di slimani si
+contratto slimani si
+documenti di viaggio mohamed amine boughattas si
+
+5. Ti mancano test non funzionali
+Per passare allo step successivo servono anche questi.
+Performance
+Testa query pesanti:
+
+documenti slimani si
+documenti si
+bonifici si
+contratti si
+documenti di viaggio si
+
+Robustezza
+Testa input brutti:
+
+slimani ?? bonifico si
+    bonifici      slimani si
+BONIFICI SLIMANI si
+bonificiiii slimani si
+
+slimani 2026 bonifici si
+slimani no cedolini si
+mohamed viaggio si
+boughattas biglietti si
+slimani contratto pdf si
+
+slmnai bonifici si non tira niente fuori è giusto
+noureddne slimani si
+mohamde amine boughattas si
+bordng pass slimani si
+contbile bancara slimani si
+
+bonifici del 2026 di slimani si
+di slimani i bonifici si
+del 2026 i bonifici di slimani si
+non bonifici di slimani si
+
+tutti i documenti tranne bonifici si
+escludi i cedolini di slimani si
+senza contratti si
+no bonifici slimani 
+
+✅ COSA HAI GIÀ CHIUSO (molto bene)
+
+✔ parsing GPT robusto
+✔ sinonimi / alias
+✔ singolare/plurale
+✔ negativo / esclusioni
+✔ multi-condizioni
+✔ persona fuzzy + OCR
+✔ mix semantico + tipo
+✔ ranking base
+✔ query sporche
+✔ conflitti logici (anche doppi)
+
+👉 Questo è già core engine completo
+
+--------------------------------------------------------
+documenti slimani bonifici 2026 si 
+
+bonifici sopra 2000 si 
+bonifici sopra 1999 si 
+bonifici inferiori a 500 si
+bonifici superiore a 500 si
+bonifici da 1000 a 2000 si 
+
+
+BONIFICO (1215 → importo = 2000)
+bonifici con importo 2000 si
+bonifici sopra 1000 si
+bonifici sopra 1999 si
+bonifici sopra 2000 si 
+bonifici sopra 2001 si 
+bonifici inferiori a 2100 si 
+bonifici inferiori a 2000 si
+bonifici inferiori a 1999 si
+bonifici da 1000 a 2100 si
+bonifici tra 1000 e 3200 si
+bonifici da 1900 a 2100 si
+bonifici da 2000 a 2000 si
+bonifici da 2001 a 3000 si
+bonifici da 2100 a 1000   ← (range invertito) si 
+
+biglietti sopra 50 si 
+biglietti sopra 100 si
+biglietti sopra 200 si
+biglietti sopra 300 si
+biglietti sopra 600 si
+biglietti inferiori a 100 si
+biglietti inferiori a 200 si 
+biglietti da 100 a 200 si
+biglietti da 0 a 100 si
+biglietti da 200 a 400 si
+biglietti da 300 a 700 si
+biglietti da 600 a 700 si
+biglietti da 650 a 700 si
+
+cedolini sopra 900 si
+cedolini sopra 2000 si
+cedolini sopra 2500 si
+cedolini sopra 4000 si
+cedolini inferiori a 1000 si
+cedolini inferiori a 2000 si
+cedolini da 900 a 1000 si
+cedolini da 2000 a 2600 si
+cedolini da 4000 a 6000 si
+
+contratti con ral sopra 40000 si
+contratti con ral sopra 45000 si
+contratti con ral sopra 46000 si
+contratti con ral inferiore a 50000 si
+contratti con ral da 40000 a 50000 si
+contratti con ral da 46000 a 50000 si
+contratti con ral da 45075 a 45075 si
+
+bonifici del 2026 si
+bonifici del 2025 si
+bonifici del 26/02/2026 si
+bonifici dopo il 01/01/2026 si
+bonifici dopo il 01/03/2026 si
+bonifici prima del 01/03/2026 si
+bonifici tra 01/01/2026 e 01/03/2026 si
+bonifici tra 01/03/2026 e 01/01/2026   ← invertito si
+
+viaggi del 2026
+viaggi di maggio 2026
+viaggi di giugno 2026
+viaggi dopo il 01/06/2026
+viaggi prima del 01/06/2026
+viaggi tra 20 maggio 2026 e 25 maggio 2026
+viaggi tra 01 giugno 2026 e 10 giugno 2026
+
+nome slimani
+nome noureddine
+nome slimani noureddine
+nome azri
+nome yasmine
+nome makrem nhari
+nome derbel amira
+
+nome slimany
+nome nourredine
+nome yazmine azri
+nome makram nhari
+
+email noursliman66@gmail.com
+email noursliman66
+email gmail
+
+telefono +49 1759444310
+telefono 1759444310
+telefono +216 29595704
+telefono 29595704
+
+iban IT735G0200802434000105792476
+iban 0200802434000105792476
+iban IT 55 X 03 66901600887179444498
+
+targa FD 652 SL
+targa PAMI 243
+targa fd652sl
+
+booking id 60079755971
+ticket GN-8379718
+ticket GN-8379719
+volo EW 838
+volo TU 894
+
+
+****contratti hanno date: 2024-12-10 e 2023-03-07******:
+contratti slimani con ral > 35000
+contratti slimani con ral > 35000 dopo il 2024
+contratti slimani con ral > 35000 dopo il 2022
+contratti slimani con ral tra 35000 e 40000
+contratti slimani con ral > 35000 dopo il 23/02/2023
+
+contratti slimani con ral <= 36000 si
+contratti slimani con ral < 40000 si
+contratti slimani con ral = 36000 si
+contratti slimani con ral >= 35000 dopo il 2023 si
+contratti slimani con ral tra 35000 e 50000 dopo il 2023 si
+contratti slimani con ral > 35000 prima del 2024 si
+contratti slimani con ral > 35000 dopo il 07/03/2023 si
+
+
+
+contratti slimani con ral > 35000 si
+contratti slimani con ral > 35000 dopo il 2023 si
+contratti slimani con ral > 35000 prima del 2023 si
+contratti slimani con ral tra 35000 e 50000 si
+contratti slimani con ral tra 35000 e 50000 dopo il 2023 si
+contratti slimani con ral > 35000 dopo il 23/08/2025 si
+contratti slimani con ral > 35000 prima del 23/08/2025 si
